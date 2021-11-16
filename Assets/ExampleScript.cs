@@ -38,7 +38,7 @@ public class ExampleScript : MonoBehaviour
     // You can also have more complex types as inspector fields, such as prefabs and game objects (both fall under "GameObject")
     public GameObject exampleGameObjectField;
 
-    // Finally, you can even have your own scripts as fields, either to restrict what you can put in such a field or for convenience (no need to call GetComponent<MyComponent>() then)
+    // Finally, you can even have your own scripts as fields, or ANY Unity component really (e.g. Colliders, Renderers), either to restrict what you can put in such a field or for convenience (no need to call GetComponent<MyComponent>() then)
     public ExampleScript exampleScriptField;
 
     // There are many more fields you can create, with corresponding widgets in the inspector (e.g. Color)
