@@ -111,12 +111,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exampleStringField: HELLO
-  exampleNumberField: 1
+  exampleNumberField: 5
+  movementSpeed: 15
   exampleEnumField: 0
   exampleArrayField:
-  - this
-  - is
-  - a
-  - test
+  - {r: 0, g: 1, b: 0.9233861, a: 0.00000021254597}
+  - {r: 1, g: 0.97662354, b: 0, a: 1.6984952e+22}
+  - {r: 1, g: 0, b: 0, a: 5.91e-43}
+  - {r: 0.010703921, g: 1, b: 0, a: 9.1835e-41}
   exampleGameObjectField: {fileID: 5925768487115987248}
   exampleScriptField: {fileID: 284635254189740119}
