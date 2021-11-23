@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("ExampleScene");
     }
+
+    public void LoginPage()
+    {
+        SceneManager.LoadScene("Authenticate");
+    }
 }
