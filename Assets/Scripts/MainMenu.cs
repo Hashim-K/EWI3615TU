@@ -16,6 +16,13 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         playername.text = playernamestr;
+        if (string.IsNullOrEmpty(playernamestr))
+            SceneManager.LoadScene("Authenticate");
+
+        //Debug.Log("playernamestr is null or empty");
+
+        else
+            Debug.Log("playernamestr is not empty");
     }
 
     public void ExitButton()
@@ -26,7 +33,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Prototype_v1.0");
+        SceneManager.LoadScene("GameMenu");
     }
 
     public void LoginPage()
