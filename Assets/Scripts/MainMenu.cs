@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        playername.text = playernamestr;
         if (string.IsNullOrEmpty(playernamestr))
             SceneManager.LoadScene("Authenticate");
 
@@ -23,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
         else
             Debug.Log("playernamestr is not empty");
+            playername.text = playernamestr;
     }
 
     public void ExitButton()
@@ -38,6 +38,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoginPage()
     {
+        Authenticate.playernamestr = playernamestr;
         SceneManager.LoadScene("Authenticate");
     }
 }

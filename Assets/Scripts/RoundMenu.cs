@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RoundMenu : MonoBehaviour
 {
+    public static string playernamestr;
+
     public void ExitToMenu()
     {
         SceneManager.LoadScene("MainMenu");

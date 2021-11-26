@@ -10,9 +10,23 @@ public class Authenticate : MonoBehaviour
     //private string input;
     public InputField playername;
 
+    public static string playernamestr;
+
+    public Text playernametxt;
+
+    void Start()
+    {
+        if (string.IsNullOrEmpty(playernamestr))
+            playernametxt.text = "Enter username";
+        else
+            playernametxt.text = playernamestr;
+    }
+
     public void ExitToMenu()
     {
         MainMenu.playernamestr = playername.text;
+        GameMenu.playernamestr = playername.text;
+        RoundMenu.playernamestr = playername.text;
         SceneManager.LoadScene("MainMenu");
         Debug.Log("player name is:" + playername.text);
     }
