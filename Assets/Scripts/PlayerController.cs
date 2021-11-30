@@ -5,13 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0f;
+    public float maxSpeed = 4f;
     public float jumpForce = 8f;
-    public float horizontalDir;
-    public float verticalDir;
-    public bool jump;
-    public bool isGrounded;
-    public bool hasDoubleJump;
+    private float horizontalDir;
+    private float lookDir = 1f;
+    private float airDir;
+    private float verticalDir;
+    private bool jump;
+    private bool isGrounded;
+    private int jumpRemaining;
+    public int maxJumps = 3;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -21,20 +24,38 @@ public class PlayerController : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        rb.AddForce(Vector3.forward * horizontalDir * speed, ForceMode.Impulse);
+        if (lookDir == -1 * horizontalDir)
+        {
+            rb.transform.Rotate(Vector3.up * 180f);
+            lookDir = horizontalDir;
+        }
+        if (isGrounded)
+        {
+            rb.transform.Translate(Vector3.forward * maxSpeed * Mathf.Abs(horizontalDir) * Time.deltaTime);
+            airDir = horizontalDir;
+        }
+        else
+        {
+            if (horizontalDir != 0)
+            {
+                airDir = horizontalDir;
+            }
+            rb.transform.Translate(Vector3.forward * maxSpeed * 0.4f * Mathf.Abs(airDir + 2*horizontalDir) * Time.deltaTime);
+        }
+        //Debug.Log(rb.velocity.z);
         if (jump && isGrounded) 
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            hasDoubleJump = true;
+            jumpRemaining = maxJumps-1;
             jump = false;
-            Debug.Log("First Jump");
+            Debug.Log("Jump" + (maxJumps-jumpRemaining));
         }
-        else if(jump && hasDoubleJump)
+        else if(jump && jumpRemaining>0)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            hasDoubleJump= false;
+            jumpRemaining--;
             jump = false;
-            Debug.Log("Second Jump");
+            Debug.Log("Jump" + (maxJumps-jumpRemaining));
         }
         
     }
@@ -44,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.name.Contains("Platform"))
         {
             isGrounded = true;
-            hasDoubleJump = true;
+            jumpRemaining = maxJumps;
         }
     }
 
@@ -83,7 +104,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void North()
+    public void North(InputAction.CallbackContext context)
     {
         Debug.Log("North!");
     }
@@ -96,7 +117,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void South()
+    public void South(InputAction.CallbackContext context)
     {
         Debug.Log("South!");
     }
@@ -105,7 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("West!");
+            //Debug.Log("West!");
             jump = true;
         }
         else
@@ -114,41 +135,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void RightStick()
+    public void RightStick(InputAction.CallbackContext context)
     {
         Debug.Log("RightStick!");
     }
 
-    public void R1()
+    public void R1(InputAction.CallbackContext context)
     {
         Debug.Log("R1!");
     }
-    public void R2()
+    public void R2(InputAction.CallbackContext context)
     {
         Debug.Log("R2!");
     }
 
-    public void R3()
+    public void R3(InputAction.CallbackContext context)
     {
         Debug.Log("R3!");
     }
-    public void L1()
+    public void L1(InputAction.CallbackContext context)
     {
         Debug.Log("L1!");
     }
-    public void L2()
+    public void L2(InputAction.CallbackContext context)
     {
         Debug.Log("L2!");
     }
-    public void L3()
+    public void L3(InputAction.CallbackContext context)
     {
         Debug.Log("L3!");
     }
-    public void Plus()
+    public void Plus(InputAction.CallbackContext context)
     {
         Debug.Log("Plus!");
     }
-    public void Minus()
+    public void Minus(InputAction.CallbackContext context)
     {
         Debug.Log("Minus!");
     }

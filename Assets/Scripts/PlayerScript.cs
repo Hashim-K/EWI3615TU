@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         health += damage * DamageMultiplier;
         Debug.Log("Damage Applied");
     }
+}
 
     public void knockback(Vector3 attackdirection)
     {
