@@ -8,53 +8,34 @@ public class PlayerScript : MonoBehaviour
     #region Properties and variabes
 
 
-    [SerializeField] private float StartingHealth = 0;
+    [SerializeField] public float StartingHealth = 0;
 
     public float DamageMultiplier = 1;  //could vary by class or with powerups
 
+    public float knockbackMultiplier = 1; //Could vary by class 
+
     public Text HealthText;
 
-    private float health;
+    public float health;
 
     #endregion
 
 
-    
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        ResetHealth();
+        health = StartingHealth;
 
         //health = StartingHealth;
         HealthText.text = StartingHealth.ToString();
         //HealthText = GetComponent<Text>();
     }
 
-    public void ResetHealth()
-    {
-        health = StartingHealth;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // We use tags to identify collisino with player
-        if (other.gameObject.CompareTag("player"))
-        {
-            // 'Force' here is a variable determined by other players attack, possibly output of a function from melee system
-            // We need a direction and a magnitude
-            // How do we slow down the player?, maybe some kind of drag
-
-            //health += DamageMultiplier * force;
 
 
-            // Here we need to add force to act upon player
-
-
-        }
-    }
-    
 
     // Update is called once per frame
     void Update()
@@ -63,11 +44,18 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    private void TakeDamage(float damageAmount)
-    {
-        // Add damage to health based on damage multiplier and external attack
-        health += damageAmount * DamageMultiplier;
 
-        
+    public void receiveDamage(float damage)
+    {
+
+        health += damage * DamageMultiplier;
+        Debug.Log("Damage Applied");
     }
 
+    public void knockback(Vector3 attackdirection)
+    {
+
+    }
+
+
+}
