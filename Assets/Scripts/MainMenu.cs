@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Prototype_v1.0");
+        SceneManager.LoadScene (sceneName:"Prototype_v1.0");
     }
 
     public void LoginPage()
