@@ -77,13 +77,13 @@ public class GameMenu : MonoBehaviour
     {
         if (valO == 0)
         {
-            outputOpponent.text = "oppo1!";
-            opponentstr = "oppo1";
+            outputOpponent.text = "wasd!";
+            opponentstr = "wasd";
         }
         if (valO == 1)
         {
-            outputOpponent.text = "oppo2!";
-            opponentstr = "oppo2";
+            outputOpponent.text = "controller!";
+            opponentstr = "controller";
         }
         if (valO == 2)
         {
