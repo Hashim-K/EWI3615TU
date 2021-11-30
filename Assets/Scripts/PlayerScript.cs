@@ -19,9 +19,6 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
 
-    
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +51,7 @@ public class PlayerScript : MonoBehaviour
 
         }
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -68,6 +65,6 @@ public class PlayerScript : MonoBehaviour
         // Add damage to health based on damage multiplier and external attack
         health += damageAmount * DamageMultiplier;
 
-        
-    }
 
+    }
+}
