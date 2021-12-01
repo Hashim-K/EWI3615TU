@@ -5,31 +5,173 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0;
-
+    public float maxSpeed = 4f;
+    public float jumpForce = 8f;
+    private float horizontalDir;
+    private float lookDir = 1f;
+    private float airDir;
+    private float verticalDir;
+    private bool jump;
+    private bool isGrounded;
+    private int jumpRemaining;
+    public int maxJumps = 3;
     private Rigidbody rb;
-
-    private float movementY;
-    private float movementZ;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    private void OnMove(InputValue movementValue)
+    public void FixedUpdate()
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        movementY = movementVector.x;
-        movementZ = movementVector.y;
+        if (lookDir == -1 * horizontalDir)
+        {
+            rb.transform.Rotate(Vector3.up * 180f);
+            lookDir = horizontalDir;
+        }
+        if (isGrounded)
+        {
+            rb.transform.Translate(Vector3.forward * maxSpeed * Mathf.Abs(horizontalDir) * Time.deltaTime);
+            airDir = horizontalDir;
+        }
+        else
+        {
+            if (horizontalDir != 0)
+            {
+                airDir = horizontalDir;
+            }
+            rb.transform.Translate(Vector3.forward * maxSpeed * 0.4f * Mathf.Abs(airDir + 2*horizontalDir) * Time.deltaTime);
+        }
+        //Debug.Log(rb.velocity.z);
+        if (jump && isGrounded) 
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpRemaining = maxJumps-1;
+            jump = false;
+            Debug.Log("Jump" + (maxJumps-jumpRemaining));
+        }
+        else if(jump && jumpRemaining>0)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpRemaining--;
+            jump = false;
+            Debug.Log("Jump" + (maxJumps-jumpRemaining));
+        }
+        
     }
 
-    private void FixedUpdate()
+    public void OnCollisionEnter(Collision collision)
     {
-        Vector3 movement = new Vector3(0.0f, movementZ, movementY);
-
-        rb.AddForce(movement * speed);
+        if (collision.gameObject.name.Contains("Platform"))
+        {
+            isGrounded = true;
+            jumpRemaining = maxJumps;
+        }
     }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name.Contains("Platform"))
+        {
+            isGrounded = false;
+        }
+    }
+
+    public void Horizontal(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Horizontal!");
+            horizontalDir = (float)context.ReadValueAsObject();
+        }
+        else
+        {
+            horizontalDir = 0f;
+        }
+
+    }
+
+    public void Vertical(InputAction.CallbackContext context)
+    {
+       if (context.performed)
+        {
+            Debug.Log("Vertical!");
+            verticalDir = (float)context.ReadValueAsObject();
+        }
+        else
+        {
+            verticalDir = 0f;
+        }
+    }
+
+    public void North(InputAction.CallbackContext context)
+    {
+        Debug.Log("North!");
+    }
+
+    public void East(InputAction.CallbackContext context)
+    { 
+        if (context.performed)
+        {
+            Debug.Log("East!");
+        }
+    }
+
+    public void South(InputAction.CallbackContext context)
+    {
+        Debug.Log("South!");
+    }
+
+    public void West(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            //Debug.Log("West!");
+            jump = true;
+        }
+        else
+        {
+            jump = false;
+        }
+    }
+
+    public void RightStick(InputAction.CallbackContext context)
+    {
+        Debug.Log("RightStick!");
+    }
+
+    public void R1(InputAction.CallbackContext context)
+    {
+        Debug.Log("R1!");
+    }
+    public void R2(InputAction.CallbackContext context)
+    {
+        Debug.Log("R2!");
+    }
+
+    public void R3(InputAction.CallbackContext context)
+    {
+        Debug.Log("R3!");
+    }
+    public void L1(InputAction.CallbackContext context)
+    {
+        Debug.Log("L1!");
+    }
+    public void L2(InputAction.CallbackContext context)
+    {
+        Debug.Log("L2!");
+    }
+    public void L3(InputAction.CallbackContext context)
+    {
+        Debug.Log("L3!");
+    }
+    public void Plus(InputAction.CallbackContext context)
+    {
+        Debug.Log("Plus!");
+    }
+    public void Minus(InputAction.CallbackContext context)
+    {
+        Debug.Log("Minus!");
+    }
+
 }
