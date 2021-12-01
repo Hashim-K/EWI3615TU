@@ -2,59 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackScript : MonoBehaviour { 
-
-public float damage = 15.0F;
-public float attackDuration = 0.3F;
-public bool attacking = false;
-
-[HideInInspector]
-
-// Notes:
-// - I need to make so you cant attack when you have been hit --> for some x duration 
-
-void Start()
+public class AttackScript : MonoBehaviour
 {
 
-}
+    public float damage = 15.0F;
+    public float attackDuration = 0.3F;
+    public bool attacking = false;
 
-void Update()
-{
+    [HideInInspector]
 
-// If x attack key is being pressed, attacking state initialized to True
-    if (Input.GetKeyDown("h"))
+    // Notes:
+    // - I need to make so you cant attack when you have been hit --> for some x duration 
+
+    void Start()
     {
-        //attackdirection = some attack vector
-        //attackduration = depends on attack
-        attacking = true;
+
     }
-}
 
-// If player collides with trigger object then receivedamage method is called on the trigger
-void OnTriggerEnter(Collider col)
-{
-// We need to setup tag
-    if (col.tag == "Player")
+    void Update()
     {
-        if (attacking)
+
+        // If x attack key is being pressed, attacking state initialized to True
+        if (Input.GetKeyDown("x"))
         {
-            col.SendMessage("receiveDamage", damage, SendMessageOptions.DontRequireReceiver);
-            col.SendMessage("knockback", attackdirection, SendMessageOptions.DontRequireReceiver);
+            //attackdirection = some attack vector
+            //attackduration = depends on attack
+            attacking = true;
         }
     }
-}
 
-//Initializes attack state and links to disable damage function in order to end the attack
-void EnableDamage()
-{
-    if (attacking == true) return;
-    attacking = true;
-    StartCoroutine("DisableDamage");
-}
+    // If player collides with trigger object then receivedamage method is called on the trigger
+    void OnTriggerEnter(Collider col)
+    {
+        // We need to setup tag
+        if (col.tag == "Player")
+        {
+            if (attacking)
+            {
+                col.SendMessage("receiveDamage", damage, SendMessageOptions.DontRequireReceiver);
+                //col.SendMessage("knockback", attackdirection, SendMessageOptions.DontRequireReceiver);
+            }
+        }
+    }
 
-// Waits for length of attack duration and then sets attack to False (so attack ends)
-IEnumerator DisableDamage()
-{
-    yield return new WaitForSeconds(attackDuration);
-    attacking = false;
+    //Initializes attack state and links to disable damage function in order to end the attack
+    void EnableDamage()
+    {
+        if (attacking == true) return;
+        attacking = true;
+        StartCoroutine("DisableDamage");
+    }
+
+    // Waits for length of attack duration and then sets attack to False (so attack ends)
+    IEnumerator DisableDamage()
+    {
+        yield return new WaitForSeconds(attackDuration);
+        attacking = false;
+    }
 }
