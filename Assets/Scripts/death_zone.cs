@@ -34,7 +34,7 @@ public class death_zone : MonoBehaviour
     IEnumerator waitCouple()
      {
      yield return new WaitForSeconds(delayTime);
-     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+     SceneManager.LoadScene("MainMenu");
     }
     
 }
