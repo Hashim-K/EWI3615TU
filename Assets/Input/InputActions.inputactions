@@ -330,6 +330,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "WS",
+                    "id": "d2c6823b-35d5-4c17-a76c-9e3ccf1411f2",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2da97713-515b-44d6-a559-83ebdf44fcd1",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "c9859fd4-1ad2-438d-b822-fbc9fbd8542d",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "b7e95117-f558-4c2f-8075-70f295b310b2",
                     "path": "<Gamepad>/buttonNorth",
@@ -347,6 +380,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "West",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccf770f0-0638-4a79-9b5f-e3f76bf14d41",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "West",
                     "isComposite": false,
                     "isPartOfComposite": false
