@@ -32,9 +32,12 @@ public class death_zone : MonoBehaviour
     }
 
     IEnumerator waitCouple()
-     {
-     yield return new WaitForSeconds(delayTime);
-     SceneManager.LoadScene("GameMenu");
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
+        
+        SceneManager.LoadScene("RoundMenu");
     }
     
 }
