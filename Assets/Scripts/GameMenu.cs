@@ -8,6 +8,7 @@ using TMPro;
 public class GameMenu : MonoBehaviour
 {
     public static string playernamestr;
+    public static string playernamestr2;
 
     public Text outputCreature;
     public Text outputStage;
@@ -18,10 +19,12 @@ public class GameMenu : MonoBehaviour
     public static string creaturestr;
 
     public Text playername;
+    public Text playername2; 
 
     void Start()
     {
         playername.text = playernamestr;
+        playername2.text = playernamestr2;
     }
 
     public void ExitToMainMenu()

@@ -7,32 +7,44 @@ using UnityEngine.UI;
 
 public class RoundMenu : MonoBehaviour
 {
+    // define some variables
     public static string playernamestr;
+    public static string playernamestr2;
+
     public static string stagestr;
-    public static bool wonlastgamebool;
+    public static bool p1wonlastgamebool;
+
     public Text earnedpowerup;
-    public Text playerscore;
-    public static int playerscoreint;
+    public Text earnedpowerup2;
     public static string wonpowerup;
 
+    public Text playerscore;
+    public Text playerscore2;
+    public static int playerscoreint = 0;
+    public static int playerscoreint2 = 0;
+    
     void Start()
     {
 
-        // Pick a random powerup
+        // Pick a random powerup for the losing player
         Pupicker();
 
-        // This boolean is set in the game round before.  
-        wonlastgamebool = false;
+        // This boolean is set in the game round before. If p1 won, true else false.  
         
-        playerscoreint = 0;
-        if (wonlastgamebool == true)
+        
+        if (p1wonlastgamebool == true) // so player 1 won the round
         {
-            earnedpowerup.text = "you won... no powerup";
-            playerscore.text = (playerscoreint + 1).ToString();
+            earnedpowerup.text = "1 point!";
+            earnedpowerup2.text = wonpowerup;
+            playerscore.text = playerscoreint.ToString();
+            playerscore2.text = playerscoreint2.ToString();
+            
         }
-        if (wonlastgamebool == false)
+        else if (p1wonlastgamebool == false) // so player 2 won the round
         {
+            earnedpowerup2.text = "1 point!";
             earnedpowerup.text = wonpowerup;
+            playerscore2.text = playerscoreint2.ToString();
             playerscore.text = playerscoreint.ToString();
         }
     }
@@ -56,7 +68,9 @@ public class RoundMenu : MonoBehaviour
     // Function for the startgame button
     public void StartGame()
     {
+        // To do: set powerup name in stagestr!
         SceneManager.LoadScene(stagestr);
+
     }
 
     // Function to handle the input data of the dropdown of stages. 

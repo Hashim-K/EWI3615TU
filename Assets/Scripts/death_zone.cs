@@ -17,6 +17,21 @@ public class death_zone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
+        if (other.gameObject.CompareTag("Player1"))
+        {
+            RoundMenu.p1wonlastgamebool = false;
+            RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2 + 1;
+            //RoundMenu.playerscoreint = RoundMenu.playerscoreint;
+            Debug.Log("Player1 died");
+        }
+        else if (other.gameObject.CompareTag("Player2"))
+        {
+            RoundMenu.p1wonlastgamebool = true;
+            RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
+            //RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2;
+            Debug.Log("Player2 died");
+        }
         Destroy(other.gameObject);
         Death.SetActive(true);
         reset();
@@ -35,7 +50,7 @@ public class death_zone : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime);
 
-        RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
+        //RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
         
         SceneManager.LoadScene("RoundMenu");
     }
