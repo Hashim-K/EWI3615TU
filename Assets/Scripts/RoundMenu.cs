@@ -41,9 +41,10 @@ public class RoundMenu : MonoBehaviour
     static void Pupicker()
     {
         var random = new System.Random();
-        var list = new List<string> { "BigMass", "Invisibility", "GhostFlyer", "FastSpeed", "JumpBoost", "ExtraLife", "BigSize" };
+        var list = new List<string> {"JumpBoost", "FastSpeed"}; //{ "BigMass", "Invisibility", "GhostFlyer", "FastSpeed", "JumpBoost", "ExtraLife", "BigSize", "StrongGravity", "JetPack" };
         int index = random.Next(list.Count);
         wonpowerup = list[index];
+        PlayerController.powerup = wonpowerup;
     }
 
     // Function for the exit button

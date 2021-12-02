@@ -17,10 +17,25 @@ public class PlayerController : MonoBehaviour
     public int maxJumps = 3;
     private Rigidbody rb;
 
+    public static string powerup;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        // Change values for powerup values
+        if (powerup == "JumpBoost")
+        {
+            jumpForce = 10f;
+            maxJumps = 4;
+        }
+
+        if (powerup == "FastSpeed")
+        {
+            maxSpeed = 6f;
+        }
+
     }
     public void FixedUpdate()
     {
