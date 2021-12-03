@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class death_zone : MonoBehaviour
@@ -17,13 +18,14 @@ public class death_zone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+        Death.SetActive(true);
         if (other.gameObject.CompareTag("Player1"))
         {
             RoundMenu.p1wonlastgamebool = false;
             RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2 + 1;
             //RoundMenu.playerscoreint = RoundMenu.playerscoreint;
             Debug.Log("Player1 died");
+            //Death.GetComponent<UnityEngine.UI.Text>().text = "Player1 died, \n player2 won";
         }
         else if (other.gameObject.CompareTag("Player2"))
         {
@@ -31,9 +33,10 @@ public class death_zone : MonoBehaviour
             RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
             //RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2;
             Debug.Log("Player2 died");
+            //Death.GetComponent<UnityEngine.UI.Text>().text = "Player2 died, \n player1 won";
         }
         Destroy(other.gameObject);
-        Death.SetActive(true);
+        
         reset();
 
 

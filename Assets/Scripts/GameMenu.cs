@@ -61,18 +61,18 @@ public class GameMenu : MonoBehaviour
     {
         if (valS == 0)
         {
-            outputStage.text = "Stage1!";
+            outputStage.text = "mainmenu stage";
             stagestr = "MainMenu";
         }
         if (valS == 1)
         {
-            outputStage.text = "prototype stage!";
+            outputStage.text = "Stage 1";
             stagestr = "Prototype_v1.0";
         }
         if (valS == 2)
         {
-            outputStage.text = "Stage3!";
-            stagestr = "MainMenu";
+            outputStage.text = "Stage 2";
+            stagestr = "Stage_02";
         }
     }
 

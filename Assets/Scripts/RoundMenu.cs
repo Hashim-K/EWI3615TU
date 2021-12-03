@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class RoundMenu : MonoBehaviour
 {
     // define some variables
+    public Text playername1;
+    public Text playername2;
     public static string playernamestr;
     public static string playernamestr2;
 
@@ -29,8 +31,8 @@ public class RoundMenu : MonoBehaviour
         // Pick a random powerup for the losing player
         Pupicker();
 
-        // This boolean is set in the game round before. If p1 won, true else false.  
-        
+        playername1.text = playernamestr + " earned:";
+        playername2.text = playernamestr2 + " earned:";
         
         if (p1wonlastgamebool == true) // so player 1 won the round
         {
@@ -89,7 +91,7 @@ public class RoundMenu : MonoBehaviour
         if (valS == 2)
         {
             //outputStage.text = "Stage3!";
-            stagestr = "MainMenu";
+            stagestr = "Stage_02";
         }
     }
 }
