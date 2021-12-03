@@ -37,6 +37,8 @@ public class Authenticate : MonoBehaviour
         GameMenu.playernamestr2 = playername2.text;
         RoundMenu.playernamestr = playername.text;
         RoundMenu.playernamestr2 = playername2.text;
+        death_zone.player1 = playername.text;
+        death_zone.player2 = playername2.text;
         SceneManager.LoadScene("MainMenu");
         Debug.Log("player name is:" + playername.text);
         Debug.Log("player2 name is:" + playername2.text);

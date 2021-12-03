@@ -274,7 +274,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: powerup1
+  m_Text: 1 point!
 --- !u!222 &20877441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' p1name earned:'
+  m_Text: 'Player 1 earned:'
 --- !u!222 &100287068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1126,7 +1126,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'P2 name earned:'
+  m_Text: 'Player 2 earned:'
 --- !u!222 &783837707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2626,7 +2626,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: powerup1
+  m_Text: JumpBoost
 --- !u!222 &1801937475
 CanvasRenderer:
   m_ObjectHideFlags: 0
