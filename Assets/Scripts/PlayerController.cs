@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // Change values for powerup values
+
         if (powerup == "JumpBoost")
         {
             jumpForce = 10f;

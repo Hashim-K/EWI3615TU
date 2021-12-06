@@ -49,6 +49,18 @@ public class RoundMenu : MonoBehaviour
             playerscore2.text = playerscoreint2.ToString();
             playerscore.text = playerscoreint.ToString();
         }
+        
+        // End of a game if someone gets more than 5 points
+        if (playerscoreint == 5)
+        {
+            //to add: a display of who has won with how many points
+            SceneManager.LoadScene("GameMenu");
+        }
+        else if (playerscoreint2 == 5)
+        {
+            //to add: a display of who has won with how many points
+            SceneManager.LoadScene("GameMenu");
+        }
     }
 
     // Picks a random item from the list and sets wonpowerup to the chosen item

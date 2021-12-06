@@ -28,7 +28,7 @@ public class death_zone : MonoBehaviour
             RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2 + 1;
             //RoundMenu.playerscoreint = RoundMenu.playerscoreint;
             Debug.Log("Player1 died");
-            deathmsg.text = player1 + " died\n" + player2 + "won!";
+            deathmsg.text = player1 + " died\n" + player2 + " won!";
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player1 died, \n player2 won";
         }
         else if (other.gameObject.CompareTag("Player2"))
@@ -41,12 +41,8 @@ public class death_zone : MonoBehaviour
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player2 died, \n player1 won";
         }
         Destroy(other.gameObject);
-        
+
         reset();
-
-
-
-        
     }
         
      public void reset()
