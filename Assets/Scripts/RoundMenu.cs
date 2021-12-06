@@ -40,6 +40,7 @@ public class RoundMenu : MonoBehaviour
             earnedpowerup2.text = wonpowerup;
             playerscore.text = playerscoreint.ToString();
             playerscore2.text = playerscoreint2.ToString();
+            PlayerController.playerwonputag = "Player2";
             
         }
         else if (p1wonlastgamebool == false) // so player 2 won the round
@@ -48,6 +49,7 @@ public class RoundMenu : MonoBehaviour
             earnedpowerup.text = wonpowerup;
             playerscore2.text = playerscoreint2.ToString();
             playerscore.text = playerscoreint.ToString();
+            PlayerController.playerwonputag = "Player1";
         }
         
         // End of a game if someone gets more than 5 points
