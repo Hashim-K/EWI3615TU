@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AttackScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AttackScript : MonoBehaviour
     public float attackDuration = 1F;
     public bool attacking = false;
     public float attackStrength = 1F;
+    private bool melee = false;
 
 
 
@@ -21,17 +23,16 @@ public class AttackScript : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         #region attacks
         // If x attack key is being pressed, attacking state initialized to True
         // We need to map attack variables to any attack
-        if (Input.GetKeyDown("x"))
+        if (melee)
         {
             // z is horizontal direction
             // y is vertical direction
-            //public Vector3 attackimpulse = new Vector3(5.0f, 3.0f, 5.0f);
-            GetComponent<Animation>().Play("ANIMATON_NAME");
+            //public Vector3 attackimpulse = new Vector3(5.0f, 3.0f, 5.0fda
             //Animation.animatePhysics //Necessary to be true for animation to be run alongside physics (so collisions)
             damage = 5;
             attackDuration = 1;
@@ -44,13 +45,14 @@ public class AttackScript : MonoBehaviour
     }
 
     // If player collides with trigger object then receive damage method is called on the trigger
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         // We need to setup tag
-        if (other.tag == "Player")
+        if (other.gameObject.tag.Contains("Player"))
         {
             if (attacking)
             {
+                Debug.Log("Trigger");
                 //Calculate collision vector
                 var attackDirection = transform.position - other.transform.position;
 
@@ -60,8 +62,8 @@ public class AttackScript : MonoBehaviour
                 attackDirection.x = 0;
 
                 //Send funcitons calls
-                other.SendMessage("ReceiveDamage", damage, SendMessageOptions.DontRequireReceiver);
-                other.SendMessage("Knockback", attackDirection, SendMessageOptions.DontRequireReceiver);
+                other.gameObject.SendMessage("ReceiveDamage", damage, SendMessageOptions.DontRequireReceiver);
+                other.gameObject.SendMessage("Knockback", attackDirection, SendMessageOptions.DontRequireReceiver);
             }
         }
     }
@@ -79,5 +81,18 @@ public class AttackScript : MonoBehaviour
     {
         yield return new WaitForSeconds(attackDuration);
         attacking = false;
+    }
+
+    public void actionMelee(InputAction.CallbackContext context)
+    {
+        Debug.Log("Attack!");
+        if (context.performed)
+        {
+            melee = true;
+        }
+        else
+        {
+            melee = false;
+        }
     }
 }
