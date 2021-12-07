@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class RoundMenu : MonoBehaviour
 {
     // define some variables
+    public Text winningplayer;
+    public Text winningpoints;
     public Text playername1;
     public Text playername2;
     public static string playernamestr;
@@ -24,10 +26,12 @@ public class RoundMenu : MonoBehaviour
     public Text playerscore2;
     public static int playerscoreint = 0;
     public static int playerscoreint2 = 0;
+
+    public GameObject WinMsg;
     
     void Start()
     {
-
+        WinMsg.SetActive(false);
         // Pick a random powerup for the losing player
         Pupicker();
 
@@ -40,6 +44,7 @@ public class RoundMenu : MonoBehaviour
             earnedpowerup2.text = wonpowerup;
             playerscore.text = playerscoreint.ToString();
             playerscore2.text = playerscoreint2.ToString();
+            PlayerController.playerwonputag = "Player2";
             
         }
         else if (p1wonlastgamebool == false) // so player 2 won the round
@@ -48,6 +53,23 @@ public class RoundMenu : MonoBehaviour
             earnedpowerup.text = wonpowerup;
             playerscore2.text = playerscoreint2.ToString();
             playerscore.text = playerscoreint.ToString();
+            PlayerController.playerwonputag = "Player1";
+        }
+        
+        // End of a game if someone gets more than 5 points
+        if (playerscoreint == 5)
+        {
+            winningpoints.text = "Your score: " + playerscoreint.ToString();
+            winningplayer.text = playernamestr;
+            WinMsg.SetActive(true);
+            reset();
+        }
+        else if (playerscoreint2 == 5)
+        {
+            winningpoints.text = "Your score: " + playerscoreint2.ToString();
+            winningplayer.text = playernamestr2;
+            WinMsg.SetActive(true);
+            reset();
         }
     }
 
@@ -93,5 +115,19 @@ public class RoundMenu : MonoBehaviour
             //outputStage.text = "Stage3!";
             stagestr = "Stage_02";
         }
+    }
+
+    public void reset()
+    {
+        playerscoreint = 0;
+        playerscoreint2 = 0;
+        wonpowerup = "";
+        StartCoroutine(waitCouple());
+    }
+
+    IEnumerator waitCouple()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("GameMenu");
     }
 }
