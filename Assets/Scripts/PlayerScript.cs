@@ -9,16 +9,13 @@ public class PlayerScript : MonoBehaviour
     #region Properties and variabes;
 
 
-    [SerializeField] public float StartingHealth = 0;
+    [SerializeField] public float StartingHealth = 0f;
 
-    public float DamageMultiplier = 1;  //could vary by class or with powerups
-
-    public float knockbackMultiplier = 1; //Could vary by class 
+    public float DamageMultiplier = 1f;  //could vary by class or with powerups
+    public float knockbackMultiplier = 1f; //Could vary by class 
     private float x;
     public Text HealthText;
-
     public float health;
-
     private Rigidbody rb;
 
     
@@ -35,9 +32,6 @@ public class PlayerScript : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         health = StartingHealth;
 
-        //health = StartingHealth;
-        HealthText.text = StartingHealth.ToString();
-        //HealthText = GetComponent<Text>();
     }
 
 
@@ -46,7 +40,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthText.text = health.ToString();
+        HealthText.text = health.ToString() + "%";
     }
 
 
