@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        maxSpeed = 4f;
+        jumpForce = 8f;
+        maxJumps = 3;
         // Change values for powerup values
 
         if ((powerup == "JumpBoost") && (rb.CompareTag(playerwonputag)))
