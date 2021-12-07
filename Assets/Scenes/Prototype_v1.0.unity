@@ -353,7 +353,7 @@ GameObject:
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &447015293
 BoxCollider:
@@ -493,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016166959349780192, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
       propertyPath: m_RootOrder
@@ -606,6 +606,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &620182612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3016166959349780192, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
+  m_PrefabInstance: {fileID: 3016166960553719011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &620182617 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
+  m_PrefabInstance: {fileID: 3016166960553719011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!191 &620182618
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620182612}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 620182617}
+  m_End: {fileID: 958178420}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
 --- !u!1 &627281421
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016166959349780192, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
       propertyPath: m_RootOrder
@@ -998,6 +1025,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc468545a0f5a9f45b31c12060992d63, type: 3}
+--- !u!4 &915738931 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
+  m_PrefabInstance: {fileID: 784422054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &921732566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,12 +1149,13 @@ GameObject:
   - component: {fileID: 958178418}
   - component: {fileID: 958178417}
   - component: {fileID: 958178421}
+  - component: {fileID: 958178422}
   m_Layer: 0
   m_Name: SolidElevator
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!65 &958178417
 BoxCollider:
@@ -1217,6 +1250,23 @@ MonoBehaviour:
   topLimit: 3
   bottomLimit: 0.5
   speed: 1
+--- !u!191 &958178422
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958178415}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 958178420}
+  m_End: {fileID: 447015298}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
 --- !u!1001 &1029681064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1527,6 +1577,45 @@ MonoBehaviour:
   topLimit: 2.5
   bottomLimit: 1
   speed: 2
+--- !u!4 &1102267454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
+  m_PrefabInstance: {fileID: 469150511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!191 &1102267455
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102267448}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 1102267454}
+  m_End: {fileID: 447015298}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
+--- !u!191 &1102267456
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102267448}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 1102267454}
+  m_End: {fileID: 915738931}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
 --- !u!1 &1550534325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,7 +2318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016166959349780192, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
       propertyPath: m_RootOrder
