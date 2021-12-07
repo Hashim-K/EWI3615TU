@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 627281428}
   m_Layer: 0
   m_Name: enemycube
-  m_TagString: Player2
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 32
