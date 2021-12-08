@@ -275,6 +275,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "b87d180d-1a94-42b2-9c7b-f3eab5ce32e5",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "East",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "D-Pad",
                     "id": "520aa8bd-481a-491c-ab70-e97190f3239a",
                     "path": "1DAxis",
@@ -413,6 +424,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "North",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "617979b9-4808-4a38-8f3b-da4e128e60ef",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "North",
                     "isComposite": false,
                     "isPartOfComposite": false
