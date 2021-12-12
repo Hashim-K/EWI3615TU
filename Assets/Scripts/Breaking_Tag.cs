@@ -6,7 +6,7 @@ public class Breaking_Tag : MonoBehaviour
 {
 
     public float delayTime = 2.0f;
-    private bool enabled = true;
+    //private bool enabled = true;
 
     IEnumerator OnTriggerEnter(Collider coll) {
     if(enabled == true){  

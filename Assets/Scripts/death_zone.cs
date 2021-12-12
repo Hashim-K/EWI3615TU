@@ -48,6 +48,14 @@ public class death_zone : MonoBehaviour
         
      public void reset()
     {
+        //Get methods from GameAnalytics object (And use them)
+        //GameAnalytics = GameObject.FindGameObjectWithTag("Analytics").GetComponent<GameAnalytics>();
+
+        //This could be a function which does more than only updating this variable
+        //GameAnalytics.AddRound();
+        //Debug.Log(temp.AddRound())
+
+        GameAnalytics.numberRounds += 1;
         StartCoroutine(waitCouple());
     }
 

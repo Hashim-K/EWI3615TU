@@ -15,7 +15,11 @@ public class DataClass : MonoBehaviour
     public int p1jumps;
     public int p2jumps;
 
-    public float matchtime;
     public int number_matches;
+    public static int numberRounds;
+
+    public float roundTime;
     public float averageRoundTime;
+
+   // public static int numberRounds;
 }

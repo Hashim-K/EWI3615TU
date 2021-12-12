@@ -6,6 +6,8 @@ public class GameAnalytics : MonoBehaviour
 {
     public DataClass dataClass;
     string saved_data;
+    public static int numberRounds;
+  
 
     void Start()
     {
@@ -16,8 +18,15 @@ public class GameAnalytics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string saved_data = JsonUtility.ToJson(dataClass, true);
-        Debug.Log(saved_data);
+
+        //string saved_data = JsonUtility.ToJson(dataClass, true);
+        //Debug.Log(saved_data);
+    }
+
+    public void AddRound()
+    {
+        numberRounds += 1;
+        Debug.Log(numberRounds);
     }
 
 }
