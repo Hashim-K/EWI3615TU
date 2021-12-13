@@ -22,14 +22,15 @@ public class Combat : MonoBehaviour
 
     public Collider[] attackHitboxes;
     Animator controllerANIM;
-    private Rigidbody rb;
+    //private Rigidbody rb;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateHealth();
         controllerANIM = characterOBJ.GetComponent<Animator>();
-        rb = gameObject.GetComponent<Rigidbody>();
+        //rb = gameObject.GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -58,7 +59,8 @@ public class Combat : MonoBehaviour
     void TakeDamage(int attackDamage)
     {
         damageTaken += attackDamage;
-        rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
+        Debug.Log(damageTaken);
+        rb.AddForce(new Vector3(0, 0.5f, 2) * 100 * knockbackScalar, ForceMode.Impulse);
         UpdateHealth();
     }
 

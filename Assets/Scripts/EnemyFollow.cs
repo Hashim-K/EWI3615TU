@@ -52,6 +52,8 @@ public class EnemyFollow : MonoBehaviour
             inRange = true;
             Debug.Log("in range = true");
             isPunching = true;
+            Debug.Log("Is Ai punching");
+            Debug.Log(isPunching);
             Debug.Log("AI punch!");
             StartCoroutine("Cooldown");
 
@@ -78,6 +80,7 @@ public class EnemyFollow : MonoBehaviour
     {
         if (isPunching)
         {
+            Debug.Log("Punch method is active");
             isBlocking = false;
             isKicking = false;
             isPunching = false;
@@ -151,6 +154,7 @@ public class EnemyFollow : MonoBehaviour
 
     IEnumerator Cooldown()
     {
+        Debug.Log("Cooldown is in place");
         yield return new WaitForSeconds(2);
     }
 }
