@@ -72,7 +72,11 @@ public class EnemyFollow : MonoBehaviour
     void TakeDamage(int attackDamage)
     {
         damageTaken += attackDamage;
+        GetComponent<NavMeshAgent>().enabled = false;
+        Debug.Log("navmeshagent is disabled");
         rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
+        GetComponent<NavMeshAgent>().enabled = true;
+        Debug.Log("navmeshagent is enabled");
         UpdateHealth();
     }
 
