@@ -38,6 +38,8 @@ public class PauseGame : MonoBehaviour
 
     public void QuitGame()
     {
+        paused = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene("RoundMenu");
     }
 }
