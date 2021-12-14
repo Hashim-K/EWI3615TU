@@ -24,6 +24,9 @@ public class Combat : MonoBehaviour
     Animator controllerANIM;
     private Rigidbody rb;
 
+    public float nextAttack = 0f;
+    public float attackRate = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,24 +37,28 @@ public class Combat : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isPunching)
-        {
-            isBlocking = false;
-            isKicking = false;
-            isPunching = false;
-            controllerANIM.SetTrigger("Punch");
-            controllerANIM.SetBool("Block", isBlocking);
-            launchAttack(attackHitboxes[0], punchDamage);
-
-        }
-        else if (isKicking)
-        {
-            isBlocking = false;
-            isKicking = false;
-            isPunching = false;
-            controllerANIM.SetTrigger("Kick");
-            controllerANIM.SetBool("Block", isBlocking);
-            launchAttack(attackHitboxes[1], kickDamage);
+        if (Time.time >= nextAttack)
+        { 
+            if (isPunching)
+            {
+                isBlocking = false;
+                isKicking = false;
+                isPunching = false;
+                controllerANIM.SetTrigger("Punch");
+                controllerANIM.SetBool("Block", isBlocking);
+                launchAttack(attackHitboxes[0], punchDamage);
+                nextAttack = Time.time + 1f/attackRate;
+            }
+            else if (isKicking)
+            {
+                isBlocking = false;
+                isKicking = false;
+                isPunching = false;
+                controllerANIM.SetTrigger("Kick");
+                controllerANIM.SetBool("Block", isBlocking);
+                launchAttack(attackHitboxes[1], kickDamage);
+                nextAttack = Time.time + 1f/attackRate;
+            }
         }
     }
 
