@@ -10,9 +10,9 @@ public class GameMenu : MonoBehaviour
     public static string playernamestr;
     public static string playernamestr2;
 
-    public Text outputCreature;
-    public Text outputStage;
-    public Text outputOpponent;
+    //public Text outputCreature;
+    //public Text outputStage;
+    //public Text outputOpponent;
 
     public static string stagestr;
     public static string opponentstr;
@@ -42,17 +42,17 @@ public class GameMenu : MonoBehaviour
     public void HandleInputDataCreature(int valC)
     {
         if (valC == 0){
-            outputCreature.text = "Creature1!";
+            //outputCreature.text = "Creature1!";
             creaturestr = "creature1";
         }
         if (valC == 1)
         {
-            outputCreature.text = "Creature2!";
+            //outputCreature.text = "Creature2!";
             creaturestr = "creature2";
         }
         if (valC == 2)
         {
-            outputCreature.text = "Creature3!";
+            //outputCreature.text = "Creature3!";
             creaturestr = "creature3";
         }
     }
@@ -61,17 +61,17 @@ public class GameMenu : MonoBehaviour
     {
         if (valS == 0)
         {
-            outputStage.text = "mainmenu stage";
+            //outputStage.text = "mainmenu stage";
             stagestr = "MainMenu";
         }
         if (valS == 1)
         {
-            outputStage.text = "Stage 1";
+            //outputStage.text = "Stage 1";
             stagestr = "Prototype_v1.0";
         }
         if (valS == 2)
         {
-            outputStage.text = "Stage 2";
+            //outputStage.text = "Stage 2";
             stagestr = "Stage_02";
         }
     }
@@ -80,17 +80,17 @@ public class GameMenu : MonoBehaviour
     {
         if (valO == 0)
         {
-            outputOpponent.text = "wasd!";
+            //outputOpponent.text = "wasd!";
             opponentstr = "wasd";
         }
         if (valO == 1)
         {
-            outputOpponent.text = "controller!";
+            //outputOpponent.text = "controller!";
             opponentstr = "controller";
         }
         if (valO == 2)
         {
-            outputOpponent.text = "oppo3!";
+            //outputOpponent.text = "oppo3!";
             opponentstr = "oppo3";
         }
     }

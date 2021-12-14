@@ -41,7 +41,11 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemy.SetDestination(player.transform.position);
+        if (enemy.enabled == true)
+        {
+            enemy.SetDestination(player.transform.position);
+        }
+        
 
     }
 
@@ -74,7 +78,9 @@ public class EnemyFollow : MonoBehaviour
         damageTaken += attackDamage;
         GetComponent<NavMeshAgent>().enabled = false;
         Debug.Log("navmeshagent is disabled");
-        rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
+        rb.AddForce(new Vector3(2, 0.5f, 0) * 5 * knockbackScalar, ForceMode.Impulse);
+
+        //rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
         GetComponent<NavMeshAgent>().enabled = true;
         Debug.Log("navmeshagent is enabled");
         UpdateHealth();
