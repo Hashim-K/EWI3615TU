@@ -80,22 +80,26 @@ public class EnemyFollow : MonoBehaviour
     {
         if (isPunching)
         {
+
             Debug.Log("Punch method is active");
             isBlocking = false;
             isKicking = false;
             isPunching = false;
             controllerANIM.SetTrigger("Punch");
             controllerANIM.SetBool("Block", isBlocking);
+
             launchAttack(attackHitboxes[0], punchDamage);
 
         }
         else if (isKicking)
         {
+
             isBlocking = false;
             isKicking = false;
             isPunching = false;
             controllerANIM.SetTrigger("Kick");
             controllerANIM.SetBool("Block", isBlocking);
+
             launchAttack(attackHitboxes[1], kickDamage);
         }
     }

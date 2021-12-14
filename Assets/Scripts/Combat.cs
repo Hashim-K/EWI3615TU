@@ -60,7 +60,7 @@ public class Combat : MonoBehaviour
     {
         damageTaken += attackDamage;
         Debug.Log(damageTaken);
-        rb.AddForce(new Vector3(0, 0.5f, 2) * 100 * knockbackScalar, ForceMode.Impulse);
+        rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
         UpdateHealth();
     }
 
