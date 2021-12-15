@@ -180,7 +180,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100006, guid: 9a7360c73cc871546bf5dda47450215b, type: 3}
       propertyPath: m_Name
-      value: PracticeCharacter
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 9a7360c73cc871546bf5dda47450215b, type: 3}
       propertyPath: m_TagString
@@ -260,7 +260,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 50
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!114 &1059698428
 MonoBehaviour:
