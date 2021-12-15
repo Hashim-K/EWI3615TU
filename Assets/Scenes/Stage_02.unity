@@ -2832,6 +2832,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5035599568753313345, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5035599568753313346, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
       propertyPath: m_Name
       value: Breaking

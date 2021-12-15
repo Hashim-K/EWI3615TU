@@ -13,9 +13,11 @@ public class Combat : MonoBehaviour
     private float knockbackScalar = 1;
     public float knockPercent;
 
-    private bool isBlocking = false;
-    private bool isPunching = false;
-    private bool isKicking = false;
+    public bool isBlocking = false;
+    public bool isPunching = false;
+    public bool isKicking = false;
+
+    public bool isHit = false;
 
     private int punchDamage = 15;
     private int kickDamage = 50;
@@ -54,10 +56,17 @@ public class Combat : MonoBehaviour
             controllerANIM.SetBool("Block", isBlocking);
             launchAttack(attackHitboxes[1], kickDamage);
         }
+
+
+        if (isHit)
+        {
+            isHit = false;
+        }
     }
 
     void TakeDamage(int attackDamage)
     {
+        isHit = true;
         damageTaken += attackDamage;
         Debug.Log(damageTaken);
         rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float lookDir = 1f;
     private float airDir;
     private float verticalDir;
-    private bool jump;
+    public bool jump;
     private bool isGrounded;
     private int jumpRemaining;
     public int maxJumps = 3;
