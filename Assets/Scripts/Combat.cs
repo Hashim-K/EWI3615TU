@@ -6,27 +6,37 @@ using UnityEngine.InputSystem;
 
 public class Combat : MonoBehaviour
 {
+    Animator controllerANIM;
     public GameObject characterOBJ;
     public Text HealthText;
+    public Collider[] attackHitboxes;
+    private Rigidbody rb;
+
+
     public float defense = 100;
     private float damageTaken = 0;
     private float knockbackScalar = 1;
     public float knockPercent;
 
-    private bool isBlocking = false;
-    private bool isPunching = false;
-    private bool isKicking = false;
+    private string combatState = "IDLE";
+    private bool isBlocking;
 
     private int punchDamage = 15;
     private int kickDamage = 50;
+    public float blockReduction = 0.5f;
 
-    public Collider[] attackHitboxes;
-    Animator controllerANIM;
-    private Rigidbody rb;
 
-    public float nextAttack = 0f;
-    public float attackRate = 2f;
+    private float attackCD = 0f;
+    private float stateCD = 0f;
+    private float blockCD = 0f;
 
+    public float blockDuration = 3f;
+    private float kickDuration = 1f;
+    private float punchDuration = 1f;
+
+    public float blockRecovery = 1.5f;
+    private float kickRecovery = 0.1f;
+    private float punchRecovery = 0.11f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,35 +47,38 @@ public class Combat : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.time >= nextAttack)
+        if (!isState("IDLE") && Time.time > stateCD)
+        {
+            if(isState("BLOCK"))
+            {
+                isBlocking = false;
+                controllerANIM.SetBool("Block", false);
+            }
+            combatState = "IDLE";
+        }
+        if (isBlocking && isState("IDLE") && Time.time >= blockCD)
+        {
+            combatState = "BLOCK";
+            //controllerANIM.SetBool("Block", true);
+        }
+
+        if(!isBlocking && isState("BLOCK"))
         { 
-            if (isPunching)
-            {
-                isBlocking = false;
-                isKicking = false;
-                isPunching = false;
-                controllerANIM.SetTrigger("Punch");
-                controllerANIM.SetBool("Block", isBlocking);
-                launchAttack(attackHitboxes[0], punchDamage);
-                nextAttack = Time.time + 1f/attackRate;
-            }
-            else if (isKicking)
-            {
-                isBlocking = false;
-                isKicking = false;
-                isPunching = false;
-                controllerANIM.SetTrigger("Kick");
-                controllerANIM.SetBool("Block", isBlocking);
-                launchAttack(attackHitboxes[1], kickDamage);
-                nextAttack = Time.time + 1f/attackRate;
-            }
+            stateCD = 0f;
+            controllerANIM.SetBool("Block", false);
+            combatState = "IDLE";
+            blockCD = Time.time + blockRecovery;
         }
     }
 
-    void TakeDamage(int attackDamage)
+    public void TakeDamage(float attackDamage, Vector3 attackDir)
     {
+        if (isState("BLOCK"))
+        {
+            attackDamage = attackDamage * blockReduction;
+        }
         damageTaken += attackDamage;
-        rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
+        rb.AddForce(attackDir * attackDamage * knockbackScalar, ForceMode.Impulse);
         UpdateHealth();
     }
 
@@ -73,39 +86,55 @@ public class Combat : MonoBehaviour
     void UpdateHealth()
     {
         knockPercent = damageTaken / defense;
-        knockbackScalar = 1 + knockPercent/4;
-        HealthText.text = (knockPercent*100).ToString("0") + "%";
-        Debug.Log((knockPercent*100).ToString("0") + "%");
+        knockbackScalar = 1 + knockPercent / 4;
+        HealthText.text = (knockPercent * 100).ToString("0") + "%";
+        Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
 
     public void Punch(InputAction.CallbackContext context)
     {
-        Debug.Log("Punch!");
-        if (context.performed)
+
+        if (context.performed && isState("IDLE") && Time.time >= attackCD)
         {
-            isPunching = true;
-        }
-        else
-        {
-            isPunching = false;
+            Debug.Log("Punch!");
+            combatState = "PUNCH";
+            controllerANIM.SetTrigger("Punch");
+            launchAttack(attackHitboxes[0], punchDamage);
+            stateCD = Time.time + punchDuration;
+            attackCD = stateCD + punchRecovery;
         }
     }
 
     public void Kick(InputAction.CallbackContext context)
     {
-        Debug.Log("Punch!");
-        if (context.performed)
+        if (context.performed && isState("IDLE") && Time.time >= attackCD)
         {
-            isKicking = true;
-        }
-        else
-        {
-            isKicking = false;
+            Debug.Log("Kick!");
+            combatState = "KICK";
+            controllerANIM.SetTrigger("Kick");
+            launchAttack(attackHitboxes[1], kickDamage);
+            stateCD = Time.time + kickDuration;
+            attackCD = stateCD + kickRecovery;
         }
     }
 
-    public void Block(InputAction.CallbackContext context) 
+    public void Block(InputAction.CallbackContext context)
     {
+        if (context.performed)
+        {
+            Debug.Log("Blocking");
+            isBlocking = true;
+            stateCD = Time.time + blockDuration;
+        }
+        else
+        { 
+            isBlocking = false;
+        }
+    }
+
+    public bool isState(string state)
+    {
+        return combatState == state;
     }
 
     void launchAttack(Collider col, int attackDamage)
@@ -113,12 +142,11 @@ public class Combat : MonoBehaviour
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
         {
-            if (c.transform.root == transform) 
+            if (c.transform.root == transform)
             {
-                continue;
+                continue;    
             }
-
-            c.SendMessageUpwards("TakeDamage", attackDamage);                
+            c.GetComponentInParent<Combat>().TakeDamage(attackDamage, new Vector3(0, 0.5f, 2));
         }
     }
 }

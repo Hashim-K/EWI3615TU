@@ -79,9 +79,9 @@
                 },
                 {
                     "name": "R2",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "4fc09d8f-6824-4829-9cfe-c4914d52c4ca",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -106,9 +106,9 @@
                 },
                 {
                     "name": "L2",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "5461a12b-024e-43de-a26b-5ca8d5ee1238",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -534,6 +534,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "R2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bebc708-4a15-4d6b-8715-e5c2ab121b9d",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "R2",
                     "isComposite": false,
                     "isPartOfComposite": false
