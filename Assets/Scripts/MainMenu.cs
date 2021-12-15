@@ -47,4 +47,9 @@ public class MainMenu : MonoBehaviour
         Authenticate.playernamestr2 = playernamestr2;
         SceneManager.LoadScene("Authenticate");
     }
+
+    public void Analytics()
+    {
+        SceneManager.LoadScene("Analytics");
+    }
 }
