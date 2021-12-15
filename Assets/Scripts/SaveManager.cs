@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SaveManager
 {
-    public static string directory = "/Game_Analytics/"; directory
+    public static string directory = "/Game_Analytics/"; 
     public static string fileName = "/Analytics.txt";
     // Start is called before the first frame update
 

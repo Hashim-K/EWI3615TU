@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameAnalytics : MonoBehaviour
+public class GameAnalytics : MonoBehaviour
 {
-    public DataClass DataClass;
+    public class DataClass da;
     string saved_data;
     public static int numberRounds;
   

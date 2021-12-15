@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class JSONReader : MonoBehaviour
-{
-    public class DataClass da;
+{ 
+    public DataClass da;
     public Death_Zone death;
     public bool see_analytics;
 
@@ -22,12 +22,8 @@ public class JSONReader : MonoBehaviour
 
         if (see_analytics) //This can be triggered by a button or a key! 
         {
-            SaveManager.Load(da)
+            SaveManager.Load(da);
         }
     }
-
-    public static GameAnalytics Load()
-    { 
-
-    }
 }
+
