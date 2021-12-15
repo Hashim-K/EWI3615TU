@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.57558316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,7 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbafabdc44970754a8129f7653fd4b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DataClass: {fileID: 1055690148}
 --- !u!1001 &469150511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1207,15 +1206,14 @@ MonoBehaviour:
   p1Inputs: {fileID: 1845651766}
   death: {fileID: 2060289151}
   p1Combat: {fileID: 1845651764}
-  p1attacks: 0
-  p2attacks: 0
-  p1hits: 0
-  p2hits: 0
-  p1jumps: 0
-  p2jumps: 0
-  numberRounds: 0
-  roundTime: 0
-  averageRoundTime: 0
+  da:
+    p1attacks: 0
+    p1hits: 0
+    p1jumps: 0
+    numberRounds: 0
+    roundTime: 0
+    averageRoundTime: 0
+    totalTime: 0
 --- !u!1 &1060933978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2084,18 @@ PrefabInstance:
     - target: {fileID: 769140845, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059698429, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845651764}
+    - target: {fileID: 1059698429, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059698429, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Combat, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1059698431, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
       propertyPath: HealthText
