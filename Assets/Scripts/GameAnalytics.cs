@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameAnalytics : MonoBehaviour
+public static class GameAnalytics : MonoBehaviour
 {
     public DataClass DataClass;
     string saved_data;
