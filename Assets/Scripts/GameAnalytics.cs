@@ -4,29 +4,34 @@ using UnityEngine;
 
 public class GameAnalytics : MonoBehaviour
 {
-    public DataClass dataClass;
+    public DataClass DataClass;
     string saved_data;
     public static int numberRounds;
   
 
     void Start()
     {
-        DataClass dataClass = new DataClass();
-        dataClass.p1attacks = 1;
+        // DataClass DataClass = new DataClass();
+        // dataClass.p1attacks = 1;
+        // string saved_data = JsonUtility.ToJson(dataClass, true);
+        // Debug.Log(saved_data);
+
     }
     //string saved_data = JsonUtility.ToJson(dataClass, true);
     // Update is called once per frame
     void Update()
     {
-
-        //string saved_data = JsonUtility.ToJson(dataClass, true);
-        //Debug.Log(saved_data);
+        // DataClass.p1attacks += 1;
+        // Debug.Log(DataClass.p1jumps);
+        string saved_data = JsonUtility.ToJson(DataClass, true);
+        // Debug.Log(saved_data);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/MatchStats.json", saved_data);
     }
 
-    public void AddRound()
-    {
-        numberRounds += 1;
-        Debug.Log(numberRounds);
-    }
+    // public void AddRound()
+    // {
+    //     numberRounds += 1;
+    //     Debug.Log(numberRounds);
+    // }
 
 }

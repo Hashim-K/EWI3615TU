@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class death_zone : MonoBehaviour
+public class Death_Zone : MonoBehaviour
 {
     public Text deathmsg;
+    // public DataClass dataClass;
     public GameObject Death;
     public float delayTime = 2f;
     public static string player1;
     public static string player2;
+    public bool round_end;
 
     void Start()
     {
@@ -19,7 +21,12 @@ public class death_zone : MonoBehaviour
         deathmsg.text = "";
     }
 
-    void OnTriggerEnter(Collider other)
+    void FixedUpdate()
+    {
+        round_end = false;
+    }
+
+    void OnTriggerExit(Collider other)
     {
         Death.SetActive(true);
         if (other.gameObject.CompareTag("Player1"))
@@ -55,8 +62,14 @@ public class death_zone : MonoBehaviour
         //GameAnalytics.AddRound();
         //Debug.Log(temp.AddRound())
 
-        GameAnalytics.numberRounds += 1;
+        // dataClass.numberRounds += 1;
+        round_end = true;
         StartCoroutine(waitCouple());
+        
+     
+
+        // Debug.Log(dataClass.numberRounds);
+
     }
 
     IEnumerator waitCouple()
@@ -64,7 +77,6 @@ public class death_zone : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         //RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
-        
         SceneManager.LoadScene("RoundMenu");
     }
     
