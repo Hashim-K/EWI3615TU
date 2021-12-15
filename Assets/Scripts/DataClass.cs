@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 [Serializable]
 public class DataClass : MonoBehaviour
 {
-
     public PlayerController p1Inputs;
     public Death_Zone death;
     public Combat p1Combat;
@@ -17,37 +16,18 @@ public class DataClass : MonoBehaviour
     private bool jumping;
     private bool attacking;
     private bool hit;
+    private bool end;
 
-    public int p1attacks;
-    public int p2attacks;
-
-    public int p1hits;
-    public int p2hits;
-
-    public int p1jumps; 
-    public int p2jumps;
-
-    // public int number_matches;
-    public int numberRounds;
-
-    public float roundTime;
-    // public float averageRoundTime;
-
-
-   // public static int numberRounds;
-
-//    public Stats MatchAnalytics = new Stats();
-
-    void Awake()
-    {
-        numberRounds += 1;
-
-    }
+    public Stats da = new Stats();
 
     void Start()
     {
         jumping = false;
         attacking = false;
+        end = false;
+        hit = false;
+        da = SaveManager.Load();
+        da.numberRounds += 1;
     }
 
     void Update()
@@ -67,33 +47,45 @@ public class DataClass : MonoBehaviour
            hit = true;
        }
 
-       if(death.round_end)
-       {
-           roundTime = Time.timeSinceLevelLoad;
 
-       }
+
+      
+
 
    }
-
     void FixedUpdate()
     {
         if(jumping)
         {
-            p1jumps += 1;
+            da.p1jumps += 1;
             jumping = false;
         }
 
         if(attacking)
         {
-            p1attacks += 1;
+            da.p1attacks += 1;
             attacking = false;
         }
 
         if(hit)
         {
-            p1hits += 1;
+            da.p1hits += 1;
             hit = false;
         }
 
+         
     }
+    
+    void LateUpdate()
+    {
+        if(death.round_end)
+        {
+            da.roundTime = Time.timeSinceLevelLoad;
+            da.totalTime += da.roundTime;
+            da.averageRoundTime = da.totalTime / da.numberRounds;
+            SaveManager.Save(da);
+            death.round_end = false;
+        }
+    }
+   
 }

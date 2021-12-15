@@ -19,11 +19,11 @@ public class Death_Zone : MonoBehaviour
     {
         Death.SetActive(false);
         deathmsg.text = "";
+        round_end = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        round_end = false;
     }
 
     void OnTriggerExit(Collider other)
