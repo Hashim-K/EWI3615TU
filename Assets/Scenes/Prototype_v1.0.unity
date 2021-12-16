@@ -1895,9 +1895,9 @@ MonoBehaviour:
     m_ActionName: Player/North
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1029681070}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: East
+      - m_Target: {fileID: 1268529952}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1911,9 +1911,9 @@ MonoBehaviour:
     m_ActionName: Player/East
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1029681070}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: South
+      - m_Target: {fileID: 1268529952}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Punch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2125,7 +2125,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 45b24c2c-ca97-4412-b433-62f5dbf7ad8c
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -2773,7 +2773,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 45b24c2c-ca97-4412-b433-62f5dbf7ad8c
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
