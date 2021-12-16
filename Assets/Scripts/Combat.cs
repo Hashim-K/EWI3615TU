@@ -20,6 +20,9 @@ public class Combat : MonoBehaviour
 
     private string combatState = "IDLE";
     private bool isBlocking;
+    public bool isPunching;
+    public bool isKicking;
+
 
     public bool isHit = false;
 

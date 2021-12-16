@@ -42,4 +42,10 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("RoundMenu");
     }
+
+    // How do I make the UI button access this method?
+    public void LoadAnalytics()
+    {
+        SceneManager.LoadScene("Analytics");
+    }
 }
