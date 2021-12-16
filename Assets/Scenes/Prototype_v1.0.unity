@@ -1384,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_Name
-      value: concept_humanoid
+      value: Player_1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_TagString
@@ -1398,6 +1398,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e7e5851cf5ec68743a763ca1b8919d9c, type: 2}
+    - target: {fileID: 5866666021909216657, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
 --- !u!1 &1029681065 stripped
@@ -2153,16 +2157,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1029681065}
   HealthText: {fileID: 2086974549}
-  defense: 100
-  knockPercent: 0
-  isBlocking: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
   attackHitboxes:
   - {fileID: 238935432}
   - {fileID: 508806861}
-  rb: {fileID: 1029681067}
+  defense: 100
+  knockPercent: 0
+  isHit: 0
+  blockReduction: 0.5
+  blockDuration: 3
+  blockRecovery: 1.5
 --- !u!1 &1268947722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,16 +2439,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1418404256}
   HealthText: {fileID: 2086974549}
-  defense: 100
-  knockPercent: 0
-  isBlocking: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
   attackHitboxes:
   - {fileID: 606861688}
   - {fileID: 2074523712}
-  rb: {fileID: 1418404262}
+  defense: 100
+  knockPercent: 0
+  isHit: 0
+  blockReduction: 0.5
+  blockDuration: 3
+  blockRecovery: 1.5
 --- !u!114 &1418404259
 MonoBehaviour:
   m_ObjectHideFlags: 0
