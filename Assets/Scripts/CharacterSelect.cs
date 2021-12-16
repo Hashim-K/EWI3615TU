@@ -10,12 +10,14 @@ public class CharacterSelect : MonoBehaviour
     public InputField playername2;
     public static string playernamestr1;
     public static string playernamestr2;
-    public int numberbuttonspressed = 0;
+    public bool p1ready = false;
+    public bool p2ready = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        numberbuttonspressed = 0;
+        p1ready = false;
+        p2ready = false;
     }
 
     // Update is called once per frame
@@ -24,14 +26,24 @@ public class CharacterSelect : MonoBehaviour
         
     }
 
-    public void ReadyPressed()
+    public void p1ReadyPressed()
     {
-        numberbuttonspressed = numberbuttonspressed + 1;
-        if (numberbuttonspressed == 2)
+        p1ready = true;
+        
+        if (p2ready)
         {
             ToGameMenu();
         }
 
+    }
+    public void p2ReadyPressed()
+    {
+        p2ready = true;
+
+        if (p1ready)
+        {
+            ToGameMenu();
+        }
     }
 
     void ToGameMenu()

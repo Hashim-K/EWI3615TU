@@ -282,7 +282,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 853019612}
         m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
-        m_MethodName: ReadyPressed
+        m_MethodName: p1ReadyPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -700,7 +700,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.6783909, g: 0.9056604, b: 0.90283716, a: 1}
+    m_SelectedColor: {r: 0.14387679, g: 0.5566038, b: 0.5514768, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -722,7 +722,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 853019612}
         m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
-        m_MethodName: ReadyPressed
+        m_MethodName: p2ReadyPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1097,7 +1097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playername1: {fileID: 1810870461}
   playername2: {fileID: 967481559}
-  numberbuttonspressed: 0
+  p1ready: 0
+  p2ready: 0
 --- !u!1 &967481557
 GameObject:
   m_ObjectHideFlags: 0
