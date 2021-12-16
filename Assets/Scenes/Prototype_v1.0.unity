@@ -2166,6 +2166,26 @@ MonoBehaviour:
   blockReduction: 0.5
   blockDuration: 3
   blockRecovery: 1.5
+--- !u!95 &1268529953
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029681065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+  m_Controller: {fileID: 9100000, guid: e7e5851cf5ec68743a763ca1b8919d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1268947722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_TagString
@@ -2754,7 +2774,7 @@ MonoBehaviour:
     m_ActionId: 45b24c2c-ca97-4412-b433-62f5dbf7ad8c
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
