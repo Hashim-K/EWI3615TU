@@ -757,8 +757,8 @@ RectTransform:
   - {fileID: 1950159400}
   - {fileID: 1843097736}
   - {fileID: 1527692167}
-  - {fileID: 977855326}
   - {fileID: 2107788739}
+  - {fileID: 977855326}
   - {fileID: 2086974548}
   - {fileID: 1268947723}
   m_Father: {fileID: 0}
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 977855328}
   - component: {fileID: 977855327}
   m_Layer: 5
-  m_Name: HealthP1Txt
+  m_Name: HealthP2Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,7 +1266,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 713484717}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1382,6 +1382,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5252138385914117080, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -4447537251728179078, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -4330828500037601228, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -526030562498695804, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -358832651295321113, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: 72261095811086982, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_Name
       value: Player_1
@@ -2157,7 +2181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1029681065}
-  HealthText: {fileID: 2086974549}
+  HealthText: {fileID: 2107788737}
   attackHitboxes:
   - {fileID: 238935432}
   - {fileID: 508806861}
@@ -2414,6 +2438,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5252138385914117080, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -4447537251728179078, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -4330828500037601228, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -526030562498695804, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -358832651295321113, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: 72261095811086982, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -2459,7 +2507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1418404256}
-  HealthText: {fileID: 2086974549}
+  HealthText: {fileID: 977855327}
   attackHitboxes:
   - {fileID: 606861688}
   - {fileID: 2074523712}
@@ -3906,7 +3954,7 @@ GameObject:
   - component: {fileID: 2107788738}
   - component: {fileID: 2107788737}
   m_Layer: 5
-  m_Name: HealthP2Txt
+  m_Name: HealthP1Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3967,7 +4015,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 713484717}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
