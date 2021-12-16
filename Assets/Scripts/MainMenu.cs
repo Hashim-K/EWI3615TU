@@ -15,16 +15,16 @@ public class MainMenu : MonoBehaviour
     // Function when scene is opened
     void Start()
     {
-        if (string.IsNullOrEmpty(playernamestr))
-            SceneManager.LoadScene("Authenticate");
-        if (string.IsNullOrEmpty(playernamestr2))
-            SceneManager.LoadScene("Authenticate");
+        //if (string.IsNullOrEmpty(playernamestr))
+            //SceneManager.LoadScene("Authenticate");
+        //if (string.IsNullOrEmpty(playernamestr2))
+            //SceneManager.LoadScene("Authenticate");
         //Debug.Log("playernamestr is null or empty");
 
-        else
-            Debug.Log("playernamestr is not empty");
-            playername.text = playernamestr;
-            playername2.text = playernamestr2;
+        //else
+            //Debug.Log("playernamestr is not empty");
+            //playername.text = playernamestr;
+            //playername2.text = playernamestr2;
     }
 
     // Function for Quit Game button
@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     // Function for Start game button : go to Game Menu
     public void StartGame()
     {
-        SceneManager.LoadScene("GameMenu");
+        SceneManager.LoadScene("CharacterSelect");
     }
 
     // Function for the Login button: go to Authenticate screen to enter user name
