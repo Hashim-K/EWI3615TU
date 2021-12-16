@@ -16,6 +16,9 @@ public class Authenticate : MonoBehaviour
     public Text playernametxt;
     public Text playername2txt;
 
+    public bool p2isai;
+    public Toggle m_toggle;
+
     void Start()
     {
         if (string.IsNullOrEmpty(playernamestr))
@@ -27,10 +30,15 @@ public class Authenticate : MonoBehaviour
             playername2txt.text = "Enter username";
         else
             playername2txt.text = playernamestr2;
+
+        
     }
 
     public void ExitToMenu()
     {
+        //m_toggle = GetComponent<Toggle>();
+        //MainMenu.p2isai = m_toggle.isOn;
+        Debug.Log("Toggle = " + m_toggle.isOn);
         MainMenu.playernamestr = playername.text;
         MainMenu.playernamestr2 = playername2.text;
         GameMenu.playernamestr = playername.text;
