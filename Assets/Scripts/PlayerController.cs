@@ -107,11 +107,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Horizontal!");
             horizontalDir = (float)context.ReadValueAsObject();
-            controllerANIM.SetTrigger("Forward");
+            controllerANIM.SetBool("Forward", true);
         }
         else
         {
             horizontalDir = 0f;
+            controllerANIM.SetBool("Forward", false);
         }
 
     }
