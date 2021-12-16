@@ -8,7 +8,7 @@ public class Combat : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
-    public Text HealthText;
+    //public Text HealthText;
     public Collider[] attackHitboxes;
     private Rigidbody rb;
 
@@ -87,7 +87,7 @@ public class Combat : MonoBehaviour
         }
         isHit = true;
         damageTaken += attackDamage;
-        rb.AddForce(attackDir * attackDamage * knockbackScalar, ForceMode.Impulse);
+        rb.AddForce(attackDir * 5 * knockbackScalar, ForceMode.Impulse);
         UpdateHealth();
     }
 
@@ -96,7 +96,7 @@ public class Combat : MonoBehaviour
     {
         knockPercent = damageTaken / defense;
         knockbackScalar = 1 + knockPercent / 4;
-        HealthText.text = (knockPercent * 100).ToString("0") + "%";
+        //HealthText.text = (knockPercent * 100).ToString("0") + "%";
         Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
 
