@@ -532,6 +532,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3016166959349780196, guid: 73c4406cfe992b248a27c81fae9ced8b, type: 3}
   m_PrefabInstance: {fileID: 469150511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &492465439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6333019078807817918, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+  m_PrefabInstance: {fileID: 6333019077156258205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713484713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1342,11 @@ MonoBehaviour:
   topLimit: 2.5
   bottomLimit: 1
   speed: 2
+--- !u!1 &1433608915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6333019078807817918, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+  m_PrefabInstance: {fileID: 2017382918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1692835648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1687,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1059698431, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
   m_PrefabInstance: {fileID: 6333019077156258205}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 492465439}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6a68788e0ef1564cb5c1e0ed4b27a71, type: 3}
@@ -1688,7 +1698,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1059698428, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
   m_PrefabInstance: {fileID: 6333019077156258205}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 492465439}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
@@ -1807,6 +1817,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1059698428, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+      propertyPath: characterOBJ
+      value: 
+      objectReference: {fileID: 1433608915}
     - target: {fileID: 1059698429, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2085,6 +2099,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1059698428, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+      propertyPath: characterOBJ
+      value: 
+      objectReference: {fileID: 492465439}
     - target: {fileID: 1059698429, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
