@@ -55,11 +55,6 @@ public class EnemyFollow : MonoBehaviour
         {
             inRange = true;
             Debug.Log("in range = true");
-            isPunching = true;
-            Debug.Log("Is Ai punching");
-            Debug.Log(isPunching);
-            Debug.Log("AI punch!");
-            StartCoroutine("Cooldown");
 
         }
     }
@@ -73,14 +68,17 @@ public class EnemyFollow : MonoBehaviour
         }
     }
 
-    void TakeDamage(int attackDamage)
+        public void TakeDamage(float attackDamage, Vector3 attackDir)
     {
+        if (isState("BLOCK"))
+        {
+            attackDamage = attackDamage * blockReduction;
+        }
+        isHit = true;
         damageTaken += attackDamage;
         GetComponent<NavMeshAgent>().enabled = false;
         Debug.Log("navmeshagent is disabled");
-        rb.AddForce(new Vector3(2, 0.5f, 0) * 5 * knockbackScalar, ForceMode.Impulse);
-
-        //rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
+        rb.AddForce(attackDir * 5 * knockbackScalar, ForceMode.Impulse);
         GetComponent<NavMeshAgent>().enabled = true;
         Debug.Log("navmeshagent is enabled");
         UpdateHealth();
@@ -88,69 +86,81 @@ public class EnemyFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isPunching)
+        if (!isState("IDLE") && Time.time > stateCD)
         {
-
-            Debug.Log("Punch method is active");
-            isBlocking = false;
-            isKicking = false;
-            isPunching = false;
-            controllerANIM.SetTrigger("Punch");
-            controllerANIM.SetBool("Block", isBlocking);
-
-            launchAttack(attackHitboxes[0], punchDamage);
-
+            if (isState("BLOCK"))
+            {
+                isBlocking = false;
+                controllerANIM.SetBool("Block", false);
+            }
+            combatState = "IDLE";
         }
-        else if (isKicking)
+        if (isBlocking && isState("IDLE") && Time.time >= blockCD)
         {
+            combatState = "BLOCK";
+            controllerANIM.SetBool("Block", true);
+        }
 
-            isBlocking = false;
-            isKicking = false;
-            isPunching = false;
-            controllerANIM.SetTrigger("Kick");
-            controllerANIM.SetBool("Block", isBlocking);
+        if (!isBlocking && isState("BLOCK"))
+        {
+            stateCD = 0f;
+            controllerANIM.SetBool("Block", false);
+            combatState = "IDLE";
+            blockCD = Time.time + blockRecovery;
+        }
 
-            launchAttack(attackHitboxes[1], kickDamage);
+
+        if (isHit)
+        {
+            isHit = false;
         }
     }
 
-    void UpdateHealth()
+    public void Punch()
     {
-        knockPercent = damageTaken / defense;
-        knockbackScalar = 1 + knockPercent / 4;
-        HealthText.text = (knockPercent * 100).ToString("0") + "%";
-        Debug.Log((knockPercent * 100).ToString("0") + "%");
+
+        if (isState("IDLE") && Time.time >= attackCD)
+        {
+            Debug.Log("Punch!");
+            combatState = "PUNCH";
+            controllerANIM.SetTrigger("Punch");
+            launchAttack(attackHitboxes[0], punchDamage);
+            stateCD = Time.time + punchDuration;
+            attackCD = stateCD + punchRecovery;
+        }
     }
 
-    //public void Punch(InputAction.CallbackContext context)
-    //{
-    //    Debug.Log("Punch!");
-    //    if (context.performed)
-    //    {
-    //        isPunching = true;
-    //    }
-    //    else
-    //    {
-    //        isPunching = false;
-    //    }
-    //}
+    public void Kick()
+    {
+        if (isState("IDLE") && Time.time >= attackCD)
+        {
+            Debug.Log("Kick!");
+            combatState = "KICK";
+            controllerANIM.SetTrigger("Kick");
+            launchAttack(attackHitboxes[1], kickDamage);
+            stateCD = Time.time + kickDuration;
+            attackCD = stateCD + kickRecovery;
+        }
+    }
 
-    //public void Kick(InputAction.CallbackContext context)
-    //{
-    //    Debug.Log("Punch!");
-    //    if (context.performed)
-    //    {
-    //        isKicking = true;
-    //    }
-    //    else
-    //    {
-    //        isKicking = false;
-    //    }
-    //}
+    public void Block(bool input)
+    {
+        if (input)
+        {
+            Debug.Log("Blocking");
+            isBlocking = true;
+            stateCD = Time.time + blockDuration;
+        }
+        else
+        {
+            isBlocking = false;
+        }
+    }
 
-    //public void Block(InputAction.CallbackContext context)
-    //{
-    //}
+    public bool isState(string state)
+    {
+        return combatState == state;
+    }
 
     void launchAttack(Collider col, int attackDamage)
     {
@@ -161,14 +171,8 @@ public class EnemyFollow : MonoBehaviour
             {
                 continue;
             }
-
-            c.SendMessageUpwards("TakeDamage", attackDamage);
+            c.GetComponentInParent<Combat>().TakeDamage(attackDamage, new Vector3(0, 0.5f, 2));
         }
     }
-
-    IEnumerator Cooldown()
-    {
-        Debug.Log("Cooldown is in place");
-        yield return new WaitForSeconds(2);
-    }
+}
 }
