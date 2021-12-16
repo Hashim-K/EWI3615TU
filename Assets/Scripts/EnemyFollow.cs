@@ -187,7 +187,15 @@ public class EnemyFollow : MonoBehaviour
             {
                 continue;
             }
-            c.GetComponentInParent<Combat>().TakeDamage(attackDamage, new Vector3(0, 0.5f, 2));
+            Vector3 attackDir = new Vector3(0, 0.5f, 2);
+            if (c.tag.Contains("Player"))
+            {
+                c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
+            }
+            else
+            {
+                c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
+            }
         }
     }
     void UpdateHealth()
