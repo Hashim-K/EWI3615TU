@@ -10,25 +10,41 @@ public class EnemyFollow : MonoBehaviour
     public Transform player;
     private bool inRange = false;
 
-    public GameObject characterOBJ;
     public Text HealthText;
+
+    Animator controllerANIM;
+    public GameObject characterOBJ;
+    //public Text HealthText;
+    public Collider[] attackHitboxes;
+    private Rigidbody rb;
+
+
     public float defense = 100;
     private float damageTaken = 0;
     private float knockbackScalar = 1;
     public float knockPercent;
 
-    private bool isBlocking = false;
-    private bool isPunching = false;
-    private bool isKicking = false;
+    private string combatState = "IDLE";
+    private bool isBlocking;
+
+    public bool isHit = false;
 
     private int punchDamage = 15;
     private int kickDamage = 50;
+    public float blockReduction = 0.5f;
 
-    public Collider[] attackHitboxes;
-    Animator controllerANIM;
-    private Rigidbody rb;
 
-    float timer;
+    private float attackCD = 0f;
+    private float stateCD = 0f;
+    private float blockCD = 0f;
+
+    public float blockDuration = 3f;
+    private float kickDuration = 1f;
+    private float punchDuration = 1f;
+
+    public float blockRecovery = 1.5f;
+    private float kickRecovery = 0.1f;
+    private float punchRecovery = 0.11f;
 
     // Start is called before the first frame update
     void Start()
@@ -174,5 +190,12 @@ public class EnemyFollow : MonoBehaviour
             c.GetComponentInParent<Combat>().TakeDamage(attackDamage, new Vector3(0, 0.5f, 2));
         }
     }
+    void UpdateHealth()
+    {
+        knockPercent = damageTaken / defense;
+        knockbackScalar = 1 + knockPercent / 4;
+        //HealthText.text = (knockPercent * 100).ToString("0") + "%";
+        Debug.Log((knockPercent * 100).ToString("0") + "%");
+    }
 }
-}
+
