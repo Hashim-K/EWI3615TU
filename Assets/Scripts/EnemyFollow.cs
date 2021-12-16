@@ -8,7 +8,6 @@ public class EnemyFollow : MonoBehaviour
 {
     public NavMeshAgent enemy;
     public Transform player;
-    private bool inRange = false;
 
     public Text HealthText;
 
@@ -61,30 +60,41 @@ public class EnemyFollow : MonoBehaviour
         {
             enemy.SetDestination(player.transform.position);
         }
-        
+
 
     }
 
-    void OnTriggerEnter(Collider other)
+    private bool isInRange(string Action)
     {
-        if (other.gameObject.CompareTag("Player1"))
+        if(Action == "PUNCH")
         {
-            inRange = true;
-            Debug.Log("in range = true");
-
+            return checkHitbox(attackHitboxes[0]);
         }
+        else if(Action == "KICK")
+        {
+            return checkHitbox(attackHitboxes[1]);
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
-    void OnTriggerExit(Collider other)
+    bool checkHitbox(Collider col)
     {
-        if (other.gameObject.CompareTag("Player1"))
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+        foreach (Collider c in cols)
         {
-            inRange = false;
-            Debug.Log("in range = false");
+            if (c.transform.root == transform)
+            {
+                continue;
+            }
+            return true;
         }
+        return false;
     }
-
-        public void TakeDamage(float attackDamage, Vector3 attackDir)
+    public void TakeDamage(float attackDamage, Vector3 attackDir)
     {
         if (isState("BLOCK"))
         {
@@ -102,6 +112,15 @@ public class EnemyFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
+        string[] Actions = {"PUNCH", "KICK"};
+        foreach (string Action in Actions)
+        {
+            if (isInRange(Action))
+            {
+                Punch();
+            }
+        }
+
         if (!isState("IDLE") && Time.time > stateCD)
         {
             if (isState("BLOCK"))
