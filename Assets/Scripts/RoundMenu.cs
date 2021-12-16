@@ -27,6 +27,9 @@ public class RoundMenu : MonoBehaviour
     public static int playerscoreint = 0;
     public static int playerscoreint2 = 0;
 
+
+    public bool match_end = false;
+
     public GameObject WinMsg;
     
     void Start()
@@ -62,13 +65,15 @@ public class RoundMenu : MonoBehaviour
             winningpoints.text = "Your score: " + playerscoreint.ToString();
             winningplayer.text = playernamestr;
             WinMsg.SetActive(true);
+            match_end = true;
             reset();
         }
-        else if (playerscoreint2 == 5)
+        else if (playerscoreint2 == 2)
         {
             winningpoints.text = "Your score: " + playerscoreint2.ToString();
             winningplayer.text = playernamestr2;
             WinMsg.SetActive(true);
+            match_end = true;
             reset();
         }
     }

@@ -353,6 +353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PracticeCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 9a7360c73cc871546bf5dda47450215b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 9a7360c73cc871546bf5dda47450215b, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -410,6 +414,7 @@ GameObject:
   - component: {fileID: 229212710}
   - component: {fileID: 229212709}
   - component: {fileID: 229212708}
+  - component: {fileID: 229212711}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -483,6 +488,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 25, y: -90, z: 0}
+--- !u!114 &229212711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229212707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62ddf1106cb6314c9519207914fff69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Inputs: {fileID: 2007754220}
+  death: {fileID: 855756144}
+  p1Combat: {fileID: 2007754218}
+  da:
+    p1attacks: 0
+    p1hits: 0
+    p1jumps: 0
+    numberRounds: 0
+    roundTime: 0
+    averageRoundTime: 0
+    totalTime: 0
 --- !u!1 &276416602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2406,28 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1059698430, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
   m_PrefabInstance: {fileID: 9171359}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007754218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1059698431, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+  m_PrefabInstance: {fileID: 9171359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007754207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a68788e0ef1564cb5c1e0ed4b27a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2007754220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1059698428, guid: 619fbe5e76cc5234fa58d0455b66487d, type: 3}
+  m_PrefabInstance: {fileID: 9171359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007754207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2040435797
 PrefabInstance:
   m_ObjectHideFlags: 0
