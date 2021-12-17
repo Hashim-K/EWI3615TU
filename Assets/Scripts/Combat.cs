@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Combat : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
-    //public Text HealthText;
+    public TextMeshProUGUI HealthText;
     public Collider[] attackHitboxes;
     private Rigidbody rb;
 
@@ -33,7 +34,7 @@ public class Combat : MonoBehaviour
     private float blockCD = 0f;
 
     public float blockDuration = 3f;
-    private float kickDuration = 1f;
+    private float kickDuration = 1.12f;
     private float punchDuration = 1f;
 
     public float blockRecovery = 1.5f;
@@ -96,7 +97,7 @@ public class Combat : MonoBehaviour
     {
         knockPercent = damageTaken / defense;
         knockbackScalar = 1 + knockPercent / 4;
-        //HealthText.text = (knockPercent * 100).ToString("0") + "%";
+        HealthText.SetText((knockPercent * 100).ToString("0") + "%");
         Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
 

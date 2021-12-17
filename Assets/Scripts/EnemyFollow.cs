@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyFollow : MonoBehaviour
 {
     public NavMeshAgent enemy;
     public Transform player;
 
-    public Text HealthText;
+    public TextMeshProUGUI HealthText;
 
     Animator controllerANIM;
     public GameObject characterOBJ;
@@ -207,7 +208,7 @@ public class EnemyFollow : MonoBehaviour
                 continue;
             }
             Vector3 attackDir = new Vector3(0, 0.5f, 2);
-            if (c.tag.Contains("Player"))
+            if (c.tag.Contains("Player1"))
             {
                 c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
             }
@@ -221,7 +222,7 @@ public class EnemyFollow : MonoBehaviour
     {
         knockPercent = damageTaken / defense;
         knockbackScalar = 1 + knockPercent / 4;
-        //HealthText.text = (knockPercent * 100).ToString("0") + "%";
+        HealthText.SetText((knockPercent * 100).ToString("0") + "%");
         Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
 }
