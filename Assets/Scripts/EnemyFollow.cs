@@ -3,32 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyFollow : MonoBehaviour
 {
     public NavMeshAgent enemy;
     public Transform player;
-    private bool inRange = false;
 
+    public TextMeshProUGUI HealthText;
+
+    Animator controllerANIM;
     public GameObject characterOBJ;
-    public Text HealthText;
+    //public Text HealthText;
+    public Collider[] attackHitboxes;
+    private Rigidbody rb;
+
+
     public float defense = 100;
     private float damageTaken = 0;
     private float knockbackScalar = 1;
     public float knockPercent;
 
-    private bool isBlocking = false;
-    private bool isPunching = false;
-    private bool isKicking = false;
+    private string combatState = "IDLE";
+    private bool isBlocking;
+
+    public bool isHit = false;
 
     private int punchDamage = 15;
     private int kickDamage = 50;
+    public float blockReduction = 0.5f;
 
-    public Collider[] attackHitboxes;
-    Animator controllerANIM;
-    private Rigidbody rb;
 
-    float timer;
+    private float attackCD = 0f;
+    private float stateCD = 0f;
+    private float blockCD = 0f;
+
+    public float blockDuration = 3f;
+    private float kickDuration = 1f;
+    private float punchDuration = 1f;
+
+    public float blockRecovery = 1.5f;
+    private float kickRecovery = 0.1f;
+    private float punchRecovery = 0.11f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,42 +61,51 @@ public class EnemyFollow : MonoBehaviour
         {
             enemy.SetDestination(player.transform.position);
         }
-        
+
 
     }
 
-    void OnTriggerEnter(Collider other)
+    private bool isInRange(string Action)
     {
-        if (other.gameObject.CompareTag("Player1"))
+        if(Action == "PUNCH")
         {
-            inRange = true;
-            Debug.Log("in range = true");
-            isPunching = true;
-            Debug.Log("Is Ai punching");
-            Debug.Log(isPunching);
-            Debug.Log("AI punch!");
-            StartCoroutine("Cooldown");
-
+            return checkHitbox(attackHitboxes[0]);
         }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player1"))
+        else if(Action == "KICK")
         {
-            inRange = false;
-            Debug.Log("in range = false");
+            return checkHitbox(attackHitboxes[1]);
         }
+        else
+        {
+            return false;
+        }
+
     }
 
-    void TakeDamage(int attackDamage)
+    bool checkHitbox(Collider col)
     {
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+        foreach (Collider c in cols)
+        {
+            if (c.transform.root == transform)
+            {
+                continue;
+            }
+            return true;
+        }
+        return false;
+    }
+    public void TakeDamage(float attackDamage, Vector3 attackDir)
+    {
+        if (isState("BLOCK"))
+        {
+            attackDamage = attackDamage * blockReduction;
+        }
+        isHit = true;
         damageTaken += attackDamage;
         GetComponent<NavMeshAgent>().enabled = false;
         Debug.Log("navmeshagent is disabled");
-        rb.AddForce(new Vector3(2, 0.5f, 0) * 5 * knockbackScalar, ForceMode.Impulse);
-
-        //rb.AddForce(new Vector3(0, 0.5f, 2) * 5 * knockbackScalar, ForceMode.Impulse);
+        rb.AddForce(attackDir * 5 * knockbackScalar, ForceMode.Impulse);
         GetComponent<NavMeshAgent>().enabled = true;
         Debug.Log("navmeshagent is enabled");
         UpdateHealth();
@@ -88,69 +113,90 @@ public class EnemyFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isPunching)
+        string[] Actions = {"PUNCH", "KICK"};
+        foreach (string Action in Actions)
         {
-
-            Debug.Log("Punch method is active");
-            isBlocking = false;
-            isKicking = false;
-            isPunching = false;
-            controllerANIM.SetTrigger("Punch");
-            controllerANIM.SetBool("Block", isBlocking);
-
-            launchAttack(attackHitboxes[0], punchDamage);
-
+            if (isInRange(Action))
+            {
+                Punch();
+            }
         }
-        else if (isKicking)
+
+        if (!isState("IDLE") && Time.time > stateCD)
         {
+            if (isState("BLOCK"))
+            {
+                isBlocking = false;
+                controllerANIM.SetBool("Block", false);
+            }
+            combatState = "IDLE";
+        }
+        if (isBlocking && isState("IDLE") && Time.time >= blockCD)
+        {
+            combatState = "BLOCK";
+            controllerANIM.SetBool("Block", true);
+        }
 
-            isBlocking = false;
-            isKicking = false;
-            isPunching = false;
-            controllerANIM.SetTrigger("Kick");
-            controllerANIM.SetBool("Block", isBlocking);
+        if (!isBlocking && isState("BLOCK"))
+        {
+            stateCD = 0f;
+            controllerANIM.SetBool("Block", false);
+            combatState = "IDLE";
+            blockCD = Time.time + blockRecovery;
+        }
 
-            launchAttack(attackHitboxes[1], kickDamage);
+
+        if (isHit)
+        {
+            isHit = false;
         }
     }
 
-    void UpdateHealth()
+    public void Punch()
     {
-        knockPercent = damageTaken / defense;
-        knockbackScalar = 1 + knockPercent / 4;
-        HealthText.text = (knockPercent * 100).ToString("0") + "%";
-        Debug.Log((knockPercent * 100).ToString("0") + "%");
+
+        if (isState("IDLE") && Time.time >= attackCD)
+        {
+            Debug.Log("Punch!");
+            combatState = "PUNCH";
+            controllerANIM.SetTrigger("Punch");
+            launchAttack(attackHitboxes[0], punchDamage);
+            stateCD = Time.time + punchDuration;
+            attackCD = stateCD + punchRecovery;
+        }
     }
 
-    //public void Punch(InputAction.CallbackContext context)
-    //{
-    //    Debug.Log("Punch!");
-    //    if (context.performed)
-    //    {
-    //        isPunching = true;
-    //    }
-    //    else
-    //    {
-    //        isPunching = false;
-    //    }
-    //}
+    public void Kick()
+    {
+        if (isState("IDLE") && Time.time >= attackCD)
+        {
+            Debug.Log("Kick!");
+            combatState = "KICK";
+            controllerANIM.SetTrigger("Kick");
+            launchAttack(attackHitboxes[1], kickDamage);
+            stateCD = Time.time + kickDuration;
+            attackCD = stateCD + kickRecovery;
+        }
+    }
 
-    //public void Kick(InputAction.CallbackContext context)
-    //{
-    //    Debug.Log("Punch!");
-    //    if (context.performed)
-    //    {
-    //        isKicking = true;
-    //    }
-    //    else
-    //    {
-    //        isKicking = false;
-    //    }
-    //}
+    public void Block(bool input)
+    {
+        if (input)
+        {
+            Debug.Log("Blocking");
+            isBlocking = true;
+            stateCD = Time.time + blockDuration;
+        }
+        else
+        {
+            isBlocking = false;
+        }
+    }
 
-    //public void Block(InputAction.CallbackContext context)
-    //{
-    //}
+    public bool isState(string state)
+    {
+        return combatState == state;
+    }
 
     void launchAttack(Collider col, int attackDamage)
     {
@@ -161,14 +207,23 @@ public class EnemyFollow : MonoBehaviour
             {
                 continue;
             }
-
-            c.SendMessageUpwards("TakeDamage", attackDamage);
+            Vector3 attackDir = new Vector3(0, 0.5f, 2);
+            if (c.tag.Contains("Player1"))
+            {
+                c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
+            }
+            else
+            {
+                c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
+            }
         }
     }
-
-    IEnumerator Cooldown()
+    void UpdateHealth()
     {
-        Debug.Log("Cooldown is in place");
-        yield return new WaitForSeconds(2);
+        knockPercent = damageTaken / defense;
+        knockbackScalar = 1 + knockPercent / 4;
+        HealthText.SetText((knockPercent * 100).ToString("0") + "%");
+        Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
 }
+
