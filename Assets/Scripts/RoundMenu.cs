@@ -76,7 +76,7 @@ public class RoundMenu : MonoBehaviour
             SaveManager.Save(da);
             reset();
         }
-        else if (playerscoreint2 == 2)
+        else if (playerscoreint2 == 5)
         {
             winningpoints.text = "Your score: " + playerscoreint2.ToString();
             winningplayer.text = playernamestr2;
