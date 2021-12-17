@@ -1675,6 +1675,7 @@ MonoBehaviour:
     p1hits: 0
     p1jumps: 0
     numberRounds: 0
+    numberMatches: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
@@ -1769,7 +1770,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1295036748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1174119924}
+        m_TargetAssemblyTypeName: DisplayAnalitics, Assembly-CSharp
+        m_MethodName: GoBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DisplayAnalitics.GoBack
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1295036748
 MonoBehaviour:
   m_ObjectHideFlags: 0

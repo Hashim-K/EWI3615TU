@@ -902,6 +902,44 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 5099802242928923949, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_Text
+      value: 'Analytics
+
+        (Ends round)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099802242928923949, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 713484718}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadAnalytics
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817221060823659126, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47a777ca1030e045bb3501203199291, type: 3}
 --- !u!4 &900058244 stripped
@@ -1582,6 +1620,7 @@ MonoBehaviour:
     p1hits: 0
     p1jumps: 0
     numberRounds: 0
+    numberMatches: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
