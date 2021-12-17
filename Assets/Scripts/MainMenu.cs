@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Authenticate");
     }
 
-    public void Analytics()
+    public void LoadAnalytics()
     {
         SceneManager.LoadScene("Analytics");
     }

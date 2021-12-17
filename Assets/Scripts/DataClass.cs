@@ -37,7 +37,7 @@ public class DataClass : MonoBehaviour
            jumping = true;
        }
 
-        if (p1Combat.isState("PUNCH") || p1Combat.isState("KICK"))
+        if (p1Combat.isKicking || p1Combat.isPunching)
         {
             attacking = true;
         }

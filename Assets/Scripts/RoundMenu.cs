@@ -26,8 +26,18 @@ public class RoundMenu : MonoBehaviour
     public Text playerscore2;
     public static int playerscoreint = 0;
     public static int playerscoreint2 = 0;
+    
+    public Stats da = new Stats();
+
+
+
 
     public GameObject WinMsg;
+
+    void Awake()
+    {
+        da = SaveManager.Load();
+    }
     
     void Start()
     {
@@ -62,16 +72,21 @@ public class RoundMenu : MonoBehaviour
             winningpoints.text = "Your score: " + playerscoreint.ToString();
             winningplayer.text = playernamestr;
             WinMsg.SetActive(true);
+            da.numberMatches += 1;
+            SaveManager.Save(da);
             reset();
         }
-        else if (playerscoreint2 == 5)
+        else if (playerscoreint2 == 2)
         {
             winningpoints.text = "Your score: " + playerscoreint2.ToString();
             winningplayer.text = playernamestr2;
             WinMsg.SetActive(true);
+            da.numberMatches += 1;
+            SaveManager.Save(da);
             reset();
         }
     }
+  
 
     // Picks a random item from the list and sets wonpowerup to the chosen item
     static void Pupicker()

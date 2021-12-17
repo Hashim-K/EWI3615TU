@@ -20,6 +20,9 @@ public class Combat : MonoBehaviour
 
     private string combatState = "IDLE";
     private bool isBlocking;
+    public bool isPunching;
+    public bool isKicking;
+
 
     public bool isHit = false;
 
@@ -77,6 +80,16 @@ public class Combat : MonoBehaviour
         {
             isHit = false;
         }
+
+        if (isKicking)
+        {
+            isKicking = false;
+        }
+
+        if (isPunching)
+        {
+            isPunching = false;
+        }
     }
 
     public void TakeDamage(float attackDamage, Vector3 attackDir)
@@ -106,6 +119,7 @@ public class Combat : MonoBehaviour
         if (context.performed && isState("IDLE") && Time.time >= attackCD)
         {
             Debug.Log("Punch!");
+            isPunching = true;
             combatState = "PUNCH";
             controllerANIM.SetTrigger("Punch");
             launchAttack(attackHitboxes[0], punchDamage);
@@ -119,6 +133,7 @@ public class Combat : MonoBehaviour
         if (context.performed && isState("IDLE") && Time.time >= attackCD)
         {
             Debug.Log("Kick!");
+            isKicking = true;
             combatState = "KICK";
             controllerANIM.SetTrigger("Kick");
             launchAttack(attackHitboxes[1], kickDamage);
