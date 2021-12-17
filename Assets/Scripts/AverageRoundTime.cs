@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AverageRoundTime : MonoBehaviour
 {
-    public RoundMenu rm;
 
     public Stats da = new Stats();
 
@@ -19,14 +18,9 @@ public class AverageRoundTime : MonoBehaviour
         da.totalTime += da.roundTime;
         da.averageRoundTime = da.totalTime / da.numberRounds;
 
-
-        if(rm.match_end)
-        {
-            da.numberMatches += 1;
-        }
-
         SaveManager.Save(da);
     }
+
 
 
 }

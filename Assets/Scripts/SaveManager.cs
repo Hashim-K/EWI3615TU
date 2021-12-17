@@ -25,6 +25,7 @@ public static class SaveManager
     {
         string fullpath = Application.persistentDataPath + directory + fileName;
         Stats da = new Stats();
+        
 
         if (System.IO.File.Exists(fullpath))
         {
