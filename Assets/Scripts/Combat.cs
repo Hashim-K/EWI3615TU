@@ -44,7 +44,7 @@ public class Combat : MonoBehaviour
     {
         UpdateHealth();
         controllerANIM = characterOBJ.GetComponent<Animator>();
-        //rb = gameObject.GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -61,7 +61,7 @@ public class Combat : MonoBehaviour
         if (isBlocking && isState("IDLE") && Time.time >= blockCD)
         {
             combatState = "BLOCK";
-            //controllerANIM.SetBool("Block", true);
+            controllerANIM.SetBool("Block", true);
         }
 
         if(!isBlocking && isState("BLOCK"))

@@ -757,8 +757,8 @@ RectTransform:
   - {fileID: 1950159400}
   - {fileID: 1843097736}
   - {fileID: 1527692167}
-  - {fileID: 977855326}
   - {fileID: 2107788739}
+  - {fileID: 977855326}
   - {fileID: 2086974548}
   - {fileID: 1268947723}
   m_Father: {fileID: 0}
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 977855328}
   - component: {fileID: 977855327}
   m_Layer: 5
-  m_Name: HealthP1Txt
+  m_Name: HealthP2Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,7 +1266,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 713484717}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1382,9 +1382,33 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5252138385914117080, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -4447537251728179078, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -4330828500037601228, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -526030562498695804, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: -358832651295321113, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
+    - target: {fileID: 72261095811086982, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c05e1271a9d2c9344baf307285ac514b, type: 2}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_Name
-      value: concept_humanoid
+      value: Player_1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_TagString
@@ -1398,6 +1422,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e7e5851cf5ec68743a763ca1b8919d9c, type: 2}
+    - target: {fileID: 5866666021909216657, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
 --- !u!1 &1029681065 stripped
@@ -1433,10 +1461,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 1029681065}
   maxSpeed: 4
-  jumpForce: 8
+  jumpForce: 1
   jump: 0
-  maxJumps: 3
+  maxJumps: 2
 --- !u!1 &1055690142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,9 +1920,9 @@ MonoBehaviour:
     m_ActionName: Player/North
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1029681070}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: East
+      - m_Target: {fileID: 1268529952}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1907,9 +1936,9 @@ MonoBehaviour:
     m_ActionName: Player/East
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1029681070}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: South
+      - m_Target: {fileID: 1268529952}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Punch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2121,7 +2150,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 45b24c2c-ca97-4412-b433-62f5dbf7ad8c
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -2152,17 +2181,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1029681065}
-  HealthText: {fileID: 2086974549}
-  defense: 100
-  knockPercent: 0
-  isBlocking: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
+  HealthText: {fileID: 2107788737}
   attackHitboxes:
   - {fileID: 238935432}
   - {fileID: 508806861}
-  rb: {fileID: 1029681067}
+  defense: 100
+  knockPercent: 0
+  isHit: 0
+  blockReduction: 0.5
+  blockDuration: 3
+  blockRecovery: 1.5
+--- !u!95 &1268529953
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029681065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+  m_Controller: {fileID: 9100000, guid: e7e5851cf5ec68743a763ca1b8919d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1268947722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,7 +2228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1268947723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2390,13 +2438,37 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5252138385914117080, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -4447537251728179078, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -4330828500037601228, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -526030562498695804, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: -358832651295321113, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
+    - target: {fileID: 72261095811086982, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a94e42ec7619a41879b7fb6c0741cd, type: 2}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcff1f3d02234b249a837f175f33d485, type: 3}
       propertyPath: m_TagString
@@ -2435,17 +2507,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1418404256}
-  HealthText: {fileID: 2086974549}
-  defense: 100
-  knockPercent: 0
-  isBlocking: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
+  HealthText: {fileID: 977855327}
   attackHitboxes:
   - {fileID: 606861688}
   - {fileID: 2074523712}
-  rb: {fileID: 1418404262}
+  defense: 100
+  knockPercent: 0
+  isHit: 0
+  blockReduction: 0.5
+  blockDuration: 3
+  blockRecovery: 1.5
 --- !u!114 &1418404259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2521,9 +2592,9 @@ MonoBehaviour:
     m_ActionName: Player/North
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1418404260}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: East
+      - m_Target: {fileID: 1418404258}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Punch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2537,9 +2608,9 @@ MonoBehaviour:
     m_ActionName: Player/East
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1418404260}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: South
+      - m_Target: {fileID: 1418404258}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2751,8 +2822,8 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 45b24c2c-ca97-4412-b433-62f5dbf7ad8c
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -2768,10 +2839,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 1418404256}
   maxSpeed: 4
-  jumpForce: 8
+  jumpForce: 1
   jump: 0
-  maxJumps: 3
+  maxJumps: 2
 --- !u!65 &1418404261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3002,6 +3074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 0}
   maxSpeed: 4
   jumpForce: 8
   jump: 0
@@ -3806,7 +3879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2086974548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3881,7 +3954,7 @@ GameObject:
   - component: {fileID: 2107788738}
   - component: {fileID: 2107788737}
   m_Layer: 5
-  m_Name: HealthP2Txt
+  m_Name: HealthP1Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3942,7 +4015,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 713484717}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4024,6 +4097,10 @@ PrefabInstance:
     - target: {fileID: 2033938350149886320, guid: 910139a87899e0146bec2bc7a3ac0610, type: 3}
       propertyPath: m_Name
       value: enemycube
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033938350149886320, guid: 910139a87899e0146bec2bc7a3ac0610, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2231745569793133706, guid: 910139a87899e0146bec2bc7a3ac0610, type: 3}
       propertyPath: m_RootOrder

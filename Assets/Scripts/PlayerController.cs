@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator controllerANIM;
+    public GameObject characterOBJ;
     public float maxSpeed = 4f;
     public float jumpForce = 8f;
     private float horizontalDir;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         maxSpeed = 4f;
         jumpForce = 8f;
@@ -65,12 +68,14 @@ public class PlayerController : MonoBehaviour
         if (jump && isGrounded) 
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            controllerANIM.SetTrigger("Jump");
             jumpRemaining = maxJumps-1;
             jump = false;
             Debug.Log("Jump" + (maxJumps-jumpRemaining));
         }
         else if(jump && jumpRemaining>0)
         {
+            controllerANIM.SetTrigger("Jump");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             jumpRemaining--;
             jump = false;
@@ -102,10 +107,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Horizontal!");
             horizontalDir = (float)context.ReadValueAsObject();
+            controllerANIM.SetBool("Forward", true);
         }
         else
         {
             horizontalDir = 0f;
+            controllerANIM.SetBool("Forward", false);
         }
 
     }
