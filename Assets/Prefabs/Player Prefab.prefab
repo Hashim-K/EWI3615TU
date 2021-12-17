@@ -155,6 +155,8 @@ MonoBehaviour:
   - {fileID: 5748294745426146974}
   defense: 100
   knockPercent: 0
+  isPunching: 0
+  isKicking: 0
   isHit: 0
   blockReduction: 0.5
   blockDuration: 3
@@ -171,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 1994575032360418526}
   maxSpeed: 4
   jumpForce: 8
   jump: 0
