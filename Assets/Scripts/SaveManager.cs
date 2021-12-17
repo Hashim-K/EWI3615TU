@@ -14,7 +14,7 @@ public static class SaveManager
     {
         string dir = Application.persistentDataPath + directory;
 
-        if (!System.IO.Directory.Exists(dir)) ;
+        if (!System.IO.Directory.Exists(dir)) 
         System.IO.Directory.CreateDirectory(dir);
 
         string json = JsonUtility.ToJson(da);
