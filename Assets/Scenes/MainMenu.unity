@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -671,7 +671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86, y: -112}
+  m_AnchoredPosition: {x: -188, y: -33}
   m_SizeDelta: {x: 124, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &580724741
@@ -1155,7 +1155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 0.5 on 13-12-2021 by GD3
+  m_text: Version 0.6 on 21-12-2021 by GD3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1271,7 +1271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: -73}
   m_SizeDelta: {x: 124, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399309987
@@ -1440,7 +1440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86, y: -112}
+  m_AnchoredPosition: {x: 186, y: -33}
   m_SizeDelta: {x: 124, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1673171458
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: aadd55deec23c3e49bbc23b3669ed137, type: 3}
+  m_Texture: {fileID: 2800000, guid: 53b69a52e6a79d449be061df67d606f4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
