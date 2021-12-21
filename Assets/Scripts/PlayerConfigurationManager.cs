@@ -60,6 +60,13 @@ public class PlayerConfigurationManager : MonoBehaviour
         playerConfigs[index].isReady = true;
         if (playerConfigs.All(p => p.isReady == true))
         {
+            // Playername is now set to Player 1 and Player 2
+            GameMenu.playernamestr = "Player 1";
+            GameMenu.playernamestr2 = "Player 2";
+            RoundMenu.playernamestr = "Player 1";
+            RoundMenu.playernamestr2 = "Player 2";
+            Death_Zone.player1 = "Player 1";
+            Death_Zone.player2 = "Player 2";
             SceneManager.LoadScene("GameMenu");
         }
     }

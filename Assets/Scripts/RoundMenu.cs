@@ -123,12 +123,12 @@ public class RoundMenu : MonoBehaviour
         if (valS == 1)
         {
             //outputStage.text = "prototype stage!";
-            stagestr = "Prototype_v1.0";
+            stagestr = "Stage_1";
         }
         if (valS == 2)
         {
             //outputStage.text = "Stage3!";
-            stagestr = "Stage_02";
+            stagestr = "Stage_2";
         }
     }
 
