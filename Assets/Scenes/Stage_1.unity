@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.57558316, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1400,6 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 0}
   maxSpeed: 4
   jumpForce: 8
   jump: 0
@@ -1591,6 +1592,7 @@ MonoBehaviour:
     p1hits: 0
     p1jumps: 0
     numberRounds: 0
+    numberMatches: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
@@ -2158,6 +2160,8 @@ MonoBehaviour:
   - {fileID: 508806861}
   defense: 100
   knockPercent: 0
+  isPunching: 0
+  isKicking: 0
   isHit: 0
   blockReduction: 0.5
   blockDuration: 3
@@ -2360,6 +2364,8 @@ MonoBehaviour:
   - {fileID: 2074523712}
   defense: 100
   knockPercent: 0
+  isPunching: 0
+  isKicking: 0
   isHit: 0
   blockReduction: 0.5
   blockDuration: 3
@@ -2686,6 +2692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 0}
   maxSpeed: 4
   jumpForce: 8
   jump: 0
@@ -2847,6 +2854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48e173385499b54ca74932eaacb6908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOBJ: {fileID: 0}
   maxSpeed: 4
   jumpForce: 8
   jump: 0
@@ -3150,7 +3158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 47dc5fcac2a74a3478fb2977fd121a44, type: 3}
+  m_Texture: {fileID: 2800000, guid: 8c3ce291ea9577040bbc01e3b0af54db, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
