@@ -167,19 +167,23 @@ public class Combat : MonoBehaviour
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
         {
-            if (c.transform.root == transform)
+            if (c.transform == transform)
             {
                 continue;    
             }
             Vector3 attackDir = new Vector3(0, 0.5f, 2);
             if (c.tag.Contains("Player"))
             {
-                c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
+                if (c.transform.name.Contains("AI"))
+                {
+                    c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
+                }
+                else
+                { 
+                    c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
+                }
             }
-            else
-            {
-                c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
-            }
+            
         }
     }
 }

@@ -203,7 +203,7 @@ public class EnemyFollow : MonoBehaviour
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
         {
-            if (c.transform.root == transform)
+            if (c.transform == transform)
             {
                 continue;
             }
