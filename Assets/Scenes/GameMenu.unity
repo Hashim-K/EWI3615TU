@@ -1290,6 +1290,7 @@ MonoBehaviour:
   stages:
   - Stage_1
   - Stage_2
+  - Stage_3
 --- !u!4 &920423748
 Transform:
   m_ObjectHideFlags: 0
@@ -2378,7 +2379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6585046585860815923, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6585046585860815923, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
