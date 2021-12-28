@@ -130,6 +130,10 @@ public class RoundMenu : MonoBehaviour
             //outputStage.text = "Stage3!";
             stagestr = "Stage_2";
         }
+        if (valS == 3)
+        {
+            stagestr = "Stage_3";
+        }
     }
 
     public void reset()

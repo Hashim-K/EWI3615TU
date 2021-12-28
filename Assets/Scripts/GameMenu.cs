@@ -69,6 +69,11 @@ public class GameMenu : MonoBehaviour
             //outputStage.text = "Stage 2";
             stagestr = "Stage_2";
         }
+        if (valS == 3)
+        {
+            //outputStage.text = "Stage 2";
+            stagestr = "Stage_3";
+        }
     }
 
     //public void HandleInputDataOpponent(int valO)
