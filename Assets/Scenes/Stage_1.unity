@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.57558316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1568,16 +1568,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055690142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62ddf1106cb6314c9519207914fff69, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e3bd49d55e923a4a9172f04b0fd1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1Inputs: {fileID: 1029681070}
   death: {fileID: 971095532}
-  p1Combat: {fileID: 1268529952}
   da:
     p1attacks: 0
+    p2attacks: 0
+    aiattacks: 0
     p1hits: 0
+    p2hits: 0
+    aihits: 0
     p1jumps: 0
+    p2jumps: 0
+    aijumps: 0
     numberRounds: 0
     numberMatches: 0
     roundTime: 0

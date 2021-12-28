@@ -177,6 +177,7 @@ public class Combat : MonoBehaviour
             if (c.tag.Contains("Player"))
             {
                 GetComponent<DataClass>().sendData("Attack", playerID);
+                Debug.Log("test");
                 if (c.transform.name.Contains("AI"))
                 {
                     c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
