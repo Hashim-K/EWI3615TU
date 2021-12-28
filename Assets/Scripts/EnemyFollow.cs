@@ -97,6 +97,7 @@ public class EnemyFollow : MonoBehaviour
     }
     public void TakeDamage(float attackDamage, Vector3 attackDir)
     {
+        GetComponent<DataClass>().sendData("Hit", -1);
         if (isState("BLOCK"))
         {
             attackDamage = attackDamage * blockReduction;
@@ -208,6 +209,7 @@ public class EnemyFollow : MonoBehaviour
                 continue;
             }
             Vector3 attackDir = new Vector3(0, 0.5f, 2);
+            GetComponent<DataClass>().sendData("Attack", -1);
             if (c.tag.Contains("Player1"))
             {
                 c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
