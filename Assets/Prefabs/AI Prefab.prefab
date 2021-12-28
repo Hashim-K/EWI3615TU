@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 2945265780397956761}
   - component: {fileID: 2208666840085182602}
   - component: {fileID: 1038967041119693389}
+  - component: {fileID: 8365275464906345348}
   m_Layer: 3
   m_Name: AI Prefab
   m_TagString: Player2
@@ -181,6 +182,33 @@ MonoBehaviour:
   blockReduction: 0.5
   blockDuration: 3
   blockRecovery: 1.5
+--- !u!114 &8365275464906345348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994575032360418526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62ddf1106cb6314c9519207914fff69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  da:
+    p1attacks: 0
+    p2attacks: 0
+    aiattacks: 0
+    p1hits: 0
+    p2hits: 0
+    aihits: 0
+    p1jumps: 0
+    p2jumps: 0
+    aijumps: 0
+    numberRounds: 0
+    numberMatches: 0
+    roundTime: 0
+    averageRoundTime: 0
+    totalTime: 0
 --- !u!1 &4158834837650896189
 GameObject:
   m_ObjectHideFlags: 0
