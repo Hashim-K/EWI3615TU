@@ -12,7 +12,7 @@ public class Combat : MonoBehaviour
     public TextMeshProUGUI HealthText;
     public Collider[] attackHitboxes;
     private Rigidbody rb;
-
+    private int playerID;
 
     public float defense = 100;
     private float damageTaken = 0;
@@ -46,6 +46,7 @@ public class Combat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerID = int.Parse(tag.Substring(tag.Length - 1));
         UpdateHealth();
         controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
@@ -95,6 +96,7 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float attackDamage, Vector3 attackDir)
     {
+        GetComponent<DataClass>().sendData("Hit", playerID);
         if (isState("BLOCK"))
         {
             attackDamage = attackDamage * blockReduction;
@@ -167,19 +169,25 @@ public class Combat : MonoBehaviour
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
         {
-            if (c.transform.root == transform)
+            if (c.transform == transform)
             {
                 continue;    
             }
             Vector3 attackDir = new Vector3(0, 0.5f, 2);
             if (c.tag.Contains("Player"))
             {
-                c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
+                GetComponent<DataClass>().sendData("Attack", playerID);
+                Debug.Log("test");
+                if (c.transform.name.Contains("AI"))
+                {
+                    c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
+                }
+                else
+                { 
+                    c.GetComponentInParent<Combat>().TakeDamage(attackDamage, attackDir);
+                }
             }
-            else
-            {
-                c.GetComponentInParent<EnemyFollow>().TakeDamage(attackDamage, attackDir);
-            }
+            
         }
     }
 }

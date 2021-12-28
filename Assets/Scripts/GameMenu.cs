@@ -19,8 +19,7 @@ public class GameMenu : MonoBehaviour
 
     void Start()
     {
-        playername.text = playernamestr;
-        playername2.text = playernamestr2;
+
     }
 
     public void ExitToMainMenu()

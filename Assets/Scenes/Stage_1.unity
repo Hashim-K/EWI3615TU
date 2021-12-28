@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.57558316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -363,7 +363,6 @@ GameObject:
   - component: {fileID: 447015293}
   - component: {fileID: 447015297}
   - component: {fileID: 447015296}
-  - component: {fileID: 447015299}
   m_Layer: 0
   m_Name: SolidPlatform
   m_TagString: Platform
@@ -496,18 +495,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &447015299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447015292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbafabdc44970754a8129f7653fd4b08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &469150511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1581,16 +1568,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055690142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62ddf1106cb6314c9519207914fff69, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e3bd49d55e923a4a9172f04b0fd1532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1Inputs: {fileID: 1029681070}
   death: {fileID: 971095532}
-  p1Combat: {fileID: 1268529952}
   da:
     p1attacks: 0
+    p2attacks: 0
+    aiattacks: 0
     p1hits: 0
+    p2hits: 0
+    aihits: 0
     p1jumps: 0
+    p2jumps: 0
+    aijumps: 0
     numberRounds: 0
     numberMatches: 0
     roundTime: 0
@@ -3780,7 +3771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9130134259118261720, guid: 93acbf08053161c4fbc99ac2dcd04716, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -450
       objectReference: {fileID: 0}
     - target: {fileID: 9130134259118261720, guid: 93acbf08053161c4fbc99ac2dcd04716, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3949,6 +3940,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6991614974511206314, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196902458573491659, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_BaseOffset
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

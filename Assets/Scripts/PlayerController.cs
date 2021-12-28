@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private int jumpRemaining;
     public int maxJumps = 3;
     private Rigidbody rb;
+    private int playerID;
 
     public static string powerup;
     public static string playerwonputag;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerID = int.Parse(tag.Substring(tag.Length - 1));
         controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         maxSpeed = 4f;
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
             jumpRemaining = maxJumps-1;
             jump = false;
             Debug.Log("Jump" + (maxJumps-jumpRemaining));
+            GetComponent<DataClass>().sendData("Jump", playerID);
         }
         else if(jump && jumpRemaining>0)
         {
@@ -80,6 +83,7 @@ public class PlayerController : MonoBehaviour
             jumpRemaining--;
             jump = false;
             Debug.Log("Jump" + (maxJumps-jumpRemaining));
+            GetComponent<DataClass>().sendData("Jump", playerID);
         }
         
     }

@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1994575032360418525}
   - component: {fileID: -1370818011552538259}
   - component: {fileID: 9071399233392549511}
+  - component: {fileID: 1460138544097446178}
   m_Layer: 3
   m_Name: Player Prefab
   m_TagString: Untagged
@@ -178,6 +179,34 @@ MonoBehaviour:
   jumpForce: 8
   jump: 0
   maxJumps: 3
+--- !u!114 &1460138544097446178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994575032360418526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62ddf1106cb6314c9519207914fff69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death: {fileID: 0}
+  da:
+    p1attacks: 0
+    p2attacks: 0
+    aiattacks: 0
+    p1hits: 0
+    p2hits: 0
+    aihits: 0
+    p1jumps: 0
+    p2jumps: 0
+    aijumps: 0
+    numberRounds: 0
+    numberMatches: 0
+    roundTime: 0
+    averageRoundTime: 0
+    totalTime: 0
 --- !u!1 &2433221633526488601
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +247,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2433221633526488601}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.19451416
   m_Height: 1.0158182
@@ -264,7 +293,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5046138738625291893}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.17941013
   m_Height: 1.3072788
