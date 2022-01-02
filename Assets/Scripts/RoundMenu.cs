@@ -134,6 +134,22 @@ public class RoundMenu : MonoBehaviour
         {
             stagestr = "Stage_3";
         }
+        if (valS == 4)
+        {
+            stagestr = "Stage_4";
+        }
+        if (valS == 5)
+        {
+            stagestr = "Stage_5";
+        }
+        if (valS == 6)
+        {
+            stagestr = "Stage_6";
+        }
+        if (valS == 7)
+        {
+            stagestr = "Stage_7";
+        }
     }
 
     public void reset()

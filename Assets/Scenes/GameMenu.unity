@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Stage 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 03b9abbe4636c2141bc354fdff13fcae, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1291,6 +1295,10 @@ MonoBehaviour:
   - Stage_1
   - Stage_2
   - Stage_3
+  - Stage_4
+  - Stage_5
+  - Stage_6
+  - Stage_7
 --- !u!4 &920423748
 Transform:
   m_ObjectHideFlags: 0
@@ -1919,6 +1927,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Stage 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 5b9d79b689905024db3ffe74b81cb0bd, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2393,6 +2405,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Stage 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 5abcf4f756c01db44a3d4fbd8ebd3717, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2831,6 +2847,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Stage 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: dcbf9e01926e96c4faee70b6af2ae06d, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -3119,6 +3139,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Stage 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 10a1847da1601f44590e099ca555abc3, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -3320,6 +3344,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Stage 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 39701338b1b8c8e4fa64348cb050240d, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -4562,5 +4590,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 8c3ce291ea9577040bbc01e3b0af54db, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
