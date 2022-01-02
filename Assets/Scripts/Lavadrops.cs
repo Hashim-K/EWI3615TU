@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lavadrops : MonoBehaviour
 {
     public float topLimit = 12f;
-    public float bottomLimit = -14f;
+    public float bottomLimit = -10f;
     public float speed = 6.0f;
     private int direction = 1;
     private bool dropbool = true;
