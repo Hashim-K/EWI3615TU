@@ -28,6 +28,7 @@ public class Death_Zone : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("death:", other);
         Death.SetActive(true);
         if (other.gameObject.CompareTag("Player1"))
         {

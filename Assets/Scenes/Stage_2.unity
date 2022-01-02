@@ -1205,6 +1205,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035599568753313344, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
   m_PrefabInstance: {fileID: 620115634}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &620115636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5035599568508586726, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+  m_PrefabInstance: {fileID: 620115634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &620115637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5035599568508586746, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+  m_PrefabInstance: {fileID: 620115634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!191 &620115638
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620115637}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 620115636}
+  m_End: {fileID: 1417936989}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
 --- !u!1 &669038847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2389,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5035599568753313344, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
   m_PrefabInstance: {fileID: 1557662539}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1557662541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5035599568508586726, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+  m_PrefabInstance: {fileID: 1557662539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1557662542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5035599568508586746, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+  m_PrefabInstance: {fileID: 1557662539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!191 &1557662543
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557662542}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 1557662541}
+  m_End: {fileID: 1549718688}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
 --- !u!1 &1630574562
 GameObject:
   m_ObjectHideFlags: 0
