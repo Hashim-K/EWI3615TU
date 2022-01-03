@@ -16,6 +16,7 @@ public class ArchetypeManager : MonoBehaviour
 
     void Update()
     {
+        //if Archetype hasn't been set yet and an Archetype has been assigned then set stats
         if (!setAT && playerArchetype != -1)
         { 
             setArchetype(playerArchetype);
@@ -24,8 +25,8 @@ public class ArchetypeManager : MonoBehaviour
     }
 
     public void setArchetype(int id)
+    //set combat and movement stats
     {
-            playerArchetype = id;
             gameObject.GetComponent<Combat>().setCombatStats(ArchetypeList[id].getCombatStats());
             gameObject.GetComponent<PlayerController>().setPlayerControllerStats(ArchetypeList[id].getPlayerControllerStats());
     }
@@ -35,25 +36,30 @@ public class ArchetypeManager : MonoBehaviour
 public class Archetype
 {
     public Archetype(int id)
+    //class to contain the Archetype specific stats
     {
         archetypeID = id;
 
+        //base combat stat values
         defense = 100;
         punchDamage = 30;
         kickDamage = 20;
         blockReduction = 0.5f;
 
+        //base movement stat values
         maxSpeed = 4f;
         jumpForce = 8f;
         maxJumps = 3;
     }
     
     public (float, int, int, float) getCombatStats()
+    //return the combat stats as a tuple
     {
         return (defense, punchDamage, kickDamage, blockReduction);
     }
 
     public (float, float, int) getPlayerControllerStats()
+    //return the movement stats as a tuple
     {
         return (maxSpeed, jumpForce, maxJumps);
     }
@@ -72,8 +78,11 @@ public class Archetype
 public class Archetypes
 {
     public Archetypes()
+    //initialize a list of all the Archetypes
     {
         list = new Archetype[5];
+
+        //assign Archetypes to an index
         list[0] = Brawler(0);
         list[1] = GlassCannon(1);
 
@@ -82,12 +91,16 @@ public class Archetypes
     public Archetype[] list { get; set; }
 
     public static int getArchetypes()
+    //Returns the amount of Archetypes that exist
     {
         Archetypes atList = new Archetypes();
         return atList.list.Length;
     }
 
     public static List<int> getArchtypeIndexList()
+    //return a list containing the indeces of all Archetypes
+    //(useful when making blacklisting powerups from archetype
+    //as the full list can be initialized and then the black listed archetypes can be removed)
     {
         List<int> indexList = new List<int>();
         for (int i = 0; i < Archetypes.getArchetypes(); i++)
@@ -98,6 +111,7 @@ public class Archetypes
     }
 
     public Archetype Brawler(int id)
+    //Stats for brawler Archetype
     {
         Archetype Brawler = new Archetype(id);
         Brawler.punchDamage = 40;
@@ -109,6 +123,7 @@ public class Archetypes
     }
 
     public Archetype GlassCannon(int id)
+    //Stats for Glasscannon Archetype
     {
         Archetype GlassCannon = new Archetype(id);
         GlassCannon.punchDamage = 80;
