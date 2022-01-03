@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -48,6 +48,10 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         return playerConfigs;
     }
+    public void SetPlayerArchetype(int index, int playerAT)
+    {
+        playerConfigs[index].playerArchetype = playerAT;
+    }
 
     public void SetPlayerColor(int index, Material color)
     {
@@ -96,5 +100,6 @@ public class PlayerConfiguration
     public PlayerInput Input { get; private set; }
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
+    public int playerArchetype { get; set; }
     public Material playerMaterial { get; set; }
 }

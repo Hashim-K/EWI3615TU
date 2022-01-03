@@ -7,16 +7,16 @@ public class PlayerController : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
-    public float maxSpeed = 4f;
-    public float jumpForce = 8f;
+    private float maxSpeed;
+    private float jumpForce;
     private float horizontalDir;
     private float lookDir = 1f;
     private float airDir;
     private float verticalDir;
-    public bool jump;
+    private bool jump;
     private bool isGrounded;
     private int jumpRemaining;
-    public int maxJumps = 3;
+    private int maxJumps;
     private Rigidbody rb;
     private int playerID;
 
@@ -29,9 +29,11 @@ public class PlayerController : MonoBehaviour
         playerID = int.Parse(tag.Substring(tag.Length - 1));
         controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        maxSpeed = 4f;
-        jumpForce = 8f;
-        maxJumps = 3;
+
+        //Set base stats
+        Archetype baseStats = new Archetype(-1);
+        setPlayerControllerStats(baseStats.getPlayerControllerStats());
+
         // Change values for powerup values
 
         if ((powerup == "JumpBoost") && (rb.CompareTag(playerwonputag)))
@@ -103,6 +105,13 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    public void setPlayerControllerStats((float mSpeed, float jumpF, int mJumps) pcStats)
+    {
+        maxSpeed = pcStats.mSpeed;
+        jumpForce = pcStats.jumpF;
+        maxJumps = pcStats.mJumps;
     }
 
     public void Horizontal(InputAction.CallbackContext context)
