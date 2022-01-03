@@ -7,26 +7,27 @@ public class ArchetypeManager : MonoBehaviour
 
     private Archetype[] ArchetypeList = new Archetypes().list;
     public int playerArchetype = -1;
+    private bool setAT = false;
 
     void Start()
     {
         ArchetypeList = new Archetypes().list;
     }
 
-    void update()
+    void Update()
     {
-        if (playerArchetype != -1)
+        if (!setAT && playerArchetype != -1)
         { 
             setArchetype(playerArchetype);
+            setAT = true;
         }
     }
 
     public void setArchetype(int id)
     {
-        playerArchetype = id;
-        Debug.Log("length: "+ ArchetypeList.Length);
-        gameObject.GetComponent<Combat>().setCombatStats(ArchetypeList[id].getCombatStats());
-        gameObject.GetComponent<PlayerController>().setPlayerControllerStats(ArchetypeList[id].getPlayerControllerStats());
+            playerArchetype = id;
+            gameObject.GetComponent<Combat>().setCombatStats(ArchetypeList[id].getCombatStats());
+            gameObject.GetComponent<PlayerController>().setPlayerControllerStats(ArchetypeList[id].getPlayerControllerStats());
     }
 
 }
