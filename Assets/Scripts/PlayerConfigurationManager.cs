@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -96,5 +96,6 @@ public class PlayerConfiguration
     public PlayerInput Input { get; private set; }
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
+    public List<PowerUpState> puStates{ get; set; }
     public Material playerMaterial { get; set; }
 }

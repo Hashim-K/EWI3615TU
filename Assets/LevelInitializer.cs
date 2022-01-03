@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,7 +24,7 @@ public class LevelInitializer : MonoBehaviour
             var player = Instantiate(playerPrefab, PlayerSpawns[i].position, PlayerSpawns[i].rotation, gameObject.transform);
             player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
             player.GetComponent<Combat>().HealthText = HealthTexts[i];
-            player.tag = "Player" + (i+1).ToString();
+            player.GetComponent<PowerUpManager>().puStates = playerConfigs[i].puStates;
             if (playerConfigs.Length == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
