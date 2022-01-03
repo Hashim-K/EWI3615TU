@@ -46,6 +46,10 @@ public class PowerUpManager : MonoBehaviour
         return -1;
     }
 
+    public String getPowerUpName(int puIndex)
+    {
+        return puList.list[puIndex].powerUpName;
+    }
 
     public List<int> getPossiblePowerUps()
     //returns a list containing an array of integers of all the possible powerUps a player can obtain
@@ -109,20 +113,19 @@ public class PowerUpManager : MonoBehaviour
 public class PowerUp
     //class containing basic powerUp information
 {
-    public PowerUp(int index)
+    public PowerUp(int index, string name,int mS = 1, int w = 1)
     {
         powerUpIndex = index;
-        maxStacks = 3;
-        weight = 1;
+        powerUpName = name;
+        maxStacks = mS;
+        weight = w;
         compatibleArchetypes = Archetypes.getArchtypeIndexList();
     }
 
     public int powerUpIndex { get; set; }
-
+    public string powerUpName { get; set; }
     public int maxStacks { get; set; }
-
     public int weight {get; set; }
-
     public List<int> compatibleArchetypes { get; set; }
 
     public bool canPowerUp(int currentStacks, int playerArchetype)
@@ -137,7 +140,11 @@ public class PowerUps
     public PowerUps()
     {
         list = new List<PowerUp>();
-        list.Add(JumpBoost(0));
+
+        //create PowerUps here
+        list.Add(powerupTemplate("JumpBoost", w: 4, mS: 4, blackList:new int[]{2, 3}));
+        list.Add(powerupTemplate("SpeedBoost", w: 6, mS: 3));
+        list.Add(powerupTemplate("BlockBoost", w: 3, mS: 5));
     }
 
     public List<PowerUp> list { get; set; }
@@ -148,13 +155,22 @@ public class PowerUps
     }
 
 
-    public PowerUp JumpBoost(int id)
+    public PowerUp powerupTemplate(string name, int id = -1, int w = 1, int mS = 1, int[] blackList = null)
     {
-        PowerUp jumpBoost = new PowerUp(0);
-        return jumpBoost;
+        if (id == -1)
+        {
+            id = list.Count;
+        }
+        PowerUp powerupTemplate = new PowerUp(id, name, mS, w);
+        if (blackList != null)
+        {
+            foreach (var indexAT in blackList)
+            {
+                powerupTemplate.compatibleArchetypes.Remove(indexAT);
+            }
+        }
+        return powerupTemplate;
     }
-
-
 }
 
 public class PowerUpState
