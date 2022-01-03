@@ -101,5 +101,6 @@ public class PlayerConfiguration
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
     public int playerArchetype { get; set; }
+    public List<PowerUpState> puStates{ get; set; }
     public Material playerMaterial { get; set; }
 }

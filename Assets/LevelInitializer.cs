@@ -26,6 +26,7 @@ public class LevelInitializer : MonoBehaviour
             player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
             player.GetComponent<Combat>().HealthText = HealthTexts[i];
             player.GetComponent<ArchetypeManager>().playerArchetype = (playerConfigs[i].playerArchetype);
+            player.GetComponent<PowerUpManager>().puStates = playerConfigs[i].puStates;
             if (playerConfigs.Length == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
