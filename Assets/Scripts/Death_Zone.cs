@@ -55,6 +55,7 @@ public class Death_Zone : MonoBehaviour
         
      public void reset()
     {
+        FindObjectOfType<LevelInitializer>().destroyPlayers();
         //Get methods from GameAnalytics object (And use them)
         //GameAnalytics = GameObject.FindGameObjectWithTag("Analytics").GetComponent<GameAnalytics>();
 
