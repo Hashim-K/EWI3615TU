@@ -17,7 +17,7 @@ public class ArchetypeManager : MonoBehaviour
     void Update()
     {
         //if Archetype hasn't been set yet and an Archetype has been assigned then set stats
-        if (!setAT && playerArchetype != -1)
+        if (ArchetypeList != null && !setAT && playerArchetype != -1)
         { 
             setArchetype(playerArchetype);
             setAT = true;
