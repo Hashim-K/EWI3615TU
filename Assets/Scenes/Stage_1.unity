@@ -1388,10 +1388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
-  maxSpeed: 4
-  jumpForce: 8
-  jump: 0
-  maxJumps: 3
 --- !u!1 &1032858151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,14 +2145,7 @@ MonoBehaviour:
   attackHitboxes:
   - {fileID: 238935432}
   - {fileID: 508806861}
-  defense: 100
-  knockPercent: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
-  blockReduction: 0.5
-  blockDuration: 3
-  blockRecovery: 1.5
+  punchDamage: 0
 --- !u!1 &1357950766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,14 +2342,7 @@ MonoBehaviour:
   attackHitboxes:
   - {fileID: 606861688}
   - {fileID: 2074523712}
-  defense: 100
-  knockPercent: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
-  blockReduction: 0.5
-  blockDuration: 3
-  blockRecovery: 1.5
+  punchDamage: 0
 --- !u!114 &1418404259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,10 +2666,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
-  maxSpeed: 4
-  jumpForce: 8
-  jump: 0
-  maxJumps: 3
 --- !u!65 &1418404261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2846,10 +2824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
-  maxSpeed: 4
-  jumpForce: 8
-  jump: 0
-  maxJumps: 3
 --- !u!114 &1550534332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3886,6 +3860,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6991614974344524129, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991614974344524129, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991614974344524129, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6991614974511206312, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
       propertyPath: m_Name
       value: Level Initializer

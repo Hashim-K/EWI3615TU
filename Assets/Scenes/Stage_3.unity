@@ -1163,6 +1163,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6991614974344524129, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991614974344524129, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991614974344524129, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6991614974511206312, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
       propertyPath: m_Name
       value: Level Initializer

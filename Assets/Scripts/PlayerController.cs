@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
         controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 
+        if (playerID == 2)
+        {
+            RotatePlayer();
+        }
+
         //Set base stats
         Archetype baseStats = new Archetype(-1);
         setPlayerControllerStats(baseStats.getPlayerControllerStats());
@@ -213,4 +218,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Minus!");
     }
 
+    public void RotatePlayer()
+    {
+        rb.transform.Rotate(Vector3.up * 180f);
+        lookDir = -1;
+    }
 }
