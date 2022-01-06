@@ -99,7 +99,7 @@ public class PowerUpManager : MonoBehaviour
         List<int> weightedPU = getWeightedList(possiblePU);
         while (count > 0)
         {
-            int puIndex = possiblePU[UnityEngine.Random.Range(0, weightedPU.Count)];
+            int puIndex = weightedPU[UnityEngine.Random.Range(0, weightedPU.Count)];
             if (!randomPUs.Contains(puIndex))
             {
                 count--;
