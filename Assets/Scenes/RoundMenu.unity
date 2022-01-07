@@ -722,8 +722,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   da:
     p1attacks: 0
+    p2attacks: 0
+    aiattacks: 0
     p1hits: 0
+    p2hits: 0
+    aihits: 0
     p1jumps: 0
+    p2jumps: 0
+    aijumps: 0
     numberRounds: 0
     numberMatches: 0
     roundTime: 0
@@ -2208,6 +2214,14 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Stage 3
       m_Image: {fileID: 0}
+    - m_Text: Stage 4
+      m_Image: {fileID: 0}
+    - m_Text: Stage 5
+      m_Image: {fileID: 0}
+    - m_Text: Stage 6
+      m_Image: {fileID: 0}
+    - m_Text: Stage 7
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3412,8 +3426,14 @@ MonoBehaviour:
   playerscore2: {fileID: 1504890142}
   da:
     p1attacks: 0
+    p2attacks: 0
+    aiattacks: 0
     p1hits: 0
+    p2hits: 0
+    aihits: 0
     p1jumps: 0
+    p2jumps: 0
+    aijumps: 0
     numberRounds: 0
     numberMatches: 0
     roundTime: 0
