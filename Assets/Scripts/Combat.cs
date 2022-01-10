@@ -43,6 +43,9 @@ public class Combat : MonoBehaviour
     public float blockRecovery = 1.5f;
     private float kickRecovery = 0.1f;
     private float punchRecovery = 0.11f;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +107,7 @@ public class Combat : MonoBehaviour
         isHit = true;
         damageTaken += attackDamage;
         rb.AddForce(attackDir * 5 * knockbackScalar, ForceMode.Impulse);
+        
         UpdateHealth();
     }
 
