@@ -14,6 +14,7 @@ public class Death_Zone : MonoBehaviour
     public static string player1;
     public static string player2;
     public bool round_end;
+    public CameraMovement cameraMovement;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class Death_Zone : MonoBehaviour
     {
         Debug.Log("death:", other);
         Death.SetActive(true);
+        StartCoroutine(cameraMovement.Movement(1.0f, 0.3f));
         if (other.gameObject.CompareTag("Player1"))
         {
             RoundMenu.p1wonlastgamebool = false;
