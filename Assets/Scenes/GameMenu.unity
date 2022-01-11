@@ -2132,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Random Stage
       objectReference: {fileID: 0}
+    - target: {fileID: 6585046587454041065, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: b99f25590d1ff0d42b09b0b574335996, type: 3}
     - target: {fileID: 7419528988652041168, guid: 3c5489a82a80be94fb314d523f602044, type: 3}
       propertyPath: m_Color.a
       value: 1
