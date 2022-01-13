@@ -3424,6 +3424,7 @@ MonoBehaviour:
   earnedpowerup2: {fileID: 20877440}
   playerscore: {fileID: 1570053049}
   playerscore2: {fileID: 1504890142}
+  capturePreview: {fileID: 0}
   da:
     p1attacks: 0
     p2attacks: 0

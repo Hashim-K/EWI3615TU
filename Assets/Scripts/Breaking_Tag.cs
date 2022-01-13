@@ -19,26 +19,26 @@ public class Breaking_Tag : MonoBehaviour
     
         yield return new WaitForSeconds(delayTime);
 
-        //GetComponent<NavMeshAgent>().enabled = false;
+        
         //Debug.Log("navmeshagent is disabled breaking");
         
         foreach (Transform child in gameObject.transform)
         {
             child.gameObject.SetActive(false);
         }
-        // Start with the cameramovement program for the breaking platforms
-        StartCoroutine(cameraMovement.Movement(.2f, .1f));
+        GetComponent<NavMeshAgent>().enabled = false;
         
         yield return new WaitForSeconds(delayTime);
         enabled = true;
         
-        //GetComponent<NavMeshAgent>().enabled = true;
+        
         //Debug.Log("navmeshagent is enabled breaking");
         foreach (Transform child in gameObject.transform)
         {
             child.gameObject.SetActive(true);
         }
-     }
+        GetComponent<NavMeshAgent>().enabled = true;
+        }
     }
 
 

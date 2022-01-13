@@ -227,5 +227,16 @@ public class EnemyFollow : MonoBehaviour
         HealthText.SetText((knockPercent * 100).ToString("0") + "%");
         Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player1"))
+        {
+            GetComponent<NavMeshAgent>().enabled = false;
+            Debug.Log("NavMeshAgent disabled collision");
+            //yield return new WaitForSeconds(3.0f);
+            //GetComponent<NavMeshAgent>().enabled = true;
+        }
+    }
 }
 

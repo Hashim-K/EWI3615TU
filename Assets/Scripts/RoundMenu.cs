@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GetSocialSdk.Capture.Scripts;
+
 
 
 public class RoundMenu : MonoBehaviour
@@ -26,6 +28,8 @@ public class RoundMenu : MonoBehaviour
     public Text playerscore2;
     public static int playerscoreint = 0;
     public static int playerscoreint2 = 0;
+
+    public GetSocialCapturePreview capturePreview;
     
     public Stats da = new Stats();
 
@@ -73,6 +77,7 @@ public class RoundMenu : MonoBehaviour
             winningplayer.text = playernamestr;
             WinMsg.SetActive(true);
             da.numberMatches += 1;
+            da.p1wins += 1;
             SaveManager.Save(da);
             reset();
         }
@@ -82,9 +87,13 @@ public class RoundMenu : MonoBehaviour
             winningplayer.text = playernamestr2;
             WinMsg.SetActive(true);
             da.numberMatches += 1;
+            da.p2wins += 1;
             SaveManager.Save(da);
             reset();
         }
+
+        capturePreview.Play();
+
     }
   
 
