@@ -9,7 +9,9 @@ public class WindForce : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     private int direction;
-    public Text windDirection;
+    public Texture windLeft;
+    public Texture windRight;
+    public RawImage windDirImage;
 
     void Start()
     {
@@ -22,11 +24,11 @@ public class WindForce : MonoBehaviour
         Debug.Log(direction);
         if (direction == 1)
         {
-            windDirection.text = "-->";
+            windDirImage.texture = windRight;
         }
         if (direction == -1)
         {
-            windDirection.text = "<--";
+            windDirImage.texture = windLeft;
         }
     }
 

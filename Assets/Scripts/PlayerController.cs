@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
-    public float maxSpeed = 4f;
+    public static float maxSpeed = 4f;
     public float jumpForce = 8f;
     private float horizontalDir;
     private float lookDir = 1f;
