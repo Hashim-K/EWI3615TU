@@ -77,6 +77,7 @@ public class RoundMenu : MonoBehaviour
             winningplayer.text = playernamestr;
             WinMsg.SetActive(true);
             da.numberMatches += 1;
+            da.p1wins += 1;
             SaveManager.Save(da);
             reset();
         }
@@ -86,6 +87,7 @@ public class RoundMenu : MonoBehaviour
             winningplayer.text = playernamestr2;
             WinMsg.SetActive(true);
             da.numberMatches += 1;
+            da.p2wins += 1;
             SaveManager.Save(da);
             reset();
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AverageRoundTime : MonoBehaviour
 {
 
-    public Stats da = new Stats();
+    public Stats da;
 
     
     void Awake()
@@ -15,6 +15,7 @@ public class AverageRoundTime : MonoBehaviour
     
     void Start()
     {
+        da = SaveManager.Load();
         da.totalTime += da.roundTime;
         da.averageRoundTime = da.totalTime / da.numberRounds;
 
