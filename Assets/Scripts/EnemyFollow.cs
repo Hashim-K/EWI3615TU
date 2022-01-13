@@ -235,8 +235,19 @@ public class EnemyFollow : MonoBehaviour
             GetComponent<NavMeshAgent>().enabled = false;
             Debug.Log("NavMeshAgent disabled collision");
             //yield return new WaitForSeconds(3.0f);
-            //GetComponent<NavMeshAgent>().enabled = true;
+            
         }
+    }
+
+    public void AIenable()
+    {
+        enemy.enabled = true;
+        //yield return null;
+    }
+    public void AIdisable()
+    {
+        enemy.enabled = false;
+        //yield return null;
     }
 }
 

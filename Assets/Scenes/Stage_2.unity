@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.57558316, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,6 +309,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+--- !u!114 &108567935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8028813960042094348, guid: 8a3ac492032b3a54294e3011bcf804ae, type: 3}
+  m_PrefabInstance: {fileID: 108567934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5893eab87abaa45b6df1eda2aa58d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193685081
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,9 +533,13 @@ MonoBehaviour:
     aijumps: 0
     numberRounds: 0
     numberMatches: 0
+    p1wins: 0
+    p2wins: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
+    longestRound: 0
+    shortestRound: 0
 --- !u!114 &229212712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,6 +889,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+      propertyPath: enemyFollow
+      value: 
+      objectReference: {fileID: 108567935}
+    - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 229212712}
@@ -1216,6 +1235,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+      propertyPath: enemyFollow
+      value: 
+      objectReference: {fileID: 108567935}
+    - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 229212712}
@@ -1362,6 +1385,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+      propertyPath: enemyFollow
+      value: 
+      objectReference: {fileID: 108567935}
+    - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 229212712}
@@ -1407,6 +1434,7 @@ MonoBehaviour:
   Death: {fileID: 394703133}
   delayTime: 2
   round_end: 0
+  cameraMovement: {fileID: 229212712}
 --- !u!65 &855756145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1630,6 +1658,10 @@ PrefabInstance:
       propertyPath: delayTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+      propertyPath: enemyFollow
+      value: 
+      objectReference: {fileID: 108567935}
     - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
       propertyPath: cameraMovement
       value: 
@@ -2508,6 +2540,10 @@ PrefabInstance:
       propertyPath: delayTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
+      propertyPath: enemyFollow
+      value: 
+      objectReference: {fileID: 108567935}
     - target: {fileID: 5035599568753313347, guid: e067c48dfc747df43ab4b2b7afeb3935, type: 3}
       propertyPath: cameraMovement
       value: 
