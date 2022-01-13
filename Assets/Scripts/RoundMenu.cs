@@ -92,7 +92,7 @@ public class RoundMenu : MonoBehaviour
             reset();
         }
 
-        capturePreview.Play();
+        //capturePreview.Play();
 
     }
   

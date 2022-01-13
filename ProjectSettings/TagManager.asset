@@ -11,6 +11,7 @@ TagManager:
   - Analytics
   - AI
   - Music
+  - MenuMusic
   layers:
   - Default
   - TransparentFX
