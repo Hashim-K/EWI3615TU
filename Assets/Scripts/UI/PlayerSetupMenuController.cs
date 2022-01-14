@@ -11,11 +11,18 @@ public class PlayerSetupMenuController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI titleText;
     [SerializeField]
-    private GameObject readyPanel;
+
+    private GameObject atSelector; 
     [SerializeField]
-    private GameObject menuPanel;
+    private GameObject cSelector;
+
     [SerializeField]
     private Button readyButton;
+    [SerializeField]
+    private GameObject readyText;
+
+    [SerializeField]
+    private Material[] matList;
 
     private float ignoreInputTime = 0.5f;
     private bool inputEnabled;
@@ -40,23 +47,31 @@ public class PlayerSetupMenuController : MonoBehaviour
             inputEnabled = true;
         }
     }
-
-    public void SelectColor(Material mat)
+    public void SelectArchetype(int index)
     {
         if(!inputEnabled) { return; }
 
-        PlayerConfigurationManager.Instance.SetPlayerColor(playerIndex, mat);
-        readyPanel.SetActive(true);
-        readyButton.interactable = true;
-        readyButton.Select();
+        PlayerConfigurationManager.Instance.SetPlayerArchetype(playerIndex, index);
+        
+    }
+
+    public void SelectColor(int index)
+    {
+        if(!inputEnabled) { return; }
+
+        PlayerConfigurationManager.Instance.SetPlayerColor(playerIndex, matList[index]);
         
     }
 
     public void ReadyPlayer()
     {
         if (!inputEnabled) { return; }
-
+        SelectArchetype(atSelector.GetComponent<SettingController>().getIndex());
+        SelectColor(cSelector.GetComponent<SettingController>().getIndex());
         PlayerConfigurationManager.Instance.ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
+        readyText.SetActive(true);
+        atSelector.GetComponentInChildren<Button>().interactable = false;
+        cSelector.GetComponentInChildren<Button>().interactable = false;
     }
 }

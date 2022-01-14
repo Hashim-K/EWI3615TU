@@ -50,6 +50,8 @@ GameObject:
   - component: {fileID: 9071399233392549511}
   - component: {fileID: 1460138544097446178}
   - component: {fileID: 6335356220302553134}
+  - component: {fileID: -296410902994937149}
+  - component: {fileID: 5884551037645488738}
   m_Layer: 3
   m_Name: Player Prefab
   m_TagString: Untagged
@@ -155,14 +157,6 @@ MonoBehaviour:
   attackHitboxes:
   - {fileID: 7716631260215768500}
   - {fileID: 5748294745426146974}
-  defense: 100
-  knockPercent: 0
-  isPunching: 0
-  isKicking: 0
-  isHit: 0
-  blockReduction: 0.5
-  blockDuration: 3
-  blockRecovery: 1.5
 --- !u!114 &9071399233392549511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,9 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1994575032360418526}
-  jumpForce: 8
-  jump: 0
-  maxJumps: 3
 --- !u!114 &1460138544097446178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,20 +199,6 @@ MonoBehaviour:
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
-    longestRound: 0
-    shortestRound: 0
---- !u!114 &6335356220302553134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994575032360418526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71cfdd18398830847a8ab2e5a6cca290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2433221633526488601
 GameObject:
   m_ObjectHideFlags: 0

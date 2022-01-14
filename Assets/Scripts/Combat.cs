@@ -14,33 +14,33 @@ public class Combat : MonoBehaviour
     private Rigidbody rb;
     private int playerID;
 
-    public float defense = 100;
+    private float defense;
     private float damageTaken = 0;
-    private float knockbackScalar = 1;
-    public float knockPercent;
+    private float knockbackScalar = 1f;
+    private float knockPercent;
 
     private string combatState = "IDLE";
     private bool isBlocking;
-    public bool isPunching;
-    public bool isKicking;
+    private bool isPunching;
+    private bool isKicking;
 
 
-    public bool isHit = false;
+    private bool isHit = false;
 
-    private int punchDamage = 15;
-    private int kickDamage = 50;
-    public float blockReduction = 0.5f;
+    public int punchDamage;
+    private int kickDamage;
+    private float blockReduction;
 
 
     private float attackCD = 0f;
     private float stateCD = 0f;
     private float blockCD = 0f;
 
-    public float blockDuration = 3f;
+    private float blockDuration = 3f;
     private float kickDuration = 1.12f;
     private float punchDuration = 1f;
 
-    public float blockRecovery = 1.5f;
+    private float blockRecovery = 1.5f;
     private float kickRecovery = 0.1f;
     private float punchRecovery = 0.11f;
 
@@ -50,9 +50,13 @@ public class Combat : MonoBehaviour
     void Start()
     {
         playerID = int.Parse(tag.Substring(tag.Length - 1));
-        UpdateHealth();
         controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
+
+        //Set base stats
+        Archetype baseStats = new Archetype(-1);
+        setCombatStats(baseStats.getCombatStats());
+        UpdateHealth();
     }
 
     private void FixedUpdate()
@@ -115,7 +119,7 @@ public class Combat : MonoBehaviour
     void UpdateHealth()
     {
         knockPercent = damageTaken / defense;
-        knockbackScalar = 1 + knockPercent / 4;
+        knockbackScalar = 1f + knockPercent / 4;
         HealthText.SetText((knockPercent * 100).ToString("0") + "%");
         Debug.Log((knockPercent * 100).ToString("0") + "%");
     }
@@ -166,6 +170,14 @@ public class Combat : MonoBehaviour
     public bool isState(string state)
     {
         return combatState == state;
+    }
+
+    public void setCombatStats((float def, int punchDmg, int kickDmg, float blockRed) cStats)
+    {
+        defense = cStats.def;
+        punchDamage = cStats.punchDmg;
+        kickDamage = cStats.kickDmg;
+        blockReduction = cStats.blockRed;
     }
 
     void launchAttack(Collider col, int attackDamage)
