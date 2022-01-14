@@ -7,18 +7,22 @@ public class PlayerController : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
-    public static float maxSpeed = 4f;
-    public float jumpForce = 8f;
+    private float maxSpeed;
+    private float jumpForce;
     private float horizontalDir;
     private float lookDir = 1f;
     private float airDir;
     private float verticalDir;
-    public bool jump;
+    private bool jump;
     private bool isGrounded;
     private int jumpRemaining;
-    public int maxJumps = 3;
+    private int maxJumps;
     private Rigidbody rb;
     private int playerID;
+    private float dashDur = 0.2f;
+    [SerializeField]
+    private float dashMultiplier = 3f;
+    private float dashEnd;
 
     public static string powerup;
     public static string playerwonputag;
@@ -29,9 +33,16 @@ public class PlayerController : MonoBehaviour
         playerID = int.Parse(tag.Substring(tag.Length - 1));
         controllerANIM = characterOBJ.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        maxSpeed = 4f;
-        jumpForce = 8f;
-        maxJumps = 3;
+
+        if (playerID == 2)
+        {
+            RotatePlayer();
+        }
+
+        //Set base stats
+        Archetype baseStats = new Archetype(-1);
+        setPlayerControllerStats(baseStats.getPlayerControllerStats());
+
         // Change values for powerup values
 
         if ((powerup == "JumpBoost") && (rb.CompareTag(playerwonputag)))
@@ -53,7 +64,13 @@ public class PlayerController : MonoBehaviour
             rb.transform.Rotate(Vector3.up * 180f);
             lookDir = horizontalDir;
         }
-        if (isGrounded)
+
+        if(Time.time < dashEnd)
+        {
+            rb.transform.Translate(Vector3.forward * dashMultiplier * maxSpeed);
+            airDir = horizontalDir;
+        }
+        else if (isGrounded)
         {
             rb.transform.Translate(Vector3.forward * maxSpeed * Mathf.Abs(horizontalDir) * Time.deltaTime);
             airDir = horizontalDir;
@@ -105,6 +122,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void setPlayerControllerStats((float mSpeed, float jumpF, int mJumps) pcStats)
+    {
+        maxSpeed = pcStats.mSpeed;
+        jumpForce = pcStats.jumpF;
+        maxJumps = pcStats.mJumps;
+    }
+
+    public void setSpeed(float speedMod)
+    {
+        maxSpeed *= speedMod;
+    }
+
     public void Horizontal(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -121,9 +150,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void WaveDash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Wavedash");
+            dashDur = Time.time + dashDur;
+        }
+    }
+
     public void Vertical(InputAction.CallbackContext context)
     {
-       if (context.performed)
+        if (context.performed)
         {
             Debug.Log("Vertical!");
             verticalDir = (float)context.ReadValueAsObject();
@@ -204,4 +242,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Minus!");
     }
 
+    public void RotatePlayer()
+    {
+        rb.transform.Rotate(Vector3.up * 180f);
+        lookDir = -1;
+    }
 }
