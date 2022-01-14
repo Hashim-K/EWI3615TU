@@ -24,4 +24,9 @@ public class Stats
     public float totalTime;
     public float longestRound;
     public float shortestRound;
+
+    
+
+
+    // add most/least played archetype stats when archetypes are implemented.
 }

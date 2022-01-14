@@ -897,7 +897,7 @@ Transform:
   - {fileID: 1550534330}
   - {fileID: 1102267454}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &900058242
 PrefabInstance:
@@ -1662,9 +1662,13 @@ MonoBehaviour:
     aijumps: 0
     numberRounds: 0
     numberMatches: 0
+    p1wins: 0
+    p2wins: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
+    longestRound: 0
+    shortestRound: 0
 --- !u!114 &1055690149
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,8 +28,6 @@ public class RoundMenu : MonoBehaviour
     public Text playerscore2;
     public static int playerscoreint = 0;
     public static int playerscoreint2 = 0;
-
-    public GetSocialCapturePreview capturePreview;
     
     public Stats da = new Stats();
 
@@ -91,8 +89,6 @@ public class RoundMenu : MonoBehaviour
             SaveManager.Save(da);
             reset();
         }
-
-        capturePreview.Play();
 
     }
   
