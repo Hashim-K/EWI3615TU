@@ -129,6 +129,11 @@ public class PlayerController : MonoBehaviour
         maxJumps = pcStats.mJumps;
     }
 
+    public void setSpeed(float speedMod)
+    {
+        maxSpeed *= speedMod;
+    }
+
     public void Horizontal(InputAction.CallbackContext context)
     {
         if (context.performed)

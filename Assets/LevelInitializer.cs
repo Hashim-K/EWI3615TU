@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class LevelInitializer : MonoBehaviour
 {
@@ -16,10 +18,15 @@ public class LevelInitializer : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
     private GameObject[] players;
+
+    private bool underwater = false;
+    private float timeUpdate;
+    private int playersC;
     // Start is called before the first frame update
     void Start()
     {
         var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
+        playersC = playerConfigs.Length;
         players = new GameObject[2];
         for (int i = 0; i < playerConfigs.Length; i++)
         {
@@ -29,21 +36,42 @@ public class LevelInitializer : MonoBehaviour
             players[i].GetComponent<Combat>().HealthText = HealthTexts[i];
             players[i].GetComponent<ArchetypeManager>().playerArchetype = (playerConfigs[i].playerArchetype);
             players[i].GetComponent<PowerUpManager>().puStates = playerConfigs[i].puStates;
-            if (playerConfigs.Length == 1)
+            if(SceneManager.GetActiveScene().name == "Stage_5")
+            {
+                underwater = true;
+                timeUpdate = Time.time + 1f;
+            }
+            if (playersC == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
                 transform.GetChild(0).gameObject.GetComponent<EnemyFollow>().HealthText=HealthTexts[1];
                 transform.GetChild(0).gameObject.GetComponent<EnemyFollow>().player = players[i].transform;
-                players[1] = transform.GetChild(0).gameObject;
+                transform.GetChild(0).gameObject.GetComponent<NavMeshAgent>().speed=4f;
+                transform.GetChild(0).gameObject.GetComponent<NavMeshAgent>().acceleration=8f;
+                players[1] = transform.GetChild(0).gameObject; 
+                if(underwater)
+                {
+                    transform.GetChild(0).gameObject.GetComponent<NavMeshAgent>().speed=2f;
+                    transform.GetChild(0).gameObject.GetComponent<NavMeshAgent>().acceleration=4f;
+                }
             }
         }
         
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > timeUpdate && underwater)
+        {
+            for (int i = 0; i < playersC; i++)
+            {
+                players[i].gameObject.GetComponent<PlayerController>().setSpeed(0.5f);
+            }
+            underwater = false;
+        }
         
     }
 
