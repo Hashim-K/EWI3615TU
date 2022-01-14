@@ -28,10 +28,15 @@ public class Roundtimer : MonoBehaviour
                 {
                     da.longestRound = da.roundTime;
                 }
-            if(da.roundTime < da.shortestRound)
+            if(da.roundTime < da.shortestRound && da.shortestRound != 0)
                 {
                     da.shortestRound = da.roundTime;
-                }                
+                }
+            else if(da.shortestRound == 0)
+            {
+                da.shortestRound = da.roundTime;
+            }
+
             SaveManager.Save(da);
             death.round_end = false;
         }
