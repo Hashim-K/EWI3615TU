@@ -49,21 +49,21 @@ public class DisplayAnalitics : MonoBehaviour
 
         five.text ="Player 2 hits : " + da.p2hits.ToString();
 
-        six.text = "AI hits : " + TimeConversion(da.averageRoundTime);
+        six.text = "AI hits : " + da.aihits.ToString();
 
-        seven.text = "Player 1 jumps :" + da.p1jumps;
+        seven.text = "Player 1 jumps :" + da.p1jumps.ToString();
 
-        eight.text = "Player 2 jumps :" + da.p2jumps;
+        eight.text = "Player 2 jumps :" + da.p2jumps.ToString();
 
-        nine.text = "AI jumps :" + da.aijumps;
+        nine.text = "AI jumps :" + da.aijumps.ToString();
 
-        ten.text = "Number of rounds :" + da.numberRounds;
+        ten.text = "Number of rounds :" + da.numberRounds.ToString();
 
-        eleven.text = "Number of matches :" + da.numberMatches;
+        eleven.text = "Number of matches :" + da.numberMatches.ToString();
 
-        twelve.text = "Player 1 wins :" + da.p1wins;
+        twelve.text = "Player 1 wins :" + da.p1wins.ToString();
 
-        thirteen.text = "Player 2 wins : " + da.p2wins;
+        thirteen.text = "Player 2 wins : " + da.p2wins.ToString();
 
         fourteen.text = "Roundtime " + TimeConversion(da.roundTime);
 
