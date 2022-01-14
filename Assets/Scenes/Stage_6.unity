@@ -544,9 +544,13 @@ MonoBehaviour:
     aijumps: 0
     numberRounds: 0
     numberMatches: 0
+    p1wins: 0
+    p2wins: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
+    longestRound: 0
+    shortestRound: 0
 --- !u!114 &229212712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,7 +1489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 03b9abbe4636c2141bc354fdff13fcae, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9ea546c6049461a45afeb72b5a2fac6b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
