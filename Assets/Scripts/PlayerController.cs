@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private int maxJumps;
     private Rigidbody rb;
     private int playerID;
+    private float dashDur = 0.2f;
+    [SerializeField]
+    private float dashMultiplier = 3f;
+    private float dashEnd;
 
     public static string powerup;
     public static string playerwonputag;
@@ -60,7 +64,13 @@ public class PlayerController : MonoBehaviour
             rb.transform.Rotate(Vector3.up * 180f);
             lookDir = horizontalDir;
         }
-        if (isGrounded)
+
+        if(Time.time < dashEnd)
+        {
+            rb.transform.Translate(Vector3.forward * dashMultiplier * maxSpeed);
+            airDir = horizontalDir;
+        }
+        else if (isGrounded)
         {
             rb.transform.Translate(Vector3.forward * maxSpeed * Mathf.Abs(horizontalDir) * Time.deltaTime);
             airDir = horizontalDir;
@@ -135,9 +145,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void WaveDash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Wavedash");
+            dashDur = Time.time + dashDur;
+        }
+    }
+
     public void Vertical(InputAction.CallbackContext context)
     {
-       if (context.performed)
+        if (context.performed)
         {
             Debug.Log("Vertical!");
             verticalDir = (float)context.ReadValueAsObject();
