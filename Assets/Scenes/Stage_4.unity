@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.57558316, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -637,9 +637,13 @@ MonoBehaviour:
     aijumps: 0
     numberRounds: 0
     numberMatches: 0
+    p1wins: 0
+    p2wins: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
+    longestRound: 0
+    shortestRound: 0
 --- !u!114 &229212712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +656,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4330b42722d026f44a75edb14678e37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &262481131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1743570078679036105, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_Name
+      value: StageMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.996334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8944812
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10773942
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
 --- !u!1 &367780556
 GameObject:
   m_ObjectHideFlags: 0

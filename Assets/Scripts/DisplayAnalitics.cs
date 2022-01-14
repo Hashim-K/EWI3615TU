@@ -16,6 +16,17 @@ public class DisplayAnalitics : MonoBehaviour
     public Text six;
     public Text seven;
     public Text eight;
+    public Text nine;
+    public Text ten;
+    public Text eleven;
+    public Text twelve;
+    public Text thirteen;
+    public Text fourteen;
+    public Text fifteen;
+    public Text sixteen;
+    public Text seventeen;
+    public Text eighteen;
+
     private int hours;
     private int minutes;
     private int seconds;
@@ -30,23 +41,48 @@ public class DisplayAnalitics : MonoBehaviour
 
         one.text = "Player 1 attacks : " +  da.p1attacks.ToString();
 
-        two.text ="Player 1 hits : " +  da.p1hits.ToString();
+        two.text ="Player 2 attacks : " +  da.p2attacks.ToString();
 
-        three.text = "Player 1 jumps : " + da.p1jumps.ToString();
+        three.text = "AI attacks : " + da.aiattacks.ToString();
 
-        four.text = "Rounds played : " + da.numberRounds.ToString();
+        four.text = "Player 1 hits : " + da.p1hits.ToString();
 
-        five.text ="Last roundtime : " + TimeConversion(da.roundTime);
+        five.text ="Player 2 hits : " + da.p2hits.ToString();
 
-        six.text = "Average roundtime : " + TimeConversion(da.averageRoundTime);
+        six.text = "AI hits : " + TimeConversion(da.averageRoundTime);
 
-        seven.text = "Total time played : " + TimeConversion(da.totalTime);
+        seven.text = "Player 1 jumps :" + da.p1jumps;
 
-        eight.text = "Matches played : " + da.numberMatches.ToString();
+        eight.text = "Player 2 jumps :" + da.p2jumps;
 
-        
+        nine.text = "AI jumps :" + da.aijumps;
 
-}
+        ten.text = "Number of rounds :" + da.numberRounds;
+
+        eleven.text = "Number of matches :" + da.numberMatches;
+
+        twelve.text = "Player 1 wins :" + da.p1wins;
+
+        thirteen.text = "Player 2 wins : " + da.p2wins;
+
+        fourteen.text = "Roundtime " + TimeConversion(da.roundTime);
+
+        fifteen.text = "Average roundtime " + TimeConversion(da.averageRoundTime);
+
+        sixteen.text = "Total time played : " + TimeConversion(da.totalTime);
+
+        seventeen.text = "Longest round :  " + TimeConversion(da.longestRound);
+
+        eighteen.text = "Shortest round : " + TimeConversion(da.shortestRound);
+
+
+
+
+
+
+
+
+    }
 
     // Update is called once per frame
     public void GoBack()

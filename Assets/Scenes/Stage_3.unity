@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -598,6 +598,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &238568226
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1743570078679036105, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_Name
+      value: StageMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.996334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8944812
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10773942
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659297755949198865, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23ab0705d52f139468182610ff0926c4, type: 3}
 --- !u!1001 &243365212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2621,9 +2678,13 @@ MonoBehaviour:
     aijumps: 0
     numberRounds: 0
     numberMatches: 0
+    p1wins: 0
+    p2wins: 0
     roundTime: 0
     averageRoundTime: 0
     totalTime: 0
+    longestRound: 0
+    shortestRound: 0
 --- !u!114 &1519918375
 MonoBehaviour:
   m_ObjectHideFlags: 0

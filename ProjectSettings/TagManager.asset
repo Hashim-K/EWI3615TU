@@ -10,6 +10,8 @@ TagManager:
   - Breaking
   - Analytics
   - AI
+  - Music
+  - MenuMusic
   layers:
   - Default
   - TransparentFX
