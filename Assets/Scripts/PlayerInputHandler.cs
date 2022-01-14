@@ -36,10 +36,13 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (Prefab != null)
         {
-            Debug.Log(obj.action.name);
             if (obj.action.name == "Horizontal")
             {
                 Prefab.GetComponent<PlayerController>().Horizontal(obj);
+            }
+            if (obj.action.name == "WaveDash")
+            {
+                Prefab.GetComponent<PlayerController>().WaveDash(obj);
             }
             if (obj.action.name == "Vertical")
             {
