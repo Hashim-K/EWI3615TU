@@ -115,7 +115,7 @@ MonoBehaviour:
   HealthTexts:
   - {fileID: 0}
   - {fileID: 0}
-  playerPrefab: {fileID: 1994575032360418526, guid: 450ba6e1f042f5a4aa64a5d72e3b3da2, type: 3}
+  playerPrefab: {fileID: 1994575032360418526, guid: 78d318de699ec6942aad6c273aae3b9c, type: 3}
 --- !u!1001 &6991614975605650753
 PrefabInstance:
   m_ObjectHideFlags: 0
