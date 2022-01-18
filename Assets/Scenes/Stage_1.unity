@@ -1283,6 +1283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3506239229221395535, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4404378723152457551, guid: c47a777ca1030e045bb3501203199291, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1796,6 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
+  pauseGame: {fileID: 0}
   dashMultiplier: 3
 --- !u!1 &1032858151
 GameObject:
@@ -3238,6 +3243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
+  pauseGame: {fileID: 0}
   dashMultiplier: 3
 --- !u!65 &1418404261
 BoxCollider:
@@ -3397,6 +3403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
+  pauseGame: {fileID: 0}
   dashMultiplier: 3
 --- !u!114 &1550534332
 MonoBehaviour:
@@ -4447,7 +4454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9130134259118261720, guid: 93acbf08053161c4fbc99ac2dcd04716, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9130134259118261720, guid: 93acbf08053161c4fbc99ac2dcd04716, type: 3}
       propertyPath: m_AnchorMax.x
