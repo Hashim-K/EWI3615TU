@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
+    public GameObject canvas;
     private float maxSpeed;
     private float jumpForce;
     private float horizontalDir;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public static string powerup;
     public static string playerwonputag;
+
 
     // Start is called before the first frame update
     void Start()
@@ -235,6 +237,9 @@ public class PlayerController : MonoBehaviour
     }
     public void Plus(InputAction.CallbackContext context)
     {
+        //characterOBJ.GetComponent<PauseGame>().Pause();
+        canvas = GameObject.Find("Canvas");
+        canvas.GetComponent<PauseGame>().Pause();
         Debug.Log("Plus!");
     }
     public void Minus(InputAction.CallbackContext context)
