@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Animator controllerANIM;
     public GameObject characterOBJ;
-    public PauseGame pauseGame;
+    public GameObject canvas;
     private float maxSpeed;
     private float jumpForce;
     private float horizontalDir;
@@ -238,7 +238,8 @@ public class PlayerController : MonoBehaviour
     public void Plus(InputAction.CallbackContext context)
     {
         //characterOBJ.GetComponent<PauseGame>().Pause();
-        pauseGame.Pause();
+        canvas = GameObject.Find("Canvas");
+        canvas.GetComponent<PauseGame>().Pause();
         Debug.Log("Plus!");
     }
     public void Minus(InputAction.CallbackContext context)
