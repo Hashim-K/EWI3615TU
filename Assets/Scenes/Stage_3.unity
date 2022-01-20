@@ -367,7 +367,7 @@ MonoBehaviour:
   Death: {fileID: 1142856042}
   delayTime: 2
   round_end: 0
-  cameraMovement: {fileID: 0}
+  cameraMovement: {fileID: 1519918375}
 --- !u!1 &170525722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,7 +2340,7 @@ MonoBehaviour:
   Death: {fileID: 1142856042}
   delayTime: 2
   round_end: 0
-  cameraMovement: {fileID: 0}
+  cameraMovement: {fileID: 1519918375}
 --- !u!1 &1264647443
 GameObject:
   m_ObjectHideFlags: 0
