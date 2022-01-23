@@ -223,6 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2103108093564427491}
+  - component: {fileID: 5867482590071969588}
   m_Layer: 0
   m_Name: PauseMenu 1
   m_TagString: Untagged
@@ -250,6 +251,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5867482590071969588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506239229221395535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fb5d6add3482541a6bc9c67e2fc008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4404378723152457549
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +409,7 @@ GameObject:
   - component: {fileID: 4404378724417760472}
   - component: {fileID: 4404378724417760479}
   - component: {fileID: 4404378724417760478}
+  - component: {fileID: 9006227792147641493}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -412,7 +426,7 @@ RectTransform:
   m_GameObject: {fileID: 4404378724417760476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.66, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2103108093564427491}
@@ -504,7 +518,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4404378724417760479}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9006227792147641493}
+        m_TargetAssemblyTypeName: MuteButton, Assembly-CSharp
+        m_MethodName: MutePressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9006227792147641493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404378724417760476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fb5d6add3482541a6bc9c67e2fc008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4404378724503686006
 GameObject:
   m_ObjectHideFlags: 0

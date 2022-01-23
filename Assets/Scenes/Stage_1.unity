@@ -1025,6 +1025,7 @@ GameObject:
   - component: {fileID: 713484715}
   - component: {fileID: 713484714}
   - component: {fileID: 713484718}
+  - component: {fileID: 713484719}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1132,6 +1133,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   PauseMenu: {fileID: 1950159399}
+--- !u!114 &713484719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713484713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fb5d6add3482541a6bc9c67e2fc008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &784422054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1295,6 +1308,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4404378724417760478, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404378724417760478, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404378724417760478, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 900058243}
+    - target: {fileID: 4404378724417760478, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MutePressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404378724417760478, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MuteButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404378724417760478, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4404378724895485709, guid: c47a777ca1030e045bb3501203199291, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1305,6 +1342,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47a777ca1030e045bb3501203199291, type: 3}
+--- !u!114 &900058243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9006227792147641493, guid: c47a777ca1030e045bb3501203199291, type: 3}
+  m_PrefabInstance: {fileID: 900058242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fb5d6add3482541a6bc9c67e2fc008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &900058244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2103108093564427491, guid: c47a777ca1030e045bb3501203199291, type: 3}
@@ -1800,7 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
-  pauseGame: {fileID: 0}
+  canvas: {fileID: 0}
   dashMultiplier: 3
 --- !u!1 &1032858151
 GameObject:
@@ -3243,7 +3291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
-  pauseGame: {fileID: 0}
+  canvas: {fileID: 0}
   dashMultiplier: 3
 --- !u!65 &1418404261
 BoxCollider:
@@ -3403,7 +3451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 0}
-  pauseGame: {fileID: 0}
+  canvas: {fileID: 0}
   dashMultiplier: 3
 --- !u!114 &1550534332
 MonoBehaviour:
