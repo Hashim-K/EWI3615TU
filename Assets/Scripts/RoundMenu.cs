@@ -106,7 +106,10 @@ public class RoundMenu : MonoBehaviour
     // Function for the exit button
     public void ExitToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        playerscoreint = 0;
+        playerscoreint2 = 0;
+        wonpowerup = "";
+        SceneManager.LoadScene("GameMenu");
     }
 
     // Function for the startgame button
