@@ -20,14 +20,11 @@ public class PlayerController : MonoBehaviour
     private int maxJumps;
     private Rigidbody rb;
     private int playerID;
-    private float dashDur = 0.2f;
-    [SerializeField]
-    private float dashMultiplier = 3f;
+    private float dashDur = 0.15f;
+    private float dashMultiplier = 4f;
     private float dashEnd;
 
-    public static string powerup;
     public static string playerwonputag;
-
 
     // Start is called before the first frame update
     void Start()
@@ -45,18 +42,6 @@ public class PlayerController : MonoBehaviour
         Archetype baseStats = new Archetype(-1);
         setPlayerControllerStats(baseStats.getPlayerControllerStats());
 
-        // Change values for powerup values
-
-        if ((powerup == "JumpBoost") && (rb.CompareTag(playerwonputag)))
-        {
-            jumpForce = 10f;
-            maxJumps = 4;
-        }
-
-        if ((powerup == "FastSpeed") && (rb.CompareTag(playerwonputag)))
-        {
-            maxSpeed = 7f;
-        }
 
     }
     public void FixedUpdate()
@@ -69,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if(Time.time < dashEnd)
         {
-            rb.transform.Translate(Vector3.forward * dashMultiplier * maxSpeed);
+            rb.transform.Translate(Vector3.forward * dashMultiplier * maxSpeed * Time.deltaTime);
             airDir = horizontalDir;
         }
         else if (isGrounded)
@@ -156,8 +141,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("Wavedash");
-            dashDur = Time.time + dashDur;
+            if (Time.time > dashEnd)
+            {
+                Debug.Log("Wavedash");
+                dashEnd = Time.time + dashDur;
+            }
         }
     }
 
@@ -177,6 +165,25 @@ public class PlayerController : MonoBehaviour
     public void North(InputAction.CallbackContext context)
     {
         Debug.Log("North!");
+        if(context.performed)
+        {
+
+            //characterOBJ.GetComponent<PowerUpManager>().addPowerUp(0);
+            Debug.Log("My power ups:");
+            List<PowerUpState> puStates = PlayerConfigurationManager.Instance.getPUStates(playerID-1);
+            foreach (var pu in puStates)
+            {
+                Debug.Log(pu.powerUpIndex);
+                Debug.Log(pu.currentStacks);
+            }
+            puStates = PlayerConfigurationManager.Instance.getPUStates(playerID);
+            Debug.Log("Opponent power ups:");
+            foreach (var pu in puStates)
+            {
+                Debug.Log(pu.powerUpIndex);
+                Debug.Log(pu.currentStacks);
+            }
+        }    
     }
 
     public void East(InputAction.CallbackContext context)
@@ -251,5 +258,18 @@ public class PlayerController : MonoBehaviour
     {
         rb.transform.Rotate(Vector3.up * 180f);
         lookDir = -1;
+    }
+
+    public void jumpBoost()
+    {
+        maxJumps += 1;
+        jumpForce += 1;
+        Debug.Log("Applied JumpBoost");
+    }
+
+    public void speedBoost()
+    {
+        maxSpeed += 1;
+        Debug.Log("Applied SpeedBoost");
     }
 }

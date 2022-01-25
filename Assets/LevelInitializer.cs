@@ -35,7 +35,6 @@ public class LevelInitializer : MonoBehaviour
             players[i].GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
             players[i].GetComponent<Combat>().HealthText = HealthTexts[i];
             players[i].GetComponent<ArchetypeManager>().playerArchetype = (playerConfigs[i].playerArchetype);
-            players[i].GetComponent<PowerUpManager>().puStates = playerConfigs[i].puStates;
             if(SceneManager.GetActiveScene().name == "Stage_5")
             {
                 underwater = true;

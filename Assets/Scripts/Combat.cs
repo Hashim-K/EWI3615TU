@@ -180,6 +180,13 @@ public class Combat : MonoBehaviour
         blockReduction = cStats.blockRed;
     }
 
+    public void blockBoost()
+    {
+        blockDuration += 1;
+        blockRecovery -= 0.2f;
+        blockReduction *= 1.2f;
+    }
+
     void launchAttack(Collider col, int attackDamage)
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));

@@ -4,22 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PowerUpManager : MonoBehaviour
+public class PowerUpManager
 {
     public PowerUps puList;
     public List<PowerUpState> puStates;
     private int playerArchetype;
 
-    void Start()
+    public PowerUpManager(int pAT)
     { 
         puList = new PowerUps();
-        if (puStates == null)
-        {
-            puStates = new List<PowerUpState>();
-        }
-        playerArchetype = GetComponent<ArchetypeManager>().playerArchetype;
+        puStates = new List<PowerUpState>();
+        playerArchetype =pAT;
     }
     
+    public void setPAT(int pAT)
+    {
+        playerArchetype = pAT;
+    }
+
     public void addPowerUp(int puIndex)
     {
         int stateIndex = powerUpIndex(puIndex);
@@ -99,7 +101,8 @@ public class PowerUpManager : MonoBehaviour
         List<int> weightedPU = getWeightedList(possiblePU);
         while (count > 0)
         {
-            int puIndex = possiblePU[UnityEngine.Random.Range(0, weightedPU.Count)];
+            Debug.Log(weightedPU.Count);
+            int puIndex = weightedPU[UnityEngine.Random.Range(0, weightedPU.Count)];
             if (!randomPUs.Contains(puIndex))
             {
                 count--;

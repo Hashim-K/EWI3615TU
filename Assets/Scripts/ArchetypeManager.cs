@@ -27,8 +27,10 @@ public class ArchetypeManager : MonoBehaviour
     public void setArchetype(int id)
     //set combat and movement stats
     {
-            gameObject.GetComponent<Combat>().setCombatStats(ArchetypeList[id].getCombatStats());
-            gameObject.GetComponent<PlayerController>().setPlayerControllerStats(ArchetypeList[id].getPlayerControllerStats());
+        Debug.Log("Set archetypes");
+        gameObject.GetComponent<Combat>().setCombatStats(ArchetypeList[id].getCombatStats());
+        gameObject.GetComponent<PlayerController>().setPlayerControllerStats(ArchetypeList[id].getPlayerControllerStats());
+        gameObject.GetComponent<PowerUpController>().setPowerUps();
     }
 
 }

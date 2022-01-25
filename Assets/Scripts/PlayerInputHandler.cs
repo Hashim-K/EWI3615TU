@@ -50,7 +50,7 @@ public class PlayerInputHandler : MonoBehaviour
             }
             if (obj.action.name == "North")
             {
-                Prefab.GetComponent<PlayerController>().West(obj);
+                Prefab.GetComponent<PlayerController>().North(obj);
             }
             if (obj.action.name == "East")
             {
