@@ -51,6 +51,17 @@ public class PlayerConfigurationManager : MonoBehaviour
     public void SetPlayerArchetype(int index, int playerAT)
     {
         playerConfigs[index].playerArchetype = playerAT;
+        playerConfigs[index].PowerUpManager.setPAT(playerAT);
+    }
+
+    public void addPowerUp(int index)
+    {
+        int puIndex = playerConfigs[index].PowerUpManager.getRandomPowerUps(1)[0];
+        playerConfigs[index].PowerUpManager.addPowerUp(puIndex);
+    }
+    public List<PowerUpState> getPUStates(int index)
+    {
+        return playerConfigs[index].PowerUpManager.puStates;
     }
 
     public void SetPlayerColor(int index, Material color)
@@ -95,12 +106,13 @@ public class PlayerConfiguration
     {
         PlayerIndex = pi.playerIndex;
         Input = pi;
+        PowerUpManager = new PowerUpManager(0);
     }
 
     public PlayerInput Input { get; private set; }
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
     public int playerArchetype { get; set; }
-    public List<PowerUpState> puStates{ get; set; }
+    public PowerUpManager PowerUpManager { get; set; }
     public Material playerMaterial { get; set; }
 }

@@ -39,6 +39,7 @@ public class Death_Zone : MonoBehaviour
             //RoundMenu.playerscoreint = RoundMenu.playerscoreint;
             Debug.Log("Player1 died");
             deathmsg.text = player1 + " died\n" + player2 + " won!";
+            PlayerConfigurationManager.Instance.addPowerUp(0);
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player1 died, \n player2 won";
         }
         else if (other.gameObject.CompareTag("Player2"))
