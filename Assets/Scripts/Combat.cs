@@ -18,6 +18,7 @@ public class Combat : MonoBehaviour
     private float damageTaken = 0;
     private float knockbackScalar = 1f;
     private float knockPercent;
+    private float lookdir;
 
     private string combatState = "IDLE";
     private bool isBlocking;
@@ -99,6 +100,8 @@ public class Combat : MonoBehaviour
         {
             isPunching = false;
         }
+
+        lookdir = gameObject.GetComponent<PlayerController>().getLookDir();
     }
 
     public void TakeDamage(float attackDamage, Vector3 attackDir)
@@ -129,11 +132,12 @@ public class Combat : MonoBehaviour
 
         if (context.performed && isState("IDLE") && Time.time >= attackCD)
         {
+            
             Debug.Log("Punch!");
             isPunching = true;
             combatState = "PUNCH";
             controllerANIM.SetTrigger("Punch");
-            launchAttack(attackHitboxes[0], punchDamage);
+            launchAttack(attackHitboxes[0], punchDamage, lookdir);
             stateCD = Time.time + punchDuration;
             attackCD = stateCD + punchRecovery;
         }
@@ -147,7 +151,7 @@ public class Combat : MonoBehaviour
             isKicking = true;
             combatState = "KICK";
             controllerANIM.SetTrigger("Kick");
-            launchAttack(attackHitboxes[1], kickDamage);
+            launchAttack(attackHitboxes[1], kickDamage, lookdir);
             stateCD = Time.time + kickDuration;
             attackCD = stateCD + kickRecovery;
         }
@@ -188,7 +192,7 @@ public class Combat : MonoBehaviour
         Debug.Log("Applied BlockBoost");
     }
 
-    void launchAttack(Collider col, int attackDamage)
+    void launchAttack(Collider col, int attackDamage, float lookdir)
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
@@ -197,7 +201,7 @@ public class Combat : MonoBehaviour
             {
                 continue;    
             }
-            Vector3 attackDir = new Vector3(0, 0.5f, 2);
+            Vector3 attackDir = new Vector3(0, 0.5f, 2 * lookdir);
             if (c.tag.Contains("Player"))
             {
                 GetComponent<DataClass>().sendData("Attack", playerID);

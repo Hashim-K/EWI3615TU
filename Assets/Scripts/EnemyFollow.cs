@@ -161,7 +161,7 @@ public class EnemyFollow : MonoBehaviour
             Debug.Log("Punch!");
             combatState = "PUNCH";
             controllerANIM.SetTrigger("Punch");
-            launchAttack(attackHitboxes[0], punchDamage);
+            launchAttack(attackHitboxes[0], punchDamage, 1);
             stateCD = Time.time + punchDuration;
             attackCD = stateCD + punchRecovery;
         }
@@ -174,7 +174,7 @@ public class EnemyFollow : MonoBehaviour
             Debug.Log("Kick!");
             combatState = "KICK";
             controllerANIM.SetTrigger("Kick");
-            launchAttack(attackHitboxes[1], kickDamage);
+            launchAttack(attackHitboxes[1], kickDamage, 1);
             stateCD = Time.time + kickDuration;
             attackCD = stateCD + kickRecovery;
         }
@@ -199,7 +199,7 @@ public class EnemyFollow : MonoBehaviour
         return combatState == state;
     }
 
-    void launchAttack(Collider col, int attackDamage)
+    void launchAttack(Collider col, int attackDamage, int lookdir)
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
@@ -208,7 +208,7 @@ public class EnemyFollow : MonoBehaviour
             {
                 continue;
             }
-            Vector3 attackDir = new Vector3(0, 0.5f, 2);
+            Vector3 attackDir = new Vector3(0, 0.5f, 2 * lookdir);
             GetComponent<DataClass>().sendData("Attack", -1);
             if (c.tag.Contains("Player1"))
             {
