@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     // Function for Start game button : go to Game Menu
     public void StartGame()
     {
-        SceneManager.LoadScene("CharacterSelect");
+        SceneManager.LoadScene("PlayerSelect");
     }
 
     // Function for the Login button: go to Authenticate screen to enter user name

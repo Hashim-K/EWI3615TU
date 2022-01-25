@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Garbage/Prototype_v1.0.unity
-    guid: 5c95895497f23e247b8cd8a8cd610732
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: a5c6e6f9e9fb0e54d831d5aee9e17fb6
+  - enabled: 1
+    path: Assets/Scenes/PlayerSelect.unity
+    guid: a9561c68b25788e409347a21252092b7
   - enabled: 1
     path: Assets/Scenes/CharacterSelect.unity
     guid: 9e8e15c19c966234ba14cc4f25fe9579
@@ -21,14 +21,17 @@ EditorBuildSettings:
     path: Assets/Scenes/RoundMenu.unity
     guid: 4b0814ce17420824081a185c9c05062b
   - enabled: 1
+    path: Assets/Scenes/Analytics.unity
+    guid: 0298f38ca6d5b4342809d508f422a913
+  - enabled: 1
+    path: Assets/Scenes/heatmap.unity
+    guid: 39b6c5008e577c04d9f00fe740e9d411
+  - enabled: 1
     path: Assets/Scenes/Stage_1.unity
     guid: 764f7c7ea310f2343ae5701f8e133b39
   - enabled: 1
     path: Assets/Scenes/Stage_2.unity
     guid: b729d41809d3b234aab06a6f74f66111
-  - enabled: 1
-    path: Assets/Scenes/Analytics.unity
-    guid: a9561c68b25788e409347a21252092b7
   - enabled: 1
     path: Assets/Scenes/Stage_3.unity
     guid: 8eaea2b3e0aa6ec418f9db98b8eb0f84
