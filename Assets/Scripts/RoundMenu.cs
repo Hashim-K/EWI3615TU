@@ -105,49 +105,11 @@ public class RoundMenu : MonoBehaviour
     public void StartGame()
     {
         // To do: set powerup name in stagestr!
-        SceneManager.LoadScene(stagestr);
+        SceneManager.LoadScene("GameMenu");
 
     }
 
     // Function to handle the input data of the dropdown of stages. 
-    public void HandleInputDataStage(int valS)
-    {
-        if (valS == 0)
-        {
-            //outputStage.text = "Stage1!";
-            stagestr = "MainMenu";
-        }
-        if (valS == 1)
-        {
-            //outputStage.text = "prototype stage!";
-            stagestr = "Stage_1";
-        }
-        if (valS == 2)
-        {
-            //outputStage.text = "Stage3!";
-            stagestr = "Stage_2";
-        }
-        if (valS == 3)
-        {
-            stagestr = "Stage_3";
-        }
-        if (valS == 4)
-        {
-            stagestr = "Stage_4";
-        }
-        if (valS == 5)
-        {
-            stagestr = "Stage_5";
-        }
-        if (valS == 6)
-        {
-            stagestr = "Stage_6";
-        }
-        if (valS == 7)
-        {
-            stagestr = "Stage_7";
-        }
-    }
 
     public void reset()
     {
