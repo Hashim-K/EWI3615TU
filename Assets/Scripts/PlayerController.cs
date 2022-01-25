@@ -164,25 +164,9 @@ public class PlayerController : MonoBehaviour
 
     public void North(InputAction.CallbackContext context)
     {
-        Debug.Log("North!");
         if(context.performed)
         {
-
-            //characterOBJ.GetComponent<PowerUpManager>().addPowerUp(0);
-            Debug.Log("My power ups:");
-            List<PowerUpState> puStates = PlayerConfigurationManager.Instance.getPUStates(playerID-1);
-            foreach (var pu in puStates)
-            {
-                Debug.Log(pu.powerUpIndex);
-                Debug.Log(pu.currentStacks);
-            }
-            puStates = PlayerConfigurationManager.Instance.getPUStates(playerID);
-            Debug.Log("Opponent power ups:");
-            foreach (var pu in puStates)
-            {
-                Debug.Log(pu.powerUpIndex);
-                Debug.Log(pu.currentStacks);
-            }
+            Debug.Log("North!");
         }    
     }
 
@@ -196,7 +180,10 @@ public class PlayerController : MonoBehaviour
 
     public void South(InputAction.CallbackContext context)
     {
-        Debug.Log("South!");
+        if (context.performed)
+        {
+            Debug.Log("South!");
+        }
     }
 
     public void West(InputAction.CallbackContext context)
@@ -271,5 +258,10 @@ public class PlayerController : MonoBehaviour
     {
         maxSpeed += 1;
         Debug.Log("Applied SpeedBoost");
+    }
+
+    public float getLookDir()
+    {
+        return lookDir;
     }
 }

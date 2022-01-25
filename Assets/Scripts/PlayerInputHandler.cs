@@ -11,7 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerController pc;
 
     [SerializeField]
-    private GameObject MeshObject;
+    private List<GameObject> MeshObjects;
 
     //[SerializeField]
     private GameObject Prefab = null;
@@ -28,7 +28,10 @@ public class PlayerInputHandler : MonoBehaviour
     public void InitializePlayer(PlayerConfiguration config)
     {
         playerConfig = config;
-        MeshObject.transform.GetComponent<SkinnedMeshRenderer>().material = config.playerMaterial;
+        foreach(var mObject in MeshObjects)
+        {
+            mObject.transform.GetComponent<SkinnedMeshRenderer>().material = config.playerMaterial;
+        }
         config.Input.onActionTriggered += Input_onActionTriggered;
     }   
 
