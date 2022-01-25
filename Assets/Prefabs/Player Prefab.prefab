@@ -50,8 +50,8 @@ GameObject:
   - component: {fileID: 9071399233392549511}
   - component: {fileID: 1460138544097446178}
   - component: {fileID: -7397890697357164894}
-  - component: {fileID: -4888441895843160136}
   - component: {fileID: 3600402045168320639}
+  - component: {fileID: 3058832626396633681}
   m_Layer: 3
   m_Name: Player Prefab
   m_TagString: Untagged
@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterOBJ: {fileID: 1994575032360418526}
-  pauseGame: {fileID: 3600402045168320639}
-  dashMultiplier: 3
+  canvas: {fileID: 0}
 --- !u!114 &1460138544097446178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,18 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerArchetype: -1
---- !u!114 &-4888441895843160136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994575032360418526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c13df685d86a9b9489960dbf40bc63a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3600402045168320639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +230,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   PauseMenu: {fileID: 3506239229221395535, guid: c47a777ca1030e045bb3501203199291, type: 3}
+--- !u!114 &3058832626396633681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994575032360418526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934d75931a7dd7c478eeca1ef7e008e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2433221633526488601
 GameObject:
   m_ObjectHideFlags: 0

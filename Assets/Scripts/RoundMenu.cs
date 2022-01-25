@@ -100,7 +100,6 @@ public class RoundMenu : MonoBehaviour
         var list = new List<string> {"JumpBoost", "FastSpeed"}; //{ "BigMass", "Invisibility", "GhostFlyer", "FastSpeed", "JumpBoost", "ExtraLife", "BigSize", "StrongGravity", "JetPack" };
         int index = random.Next(list.Count);
         wonpowerup = list[index];
-        PlayerController.powerup = wonpowerup;
     }
 
     // Function for the exit button
