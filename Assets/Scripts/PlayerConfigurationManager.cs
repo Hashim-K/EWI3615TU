@@ -62,17 +62,19 @@ public class PlayerConfigurationManager : MonoBehaviour
         playerConfigs[index].PowerUpManager.setPAT(playerAT);
     }
 
-    public void addPowerUp(int index)
+    public string addPowerUp(int index)
     {
         if (index < playerConfigs.Count)
         { 
             int puIndex = playerConfigs[index].PowerUpManager.getRandomPowerUps(1)[0];
             playerConfigs[index].PowerUpManager.addPowerUp(puIndex);
+            return playerConfigs[index].PowerUpManager.getPowerUpName(puIndex);
         }
         else
         {
             int puIndex = aiConfig.PowerUpManager.getRandomPowerUps(1)[0];
             aiConfig.PowerUpManager.addPowerUp(puIndex);
+            return aiConfig.PowerUpManager.getPowerUpName(puIndex);
         }
     }
     public List<PowerUpState> getPUStates(int index)

@@ -45,7 +45,6 @@ public class RoundMenu : MonoBehaviour
     {
         WinMsg.SetActive(false);
         // Pick a random powerup for the losing player
-        Pupicker();
 
         playername1.text = playernamestr + " earned:";
         playername2.text = playernamestr2 + " earned:";
@@ -91,16 +90,7 @@ public class RoundMenu : MonoBehaviour
         }
 
     }
-  
 
-    // Picks a random item from the list and sets wonpowerup to the chosen item
-    static void Pupicker()
-    {
-        var random = new System.Random();
-        var list = new List<string> {"JumpBoost", "FastSpeed"}; //{ "BigMass", "Invisibility", "GhostFlyer", "FastSpeed", "JumpBoost", "ExtraLife", "BigSize", "StrongGravity", "JetPack" };
-        int index = random.Next(list.Count);
-        wonpowerup = list[index];
-    }
 
     // Function for the exit button
     public void ExitToMenu()

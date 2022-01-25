@@ -249,5 +249,19 @@ public class EnemyFollow : MonoBehaviour
         enemy.enabled = false;
         //yield return null;
     }
+
+    public void blockBoost()
+    {
+        blockDuration += 1;
+        blockRecovery -= 0.2f;
+        blockReduction *= 1.2f;
+        Debug.Log("Applied BlockBoost");
+    }
+
+    public void speedBoost()
+    {
+        gameObject.GetComponent<NavMeshAgent>().speed += 1;
+        Debug.Log("Applied SpeedBoost");
+    }
 }
 
