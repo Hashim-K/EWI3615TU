@@ -19,11 +19,17 @@ public class Heatmap : MonoBehaviour
 
     void Start()
     {
-        // hd = HeatmapSaveManager.Load();
+        // string fullpath = Application.persistentDataPath + directory + fileName;
+        // if (System.IO.File.Exists(fullpath))
+        // {
+        //     hd = HeatmapSaveManager.Load();
+        // }
     }
 
     void FixedUpdate()
     {
+        // hd = HeatmapSaveManager.Load();
+        // hd = HeatmapSaveManager.Load();
         ycoord = GetComponent<Rigidbody>().position.y;
         zcoord = GetComponent<Rigidbody>().position.z;
         rounded_y = Mathf.Round(ycoord * 1000f) / 1000f;

@@ -32,7 +32,7 @@ public class Death_Zone : MonoBehaviour
         Debug.Log("death:", other);
         Death.SetActive(true);
         StartCoroutine(cameraMovement.Movement(1.0f, 0.3f));
-        if (other.gameObject.CompareTag("Player1"))
+        if (other.gameObject.CompareTag("Player1") && !round_end)
         {
             RoundMenu.p1wonlastgamebool = false;
             RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2 + 1;
@@ -41,7 +41,7 @@ public class Death_Zone : MonoBehaviour
             deathmsg.text = player1 + " died\n" + player2 + " won!";
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player1 died, \n player2 won";
         }
-        else if (other.gameObject.CompareTag("Player2"))
+        else if (other.gameObject.CompareTag("Player2") && !round_end)
         {
             RoundMenu.p1wonlastgamebool = true;
             RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
