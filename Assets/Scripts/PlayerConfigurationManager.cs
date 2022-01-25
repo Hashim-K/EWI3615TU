@@ -9,6 +9,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 {
     private List<PlayerConfiguration> playerConfigs;
     private AIConfiguration aiConfig;
+    public static int mPlayer = 2;
     [SerializeField]
     private int MaxPlayers = 2;
 
@@ -18,7 +19,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         if(Instance != null)
         {
-            Debug.Log("[Singleton] Trying to instantiate a seccond instance of a singleton class.");
+            Debug.Log("[Singleton] Trying to instantiate a second instance of a singleton class.");
         }
         else
         {
@@ -26,6 +27,8 @@ public class PlayerConfigurationManager : MonoBehaviour
             DontDestroyOnLoad(Instance);
             playerConfigs = new List<PlayerConfiguration>();
             aiConfig = new AIConfiguration();
+            MaxPlayers = mPlayer;
+            Debug.Log("Player max:" + MaxPlayers);
         }
         
     }
@@ -98,7 +101,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         Debug.Log("Player " + index + " is ready!");
         playerConfigs[index].isReady = true;
-        if (playerConfigs.All(p => p.isReady == true))
+        if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
             // Playername is now set to Player 1 and Player 2
             GameMenu.playernamestr = "Player 1";
