@@ -367,7 +367,7 @@ MonoBehaviour:
   Death: {fileID: 1142856042}
   delayTime: 2
   round_end: 0
-  cameraMovement: {fileID: 0}
+  cameraMovement: {fileID: 1519918375}
 --- !u!1 &170525722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3506239229221395535, guid: c47a777ca1030e045bb3501203199291, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4404378723152457551, guid: c47a777ca1030e045bb3501203199291, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2336,7 +2340,7 @@ MonoBehaviour:
   Death: {fileID: 1142856042}
   delayTime: 2
   round_end: 0
-  cameraMovement: {fileID: 0}
+  cameraMovement: {fileID: 1519918375}
 --- !u!1 &1264647443
 GameObject:
   m_ObjectHideFlags: 0
