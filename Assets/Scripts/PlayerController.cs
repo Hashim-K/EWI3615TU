@@ -20,9 +20,8 @@ public class PlayerController : MonoBehaviour
     private int maxJumps;
     private Rigidbody rb;
     private int playerID;
-    private float dashDur = 0.2f;
-    [SerializeField]
-    private float dashMultiplier = 3f;
+    private float dashDur = 0.15f;
+    private float dashMultiplier = 4f;
     private float dashEnd;
 
     public static string powerup;
@@ -69,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
         if(Time.time < dashEnd)
         {
-            rb.transform.Translate(Vector3.forward * dashMultiplier * maxSpeed);
+            rb.transform.Translate(Vector3.forward * dashMultiplier * maxSpeed * Time.deltaTime);
             airDir = horizontalDir;
         }
         else if (isGrounded)
@@ -156,6 +155,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            if (Time.time > dashEnd)
+            {
+                Debug.Log("Wavedash");
+                dashEnd = Time.time + dashDur;
+            }
             Debug.Log("Wavedash");
             dashDur = Time.time + dashDur;
         }
