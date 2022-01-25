@@ -87,6 +87,8 @@ public class Archetypes
         //assign Archetypes to an index
         list[0] = Brawler(0);
         list[1] = GlassCannon(1);
+        list[2] = Ninja(2);
+        list[3] = Tank(3);
 
     }
 
@@ -116,10 +118,11 @@ public class Archetypes
     //Stats for brawler Archetype
     {
         Archetype Brawler = new Archetype(id);
-        Brawler.punchDamage = 40;
-        Brawler.kickDamage = 30;
+        Brawler.punchDamage = 50;
+        Brawler.kickDamage = 40;
         Brawler.jumpForce = 6f;
         Brawler.maxJumps = 2;
+        Brawler.maxSpeed = 3;
 
         return Brawler;
     }
@@ -133,5 +136,29 @@ public class Archetypes
         GlassCannon.defense = 35;
 
         return GlassCannon;
+    }
+    
+    public Archetype Ninja(int id)
+    //Stats for Ninja Archetype
+    {
+        Archetype Ninja = new Archetype(id);
+        Ninja.maxJumps = 5;
+        Ninja.jumpForce = 9f;
+        Ninja.maxSpeed = 5f;
+        Ninja.defense = 75;
+
+        return Ninja;
+    } 
+    public Archetype Tank(int id)
+    //Stats for Tank Archetype
+    {
+        Archetype Tank = new Archetype(id);
+        Tank.maxJumps = 2;
+        Tank.jumpForce = 5f;
+        Tank.maxSpeed = 2f;
+        Tank.defense = 200;
+        
+
+        return Tank;
     }
 }

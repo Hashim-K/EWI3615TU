@@ -1143,19 +1143,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4047628962823311938, guid: 8eb86783d587ed2498c5964144df353a, type: 3}
       propertyPath: valueList.Array.data[0]
-      value: Fighter
+      value: Brawler
       objectReference: {fileID: 0}
     - target: {fileID: -4047628962823311938, guid: 8eb86783d587ed2498c5964144df353a, type: 3}
       propertyPath: valueList.Array.data[1]
-      value: Archer
+      value: Glasscannon
       objectReference: {fileID: 0}
     - target: {fileID: -4047628962823311938, guid: 8eb86783d587ed2498c5964144df353a, type: 3}
       propertyPath: valueList.Array.data[2]
-      value: Wizard
+      value: Ninja
       objectReference: {fileID: 0}
     - target: {fileID: -4047628962823311938, guid: 8eb86783d587ed2498c5964144df353a, type: 3}
       propertyPath: valueList.Array.data[3]
-      value: Glasscannon
+      value: Tank
       objectReference: {fileID: 0}
     - target: {fileID: 732652641067555535, guid: 8eb86783d587ed2498c5964144df353a, type: 3}
       propertyPath: m_Name

@@ -185,6 +185,7 @@ public class Combat : MonoBehaviour
         blockDuration += 1;
         blockRecovery -= 0.2f;
         blockReduction *= 1.2f;
+        Debug.Log("Applied BlockBoost");
     }
 
     void launchAttack(Collider col, int attackDamage)
