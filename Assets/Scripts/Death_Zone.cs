@@ -50,6 +50,7 @@ public class Death_Zone : MonoBehaviour
             Debug.Log("Player2 died");
             deathmsg.text = player2 + " died\n" + player1 + " won!";
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player2 died, \n player1 won";
+            PlayerConfigurationManager.Instance.addPowerUp(1);
         }
         other.gameObject.SetActive(false);
         //Destroy(other.gameObject);

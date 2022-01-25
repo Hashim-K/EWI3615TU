@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerConfigurationManager : MonoBehaviour
 {
     private List<PlayerConfiguration> playerConfigs;
+    private AIConfiguration aiConfig;
     [SerializeField]
     private int MaxPlayers = 2;
 
@@ -24,6 +25,7 @@ public class PlayerConfigurationManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(Instance);
             playerConfigs = new List<PlayerConfiguration>();
+            aiConfig = new AIConfiguration();
         }
         
     }
@@ -48,6 +50,12 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         return playerConfigs;
     }
+
+    public AIConfiguration GetAIConfig()
+    {
+        return aiConfig;
+    }
+
     public void SetPlayerArchetype(int index, int playerAT)
     {
         playerConfigs[index].playerArchetype = playerAT;
@@ -56,12 +64,27 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public void addPowerUp(int index)
     {
-        int puIndex = playerConfigs[index].PowerUpManager.getRandomPowerUps(1)[0];
-        playerConfigs[index].PowerUpManager.addPowerUp(puIndex);
+        if (index < playerConfigs.Count)
+        { 
+            int puIndex = playerConfigs[index].PowerUpManager.getRandomPowerUps(1)[0];
+            playerConfigs[index].PowerUpManager.addPowerUp(puIndex);
+        }
+        else
+        {
+            int puIndex = aiConfig.PowerUpManager.getRandomPowerUps(1)[0];
+            aiConfig.PowerUpManager.addPowerUp(puIndex);
+        }
     }
     public List<PowerUpState> getPUStates(int index)
     {
-        return playerConfigs[index].PowerUpManager.puStates;
+        if (index < playerConfigs.Count)
+        {
+            return playerConfigs[index].PowerUpManager.puStates;
+        }
+        else
+        {
+            return aiConfig.PowerUpManager.puStates;
+        }
     }
 
     public void SetPlayerColor(int index, Material color)
@@ -112,6 +135,20 @@ public class PlayerConfiguration
     public PlayerInput Input { get; private set; }
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
+    public int playerArchetype { get; set; }
+    public PowerUpManager PowerUpManager { get; set; }
+    public Material playerMaterial { get; set; }
+}
+
+public class AIConfiguration
+{
+    public AIConfiguration()
+    {
+        PlayerIndex = 1;
+        PowerUpManager = new PowerUpManager(0);
+    }
+
+    public int PlayerIndex { get; private set; }
     public int playerArchetype { get; set; }
     public PowerUpManager PowerUpManager { get; set; }
     public Material playerMaterial { get; set; }
