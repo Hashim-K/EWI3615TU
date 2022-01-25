@@ -16,11 +16,14 @@ public class Death_Zone : MonoBehaviour
     public bool round_end;
     public CameraMovement cameraMovement;
 
+    private bool round = true;
+
     void Start()
     {
         Death.SetActive(false);
         deathmsg.text = "";
         round_end = false;
+        round = true;
     }
 
     void Update()
@@ -32,7 +35,7 @@ public class Death_Zone : MonoBehaviour
         Debug.Log("death:", other);
         Death.SetActive(true);
         StartCoroutine(cameraMovement.Movement(1.0f, 0.3f));
-        if (other.gameObject.CompareTag("Player1"))
+        if (other.gameObject.CompareTag("Player1") & round)
         {
             RoundMenu.p1wonlastgamebool = false;
             RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2 + 1;
@@ -40,15 +43,18 @@ public class Death_Zone : MonoBehaviour
             Debug.Log("Player1 died");
             deathmsg.text = player1 + " died\n" + player2 + " won!";
             PlayerConfigurationManager.Instance.addPowerUp(0);
+            round = false;
+
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player1 died, \n player2 won";
         }
-        else if (other.gameObject.CompareTag("Player2"))
+        else if (other.gameObject.CompareTag("Player2") & round)
         {
             RoundMenu.p1wonlastgamebool = true;
             RoundMenu.playerscoreint = RoundMenu.playerscoreint + 1;
             //RoundMenu.playerscoreint2 = RoundMenu.playerscoreint2;
             Debug.Log("Player2 died");
             deathmsg.text = player2 + " died\n" + player1 + " won!";
+            round = false;
             //Death.GetComponent<UnityEngine.UI.Text>().text = "Player2 died, \n player1 won";
             PlayerConfigurationManager.Instance.addPowerUp(1);
         }
